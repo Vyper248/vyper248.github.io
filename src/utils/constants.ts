@@ -1,0 +1,1 @@
+export const FRAME_SPEED = 15;

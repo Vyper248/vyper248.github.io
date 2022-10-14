@@ -9,11 +9,11 @@ const StyledShip = styled.div.attrs(props => ({
 }))`
     position: absolute;
 
-    width: fit-content;
+    width: 30px;
+    height: 40px;
     border: 1px solid white;
     border-radius: 20px 20px 0px 0px;
-    padding: 10px;
-    color: transparent;
+    background-color: black;
 
     transform-origin: center;
 `;

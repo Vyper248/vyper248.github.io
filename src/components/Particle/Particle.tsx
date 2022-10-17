@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, forwardRef } from "react";
 import StyledParticle from "./Particle.style";
 
 import { FRAME_SPEED } from "../../utils/constants";
@@ -11,7 +11,7 @@ type ParticleProps = {
     rotation: number;
 }
 
-const Particle = ({ixPos, iyPos, xVel, yVel, rotation}: ParticleProps) => {
+const Particle = forwardRef(({ ixPos, iyPos, xVel, yVel, rotation }: ParticleProps, ref) => {
     const [xPos, setXPos] = useState(ixPos);
     const [yPos, setYPos] = useState(iyPos);
     const [opacity, setOpacity] = useState(1);
@@ -37,8 +37,8 @@ const Particle = ({ixPos, iyPos, xVel, yVel, rotation}: ParticleProps) => {
     }, []);
 
     return (
-        <StyledParticle xPos={xPos} yPos={yPos} rotation={rotation} opacity={opacity}></StyledParticle>
+        <StyledParticle ref={ref} xPos={xPos} yPos={yPos} rotation={rotation} opacity={opacity}></StyledParticle>
     );
-}
+});
 
 export default Particle;

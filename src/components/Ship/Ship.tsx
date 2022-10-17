@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, createRef, RefObject } from "react";
 
 import StyledShip from "./Ship.style";
 
@@ -13,6 +13,11 @@ const MAX_SPEED = 5;
 
 type KeyPresses = {
     [key: string]: boolean;
+}
+
+type ParticleObj = {
+    particle: JSX.Element;
+    ref: RefObject<HTMLDivElement>;
 }
 
 const direction = (rotation: number, type: 'forward' | 'backward'): [number, number] => {
@@ -46,18 +51,44 @@ const Ship = () => {
     const [yVel, setYVel] = useState(0);
     const [rotation, setRotation] = useState(0);
     const [keyPresses, setKeyPresses] = useState({} as KeyPresses);
-    const [particles, setParticles] = useState([] as JSX.Element[]);
+    const [particleArr, setParticleArr] = useState([] as ParticleObj[]);
 
     const addParticle = () => {
         let key = Math.random()*200000;
         let [x, y] = bottomOfShip(rotation);
         let [xVel, yVel] = thrusterVelocity(rotation);
-        let newArr = [...particles, <Particle key={key} ixPos={xPos+x} iyPos={yPos+y} xVel={xVel*THRUSTER_SPEED} yVel={yVel*THRUSTER_SPEED} rotation={rotation}/>];
-        if (newArr.length > 50) newArr.shift();
-        setParticles(newArr);
+
+        let ref: RefObject<HTMLDivElement> = createRef();
+        let obj = {
+            particle: <Particle ref={ref} key={key} ixPos={xPos+x} iyPos={yPos+y} xVel={xVel*THRUSTER_SPEED} yVel={yVel*THRUSTER_SPEED} rotation={rotation}/>,
+            ref: ref
+        }
+
+        setParticleArr(arr => {
+            return [...arr, obj];
+        });
+    }
+
+    //remove particles that have faded out
+    const cleanParticles = () => {
+        let firstParticle = particleArr[0];
+        if (!firstParticle) return;
+
+        let current = firstParticle.ref.current;
+        if (!current) return;
+
+        let opacity = parseFloat(current.style?.opacity);
+        if (opacity <= 0.2) {
+            setParticleArr(arr => {
+                arr.shift();
+                return arr;
+            });
+        }
     }
 
     const everyFrame = () => {
+        cleanParticles();
+
         setXPos(xPos => {
             if (xPos < -20) return window.innerWidth+20 + xVel;
             if (xPos > window.innerWidth+20) return -20 + xVel;
@@ -81,6 +112,7 @@ const Ship = () => {
             let [xAdjust, yAdjust] = direction(rotation, 'forward');
             addParticle();
 
+            //make sure velocity doesn't exceed max value
             let adjusted = xVel > MAX_SPEED || xVel < -MAX_SPEED || yVel > MAX_SPEED || yVel < -MAX_SPEED;
 
             if (xVel > MAX_SPEED) setXVel(MAX_SPEED);
@@ -88,36 +120,37 @@ const Ship = () => {
             if (yVel > MAX_SPEED) setYVel(MAX_SPEED);
             if (yVel < -MAX_SPEED) setYVel(-MAX_SPEED);
 
+            //if it does, don't increase it.
             if (adjusted) return;
 
             setXVel(xVel => xVel + xAdjust);
             setYVel(yVel => yVel + yAdjust);
         }
 
-        if (keyPresses['ArrowDown']) {
-            let [xAdjust, yAdjust] = direction(rotation, 'backward');
-            setXVel(xVel => xVel + xAdjust);
-            setYVel(yVel => yVel + yAdjust);
-        }
+        // if (keyPresses['ArrowDown']) {
+        //     let [xAdjust, yAdjust] = direction(rotation, 'backward');
+        //     setXVel(xVel => xVel + xAdjust);
+        //     setYVel(yVel => yVel + yAdjust);
+        // }
+    }
+
+    const keyDownListener = (e: KeyboardEvent) => {
+        e.preventDefault();
+        setKeyPresses(keyPresses => {
+            keyPresses[e.code] = true;
+            return keyPresses;
+        });
+    }
+
+    const keyUpListener = (e: KeyboardEvent) => {
+        e.preventDefault();
+        setKeyPresses(keyPresses => {
+            keyPresses[e.code] = false;
+            return keyPresses;
+        });
     }
 
     useEffect(() => {
-        const keyDownListener = (e: KeyboardEvent) => {
-            e.preventDefault();
-            setKeyPresses(keyPresses => {
-                keyPresses[e.code] = true;
-                return keyPresses;
-            });
-        }
-
-        const keyUpListener = (e: KeyboardEvent) => {
-            e.preventDefault();
-            setKeyPresses(keyPresses => {
-                keyPresses[e.code] = false;
-                return keyPresses;
-            });
-        }
-
         window.addEventListener('keydown', keyDownListener);
         window.addEventListener('keyup', keyUpListener);
 
@@ -128,11 +161,13 @@ const Ship = () => {
             window.removeEventListener('keyup', keyUpListener);
             clearInterval(interval);
         }
-    }, [rotation, xVel, yVel]);
+    }, [rotation, xVel, yVel, particleArr, everyFrame]);
 
     return (
         <>
-            { particles }
+            { 
+                particleArr.map((obj: ParticleObj) => obj.particle)
+            }
             <StyledShip xPos={xPos} yPos={yPos} rotation={rotation}/>
         </>
     );

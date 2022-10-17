@@ -2,6 +2,7 @@ import StyledGamified from "./Gamified.style";
 
 import Ship from "../components/Ship/Ship";
 import Stars from "../components/Stars/Stars";
+import Planet from "../components/Planet/Planet";
 
 const Gamified = () => {
 
@@ -13,9 +14,36 @@ const Gamified = () => {
     //     ctx.fill();
     // }
 
+    const planets = [
+        {
+            label: 'Projects',
+            x: 245,
+            y: 543,
+            size: 300,
+            color: '#0000FF',
+            colorLeft: 'green',
+            colorRight: 'green'
+        },
+        {
+            label: 'Skills',
+            x: 845,
+            y: 200,
+            size: 200,
+            color: '#Fa8362',
+            colorLeft: '#E97251',
+            colorRight: '#E97251'
+        }
+    ];
+
     return (
         <StyledGamified>
             <Stars width={window.innerWidth} height={window.innerHeight} qty={100}/>
+            {
+                planets.map((planet) => {
+                    let { label, ...rest } = planet;
+                    return <Planet key={label} label={label} {...rest}/>
+                })
+            }
             <Ship/>
             {/* <Canvas draw={draw}/> */}
         </StyledGamified>

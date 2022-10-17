@@ -1,6 +1,7 @@
-import Ship from "../components/Ship/Ship";
-
 import StyledGamified from "./Gamified.style";
+
+import Ship from "../components/Ship/Ship";
+import Stars from "../components/Stars/Stars";
 
 const Gamified = () => {
 
@@ -14,6 +15,7 @@ const Gamified = () => {
 
     return (
         <StyledGamified>
+            <Stars width={window.innerWidth} height={window.innerHeight} qty={100}/>
             <Ship/>
             {/* <Canvas draw={draw}/> */}
         </StyledGamified>

@@ -3,7 +3,7 @@ import { useEffect, useState, createRef, RefObject } from "react";
 import StyledShip from "./Ship.style";
 
 import { FRAME_SPEED, SPACE_WIDTH, SPACE_HEIGHT } from "../../utils/constants";
-import { Planet } from "../../pages/Gamified";
+import { Planet } from "../../pages/Gamified/Gamified";
 
 import Particle from "../Particle/Particle";
 import Label from "../Label/Label";

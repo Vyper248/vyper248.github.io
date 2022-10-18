@@ -1,4 +1,4 @@
-import Gamified from "./pages/Gamified";
+import Gamified from "./pages/Gamified/Gamified";
 
 function App() {
   return (

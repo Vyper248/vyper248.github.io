@@ -1,10 +1,13 @@
 import StyledGamified from "./Gamified.style";
 
-import Ship from "../components/Ship/Ship";
-import Stars from "../components/Stars/Stars";
-import Planet from "../components/Planet/Planet";
+import Ship from "../../components/Ship/Ship";
+import Stars from "../../components/Stars/Stars";
+import Planet from "../../components/Planet/Planet";
 
-import { SPACE_WIDTH, SPACE_HEIGHT } from "../utils/constants";
+import Platformer from "../Platformer/Platformer";
+
+import { SPACE_WIDTH, SPACE_HEIGHT } from "../../utils/constants";
+import { useState } from "react";
 
 export type Planet = {
     label: string;
@@ -19,14 +22,10 @@ export type Planet = {
 }
 
 const Gamified = () => {
-
-    // const draw = (ctx: CanvasRenderingContext2D, frameCount: number) => {
-    //     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-    //     ctx.fillStyle = '#000000';
-    //     ctx.beginPath();
-    //     ctx.arc(50, 100, 20*Math.sin(frameCount*0.05)**2, 0, 2*Math.PI);
-    //     ctx.fill();
-    // }
+    const [platformStyle, setPlatformStyle] = useState({
+        groundColor: 'green',
+        skyColor: 'skyblue'
+    });
 
     const planets: Planet[] = [
         {
@@ -66,15 +65,15 @@ const Gamified = () => {
 
     return (
         <StyledGamified width={SPACE_WIDTH} height={SPACE_HEIGHT}>
-            <Stars width={SPACE_WIDTH} height={SPACE_HEIGHT} qty={200}/>
+            {/* <Stars width={SPACE_WIDTH} height={SPACE_HEIGHT} qty={200}/>
             {
                 planets.map((planet) => {
                     let { label, ...rest } = planet;
                     return <Planet key={label} label={label} {...rest}/>
                 })
             }
-            <Ship planets={planets}/>
-            {/* <Canvas draw={draw}/> */}
+            <Ship planets={planets}/> */}
+            <Platformer blockStyle={platformStyle} planetName='Projects'/>
         </StyledGamified>
     );
 }

@@ -23,6 +23,17 @@ export type ParticleObj = {
     ref: RefObject<HTMLDivElement>;
 }
 
+export type ShipPos = {
+    x: number;
+    y: number;
+    r: number;
+}
+
+type ShipProps = {
+    planets: Planet[];
+    startingShipPos: ShipPos;
+}
+
 const direction = (rotation: number, type: 'forward' | 'backward'): [number, number] => {
     let rotationAdjust = type === 'forward' ? -90 : 90;
     let rotationRad = (rotation+rotationAdjust) * Math.PI / 180;
@@ -54,7 +65,7 @@ const distanceFromAToB = (a: [number, number], b: [number, number]): number => {
     return distance;
 }
 
-const Ship = ({planets}: {planets: Planet[]}) => {
+const Ship = ({planets, startingShipPos}: ShipProps) => {
     const [xPos, setXPos] = useState(window.innerWidth/2);
     const [yPos, setYPos] = useState(window.innerHeight/2);
     const [xVel, setXVel] = useState(0);
@@ -63,6 +74,13 @@ const Ship = ({planets}: {planets: Planet[]}) => {
     const [keyPresses, setKeyPresses] = useState({} as KeyPresses);
     const [particleArr, setParticleArr] = useState([] as ParticleObj[]);
     const [closeTo, setCloseTo] = useState({} as Planet);
+
+    //if initial ship positions are given, use them
+    useEffect(() => {
+        if (startingShipPos.x !== 0) setXPos(startingShipPos.x);
+        if (startingShipPos.y !== 0) setYPos(startingShipPos.y);
+        if (startingShipPos.r !== 0) setRotation(startingShipPos.r);
+    }, []);
 
     const addParticle = () => {
         let key = Math.random()*200000;
@@ -182,7 +200,7 @@ const Ship = ({planets}: {planets: Planet[]}) => {
 
         if (e.code === 'Enter') {
             if (closeTo.label) {
-                closeTo.onVisit();
+                closeTo.onVisit({x: xPos, y: yPos, r: rotation});
             }
         }
     }

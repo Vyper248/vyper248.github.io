@@ -5,6 +5,7 @@ import Stars from "../../components/Stars/Stars";
 import Planet from "../../components/Planet/Planet";
 
 import Platformer from "../Platformer/Platformer";
+import { ShipPos } from "../../components/Ship/Ship";
 
 import { SPACE_WIDTH, SPACE_HEIGHT } from "../../utils/constants";
 import { useState } from "react";
@@ -17,11 +18,14 @@ export type Planet = {
     color: string;
     colorLeft: string;
     colorRight: string;
-    onVisit: () => void;
+    onVisit: (shipPos: ShipPos) => void;
     visitLabel: string;
 }
 
 const Gamified = () => {
+    const [landed, setLanded] = useState(false);
+    const [shipPosition, setShipPosition] = useState({x: 0, y: 0, r: 0} as ShipPos);
+
     const [platformStyle, setPlatformStyle] = useState({
         groundColor: 'green',
         skyColor: 'skyblue'
@@ -36,7 +40,7 @@ const Gamified = () => {
             color: '#0000FF',
             colorLeft: 'green',
             colorRight: 'green',
-            onVisit: () => console.log('Visiting Projects'),
+            onVisit: (shipPos: ShipPos) => {setLanded(true); setShipPosition(shipPos)},
             visitLabel: 'Press Enter to land'
         },
         {
@@ -47,7 +51,7 @@ const Gamified = () => {
             color: '#C2C2C2',
             colorLeft: '#686868',
             colorRight: '#686868',
-            onVisit: () => console.log('Visiting Skills'),
+            onVisit: (shipPos: ShipPos) => console.log('Visiting Skills'),
             visitLabel: 'Press Enter to land'
         },
         {
@@ -63,17 +67,28 @@ const Gamified = () => {
         }
     ];
 
+    const onLeave = () => {
+        setLanded(false);
+    }
+
     return (
         <StyledGamified width={SPACE_WIDTH} height={SPACE_HEIGHT}>
-            {/* <Stars width={SPACE_WIDTH} height={SPACE_HEIGHT} qty={200}/>
-            {
-                planets.map((planet) => {
-                    let { label, ...rest } = planet;
-                    return <Planet key={label} label={label} {...rest}/>
-                })
+            { 
+                landed 
+                    ? <Platformer blockStyle={platformStyle} planetName='Projects' onLeave={onLeave}/> 
+                    : (
+                        <>
+                            <Stars width={SPACE_WIDTH} height={SPACE_HEIGHT} qty={200}/>
+                            {
+                                planets.map((planet) => {
+                                    let { label, ...rest } = planet;
+                                    return <Planet key={label} label={label} {...rest}/>
+                                })
+                            }
+                            <Ship planets={planets} startingShipPos={shipPosition}/>
+                        </>
+                    )
             }
-            <Ship planets={planets}/> */}
-            <Platformer blockStyle={platformStyle} planetName='Projects'/>
         </StyledGamified>
     );
 }

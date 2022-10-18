@@ -9,6 +9,7 @@ export type BlockStyle = {
 type PlatformerProps = {
     blockStyle: BlockStyle;
     planetName: string;
+    onLeave: () => void;
 }
 
 const projectsLayout = [
@@ -42,7 +43,7 @@ const projectsLayout = [
     },
 ];
 
-const Platformer = ({blockStyle, planetName}: PlatformerProps) => {
+const Platformer = ({blockStyle, planetName, onLeave}: PlatformerProps) => {
     let selectedLayout = projectsLayout;
 
     if (planetName !== 'Projects') {
@@ -52,7 +53,7 @@ const Platformer = ({blockStyle, planetName}: PlatformerProps) => {
     return (
         <div>
             <Terrain layout={selectedLayout} blockStyle={blockStyle}/>
-            <Person blocks={selectedLayout}/>
+            <Person blocks={selectedLayout} onLeave={onLeave}/>
         </div>
     );
 }

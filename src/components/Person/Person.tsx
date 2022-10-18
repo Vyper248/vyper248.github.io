@@ -19,9 +19,10 @@ type KeyPresses = {
 
 type PersonProps = {
     blocks: TerrainBlock[];
+    onLeave: () => void;
 }
 
-const Person = ({blocks}: PersonProps) => {
+const Person = ({blocks, onLeave}: PersonProps) => {
     const [teleporting, setTeleporting] = useState(true);
     const [leaving, setLeaving] = useState(false);
     const [xPos, setXPos] = useState(100);
@@ -190,6 +191,7 @@ const Person = ({blocks}: PersonProps) => {
 
                 if (leaving) {
                     console.log('leaving');
+                    onLeave();
                 }
             }, 1000);
 

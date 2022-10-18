@@ -2,13 +2,12 @@ import styled from 'styled-components';
 
 const StyledShip = styled.div.attrs(props => ({
     style: {
-        left: `${props.xPos}px`,
-        top: `${props.yPos}px`,
-        transform: `rotate(${props.rotation}deg)`
+        transform: `translate(${props.xPos}px, ${props.yPos}px) rotate(${props.rotation}deg)`
     }
 }))`
     position: absolute;
-
+    left: 0px;
+    top: 0px;
     width: 30px;
     height: 40px;
     border: 1px solid white;

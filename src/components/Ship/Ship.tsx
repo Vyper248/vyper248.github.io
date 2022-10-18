@@ -155,6 +155,20 @@ const Ship = ({planets}: {planets: Planet[]}) => {
             setXVel(xVel => xVel + xAdjust);
             setYVel(yVel => yVel + yAdjust);
         }
+
+        if (keyPresses['ArrowDown']) {
+            setXVel(xVel => {
+                if (xVel > -0.5 && xVel < 0.5) return 0;
+                if (xVel > 0) return xVel-(xVel*0.1);
+                else return xVel-(xVel*0.1);
+            });
+
+            setYVel(yVel => {
+                if (yVel > -0.5 && yVel < 0.5) return 0;
+                if (yVel > 0) return yVel-(yVel*0.1);
+                else return yVel-(yVel*0.1);
+            });
+        }
     }
 
     const keyDownListener = (e: KeyboardEvent) => {

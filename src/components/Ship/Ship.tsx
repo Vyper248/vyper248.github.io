@@ -32,10 +32,10 @@ const direction = (rotation: number, type: 'forward' | 'backward'): [number, num
 }
 
 const bottomOfShip = (rotation: number): [number, number] => {
-    let positionAjust = (Math.random() * 8) - 4;
+    let positionAdjust = (Math.random() * 8) - 4;
     let rotationRad = (rotation+90) * Math.PI / 180;
-    let yAdjust = 20 * Math.sin(rotationRad) + 20;
-    let xAdjust = 20 * Math.cos(rotationRad) + 15 + positionAjust;
+    let yAdjust = 30 * Math.sin(rotationRad) + 19 + positionAdjust;
+    let xAdjust = 30 * Math.cos(rotationRad) + 14 + positionAdjust;
     return [xAdjust, yAdjust];
 }
 

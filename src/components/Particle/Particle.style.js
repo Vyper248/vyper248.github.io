@@ -12,7 +12,7 @@ const StyledParticle = styled.div.attrs(props => ({
 
     width: 3px;
     height: 3px;
-    background-color: red;
+    background-color: orange;
     border-radius: 50%;
 
     transform-origin: center;

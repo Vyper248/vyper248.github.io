@@ -60,7 +60,7 @@ const Gamified = () => {
             colorLeft: '#E97251',
             colorRight: '#E97251',
             onVisit: () => window.open('https://github.com/vyper248', '_blank'),
-            visitLabel: 'Press Enter to redirect'
+            visitLabel: 'Press Enter to visit'
         }
     ];
 

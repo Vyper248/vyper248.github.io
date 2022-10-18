@@ -12,6 +12,7 @@ const ROTATION_SPEED = 10*FRAME_SPEED/30;
 const MOVE_SPEED = 0.2*FRAME_SPEED/30;
 const THRUSTER_SPEED = 30;
 const MAX_SPEED = 5;
+const ALLOWABLE_KEYS = ['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'Enter'];
 
 type KeyPresses = {
     [key: string]: boolean;
@@ -172,7 +173,8 @@ const Ship = ({planets}: {planets: Planet[]}) => {
     }
 
     const keyDownListener = (e: KeyboardEvent) => {
-        e.preventDefault();
+        if (ALLOWABLE_KEYS.includes(e.code)) e.preventDefault();
+
         setKeyPresses(keyPresses => {
             keyPresses[e.code] = true;
             return keyPresses;
@@ -186,7 +188,8 @@ const Ship = ({planets}: {planets: Planet[]}) => {
     }
 
     const keyUpListener = (e: KeyboardEvent) => {
-        e.preventDefault();
+        if (ALLOWABLE_KEYS.includes(e.code)) e.preventDefault();
+        
         setKeyPresses(keyPresses => {
             keyPresses[e.code] = false;
             return keyPresses;

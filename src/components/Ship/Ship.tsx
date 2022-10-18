@@ -18,7 +18,7 @@ type KeyPresses = {
     [key: string]: boolean;
 }
 
-type ParticleObj = {
+export type ParticleObj = {
     particle: JSX.Element;
     ref: RefObject<HTMLDivElement>;
 }

@@ -9,9 +9,10 @@ type ParticleProps = {
     xVel: number;
     yVel: number;
     rotation: number;
+    color?: string;
 }
 
-const Particle = forwardRef(({ ixPos, iyPos, xVel, yVel, rotation }: ParticleProps, ref) => {
+const Particle = forwardRef(({ ixPos, iyPos, xVel, yVel, rotation, color }: ParticleProps, ref) => {
     const [xPos, setXPos] = useState(ixPos);
     const [yPos, setYPos] = useState(iyPos);
     const [opacity, setOpacity] = useState(1);
@@ -37,7 +38,7 @@ const Particle = forwardRef(({ ixPos, iyPos, xVel, yVel, rotation }: ParticlePro
     }, []);
 
     return (
-        <StyledParticle ref={ref} xPos={xPos} yPos={yPos} rotation={rotation} opacity={opacity}></StyledParticle>
+        <StyledParticle ref={ref} xPos={xPos} yPos={yPos} rotation={rotation} opacity={opacity} color={color}></StyledParticle>
     );
 });
 

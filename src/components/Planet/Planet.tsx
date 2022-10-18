@@ -1,16 +1,8 @@
 import StyledPlanet from './Planet.style';
 
-type PlanetProps = {
-    x: number;
-    y: number;
-    size: number;
-    color: string;
-    colorLeft: string;
-    colorRight: string;
-    label: string;
-}
+import { Planet as PlanetProps } from '../../pages/Gamified';
 
-const Planet = ({label, ...rest}: PlanetProps) => {
+const Planet = ({label, onVisit, ...rest}: PlanetProps) => {
     return (
         <StyledPlanet {...rest}>
             <div>

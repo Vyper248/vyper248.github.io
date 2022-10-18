@@ -3,8 +3,10 @@ import { useEffect, useState, createRef, RefObject } from "react";
 import StyledShip from "./Ship.style";
 
 import { FRAME_SPEED, SPACE_WIDTH, SPACE_HEIGHT } from "../../utils/constants";
+import { Planet } from "../../pages/Gamified";
 
 import Particle from "../Particle/Particle";
+import Label from "../Label/Label";
 
 const ROTATION_SPEED = 10*FRAME_SPEED/30;
 const MOVE_SPEED = 0.2*FRAME_SPEED/30;
@@ -44,7 +46,14 @@ const thrusterVelocity = (rotation: number): [number, number] => {
     return [xAdjust, yAdjust];
 }
 
-const Ship = () => {
+const distanceFromAToB = (a: [number, number], b: [number, number]): number => {
+    let xDiff = b[0] - a[0];
+    let yDiff = b[1] - a[1];
+    let distance = Math.sqrt(Math.pow(xDiff, 2) + Math.pow(yDiff, 2));
+    return distance;
+}
+
+const Ship = ({planets}: {planets: Planet[]}) => {
     const [xPos, setXPos] = useState(window.innerWidth/2);
     const [yPos, setYPos] = useState(window.innerHeight/2);
     const [xVel, setXVel] = useState(0);
@@ -52,6 +61,7 @@ const Ship = () => {
     const [rotation, setRotation] = useState(0);
     const [keyPresses, setKeyPresses] = useState({} as KeyPresses);
     const [particleArr, setParticleArr] = useState([] as ParticleObj[]);
+    const [closeTo, setCloseTo] = useState({} as Planet);
 
     const addParticle = () => {
         let key = Math.random()*200000;
@@ -86,10 +96,23 @@ const Ship = () => {
         }
     }
 
+    const checkDistanceToPlanets = () => {
+        for (let i = 0; i < planets.length; i++) {
+            let { x, y, size } = planets[i];
+            let distance = distanceFromAToB([xPos, yPos], [x+size/2, y+size/2]);
+            if (distance < size/2) {
+                setCloseTo(planets[i]);
+                return;
+            }
+        }
+        setCloseTo({} as Planet);
+    }
+
     // console.log(window.innerHeight/window.devicePixelRatio, window.innerWidth/window.devicePixelRatio);
 
     const everyFrame = () => {
         cleanParticles();
+        checkDistanceToPlanets();
         let windowHeight = window.innerHeight;
         let windowWidth = window.innerWidth;
         // window.scrollTo(xPos-document.body.clientWidth/2, yPos-document.body.clientHeight/2);
@@ -119,7 +142,7 @@ const Ship = () => {
             addParticle();
 
             //make sure velocity doesn't exceed max value
-            let adjusted = xVel > MAX_SPEED || xVel < -MAX_SPEED || yVel > MAX_SPEED || yVel < -MAX_SPEED;
+            let adjusted = xVel+xAdjust > MAX_SPEED || xVel+xAdjust < -MAX_SPEED || yVel+yAdjust > MAX_SPEED || yVel+yAdjust < -MAX_SPEED;
 
             if (xVel > MAX_SPEED) setXVel(MAX_SPEED);
             if (xVel < -MAX_SPEED) setXVel(-MAX_SPEED);
@@ -132,12 +155,6 @@ const Ship = () => {
             setXVel(xVel => xVel + xAdjust);
             setYVel(yVel => yVel + yAdjust);
         }
-
-        // if (keyPresses['ArrowDown']) {
-        //     let [xAdjust, yAdjust] = direction(rotation, 'backward');
-        //     setXVel(xVel => xVel + xAdjust);
-        //     setYVel(yVel => yVel + yAdjust);
-        // }
     }
 
     const keyDownListener = (e: KeyboardEvent) => {
@@ -146,6 +163,12 @@ const Ship = () => {
             keyPresses[e.code] = true;
             return keyPresses;
         });
+
+        if (e.code === 'Enter') {
+            if (closeTo.label) {
+                closeTo.onVisit();
+            }
+        }
     }
 
     const keyUpListener = (e: KeyboardEvent) => {
@@ -175,6 +198,11 @@ const Ship = () => {
                 particleArr.map((obj: ParticleObj) => obj.particle)
             }
             <StyledShip xPos={xPos} yPos={yPos} rotation={rotation}/>
+            {
+                closeTo.label 
+                    ? <Label x={closeTo.x + closeTo.size/2} y={closeTo.y + closeTo.size/2} label={closeTo.visitLabel}/>
+                    : null
+            }
         </>
     );
 }

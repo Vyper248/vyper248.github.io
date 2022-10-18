@@ -6,6 +6,18 @@ import Planet from "../components/Planet/Planet";
 
 import { SPACE_WIDTH, SPACE_HEIGHT } from "../utils/constants";
 
+export type Planet = {
+    label: string;
+    x: number;
+    y: number;
+    size: number;
+    color: string;
+    colorLeft: string;
+    colorRight: string;
+    onVisit: () => void;
+    visitLabel: string;
+}
+
 const Gamified = () => {
 
     // const draw = (ctx: CanvasRenderingContext2D, frameCount: number) => {
@@ -16,7 +28,7 @@ const Gamified = () => {
     //     ctx.fill();
     // }
 
-    const planets = [
+    const planets: Planet[] = [
         {
             label: 'Projects',
             x: 245,
@@ -24,7 +36,9 @@ const Gamified = () => {
             size: 300,
             color: '#0000FF',
             colorLeft: 'green',
-            colorRight: 'green'
+            colorRight: 'green',
+            onVisit: () => console.log('Visiting Projects'),
+            visitLabel: 'Press Enter to land'
         },
         {
             label: 'Skills',
@@ -33,7 +47,9 @@ const Gamified = () => {
             size: 200,
             color: '#C2C2C2',
             colorLeft: '#686868',
-            colorRight: '#686868'
+            colorRight: '#686868',
+            onVisit: () => console.log('Visiting Skills'),
+            visitLabel: 'Press Enter to land'
         },
         {
             label: 'GitHub',
@@ -42,7 +58,9 @@ const Gamified = () => {
             size: 250,
             color: '#Fa8362',
             colorLeft: '#E97251',
-            colorRight: '#E97251'
+            colorRight: '#E97251',
+            onVisit: () => window.location.href = 'https://github.com/vyper248',
+            visitLabel: 'Press Enter to redirect'
         }
     ];
 
@@ -55,7 +73,7 @@ const Gamified = () => {
                     return <Planet key={label} label={label} {...rest}/>
                 })
             }
-            <Ship/>
+            <Ship planets={planets}/>
             {/* <Canvas draw={draw}/> */}
         </StyledGamified>
     );

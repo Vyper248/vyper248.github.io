@@ -2,7 +2,7 @@ import { useEffect, useState, createRef, RefObject } from "react";
 
 import StyledShip from "./Ship.style";
 
-import { FRAME_SPEED } from "../../utils/constants";
+import { FRAME_SPEED, SPACE_WIDTH, SPACE_HEIGHT } from "../../utils/constants";
 
 import Particle from "../Particle/Particle";
 
@@ -86,17 +86,23 @@ const Ship = () => {
         }
     }
 
+    // console.log(window.innerHeight/window.devicePixelRatio, window.innerWidth/window.devicePixelRatio);
+
     const everyFrame = () => {
         cleanParticles();
+        let windowHeight = window.innerHeight;
+        let windowWidth = window.innerWidth;
+        // window.scrollTo(xPos-document.body.clientWidth/2, yPos-document.body.clientHeight/2);
+        window.scrollTo(xPos-windowWidth/2, yPos-windowHeight/2);
 
         setXPos(xPos => {
-            if (xPos < -20) return window.innerWidth+20 + xVel;
-            if (xPos > window.innerWidth+20) return -20 + xVel;
+            if (xPos < -20) return SPACE_WIDTH+20 + xVel;
+            if (xPos > SPACE_WIDTH+20) return -20 + xVel;
             return xPos + xVel;
         });
         setYPos(yPos => {
-            if (yPos < -20) return window.innerHeight+20 + yVel;
-            if (yPos > window.innerHeight+20) return -20 + yVel;
+            if (yPos < -20) return SPACE_HEIGHT+20 + yVel;
+            if (yPos > SPACE_HEIGHT+20) return -20 + yVel;
             return yPos + yVel;
         });
 

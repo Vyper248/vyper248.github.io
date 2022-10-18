@@ -1,8 +1,11 @@
 import styled from 'styled-components';
 
 const StyledGamified = styled.div`
-    width: 100vw;
-    height: 100vh;
+    position: relative;
+    min-width: 100vw;
+    width: ${props => props.width}px;
+    min-height: 100vh;
+    height: ${props => props.height}px;
     overflow: hidden;
     background-color: black;
 `

@@ -7,7 +7,7 @@ import { GROUND_WIDTH, GROUND_HEIGHT } from '../../utils/constants';
 export const StyledBlock = styled.div`
     position: absolute;
     left: ${props => props.x}px;
-    top: ${props => props.y}px;
+    bottom: ${props => props.y}px;
     width: ${props => props.width}px;
     height: ${props => props.height}px;
     background-color: ${props => props.groundColorFront};

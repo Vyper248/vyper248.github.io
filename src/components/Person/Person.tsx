@@ -10,7 +10,7 @@ import Particle from '../Particle/Particle';
 
 const ALLOWABLE_KEYS = ['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'Enter', 'Escape'];
 const GRAVITY = 1;
-const MAX_FALL_SPEED = 10;
+const MAX_FALL_SPEED = -10;
 const JETPACK_FORCE = 2;
 
 type KeyPresses = {
@@ -26,7 +26,7 @@ const Person = ({blocks, onLeave}: PersonProps) => {
     const [teleporting, setTeleporting] = useState(true);
     const [leaving, setLeaving] = useState(false);
     const [xPos, setXPos] = useState(100);
-    const [yPos, setYPos] = useState(840);
+    const [yPos, setYPos] = useState(160);
     const [xVel, setXVel] = useState(0);
     const [yVel, setYVel] = useState(0);
     const [particleArr, setParticleArr] = useState([] as ParticleObj[]);
@@ -34,21 +34,21 @@ const Person = ({blocks, onLeave}: PersonProps) => {
     
     const everyFrame = useCallback(() => {
         const above = (x: number, y: number, width: number) => {
-            if (xPos > x && xPos < x+width && yPos < y) return true;
+            if (xPos > x && xPos < x+width && yPos > y) return true;
             return false;
         }
 
         const checkCollisions = () => {
             for (let i = 0; i < blocks.length; i++) {
                 let block = blocks[i];
-                let adjustedY = block.y-50;
+                let adjustedY = block.y+block.height+50;
                 let adjustedX = block.x-30;
 
                 let isAbove = above(adjustedX, adjustedY, block.width);
                 if (!isAbove) continue;
 
-                if (yPos+20 > adjustedY && yPos < adjustedY && yVel > 0) {
-                    setYPos(adjustedY-10);
+                if (yPos-20 < adjustedY && yPos > adjustedY && yVel < 0) {
+                    setYPos(adjustedY+10);
                     setYVel(0);
                 }
             }
@@ -59,8 +59,9 @@ const Person = ({blocks, onLeave}: PersonProps) => {
     
             let ref: RefObject<HTMLDivElement> = createRef();
             let randomX = Math.random()*45;
+            let adjustedY = window.innerHeight - yPos + 70;
             let obj = {
-                particle: <Particle ref={ref} key={key} ixPos={xPos+randomX} iyPos={yPos+0} xVel={0} yVel={1} rotation={0} color='blue'/>,
+                particle: <Particle ref={ref} key={key} ixPos={xPos+randomX} iyPos={adjustedY+0} xVel={0} yVel={1} rotation={0} color='blue'/>,
                 ref: ref
             }
     
@@ -101,14 +102,14 @@ const Person = ({blocks, onLeave}: PersonProps) => {
     
             if (keyPresses['Space'] || keyPresses['ArrowUp']) {
                 setYVel(yVel => {
-                    if (yVel <= -10) return -10;
-                    return yVel - JETPACK_FORCE;
+                    if (yVel >= 10) return 10;
+                    return yVel + JETPACK_FORCE;
                 });
             }
     
             if (keyPresses['ArrowDown']) {
-                if (yVel === 0 && yPos < 840) {
-                    setYPos(yPos => yPos+10);
+                if (yVel === 0 && yPos > 160) {
+                    setYPos(yPos => yPos-10);
                 }
             }
         }
@@ -118,15 +119,16 @@ const Person = ({blocks, onLeave}: PersonProps) => {
 
         let windowHeight = window.innerHeight;
         let windowWidth = window.innerWidth;
-        window.scrollTo(xPos-windowWidth/2, yPos-windowHeight/2 - 200);
+        window.scrollTo(xPos-windowWidth/2, (windowHeight/2)-yPos);
 
         if (teleporting) return;
 
         manageKeyPresses();
 
+        //adjust for gravity
         setYVel(yVel => {
-            if (yVel > MAX_FALL_SPEED) return MAX_FALL_SPEED;
-            return yVel + GRAVITY;
+            if (yVel < MAX_FALL_SPEED) return MAX_FALL_SPEED;
+            return yVel - GRAVITY;
         });
 
         setXPos(xPos => {
@@ -190,7 +192,6 @@ const Person = ({blocks, onLeave}: PersonProps) => {
                 setTeleporting(false);
 
                 if (leaving) {
-                    console.log('leaving');
                     onLeave();
                 }
             }, 1000);

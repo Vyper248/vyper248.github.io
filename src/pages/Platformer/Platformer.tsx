@@ -21,7 +21,6 @@ type PlatformerProps = {
 const Platformer = ({blockStyle, planetName, onLeave}: PlatformerProps) => {
     let selectedLayout = projectsLayout;
 
-    console.log(planetName);
     if (planetName === 'Skills') {
         //change to different layout
         selectedLayout = skillsLayout;

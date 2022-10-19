@@ -22,9 +22,9 @@ export const projectsLayout = [
     },
     { //Bottom
         x: 0,
-        y: 900,
+        y: 0,
         width: 1600,
-        height: 600,
+        height: 100,
         collideSides: false
     },
 ];
@@ -67,9 +67,9 @@ export const skillsLayout = [
     },
     { //Bottom
         x: 0,
-        y: 900,
+        y: 0,
         width: 1600,
-        height: 600,
+        height: 100,
         collideSides: false
     },
 ];

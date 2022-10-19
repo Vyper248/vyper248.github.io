@@ -3,8 +3,9 @@ import styled from 'styled-components';
 const StyledPerson = styled.div.attrs(props => {
     return {
         style: {
-            left: props.x+'px',
-            top: props.y+'px'
+            // left: props.x+'px',
+            // bottom: props.y+'px',
+            transform: `translate(${props.x}px, -${props.y}px)`,
         }
     }
 })`

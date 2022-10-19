@@ -1,13 +1,19 @@
 import styled from 'styled-components';
 
-const StyledParticle = styled.div.attrs(props => ({
-    style: {
-        left: `${props.xPos}px`,
-        top: `${props.yPos}px`,
-        transform: `rotate(${props.rotation}deg)`,
-        opacity: `${props.opacity}`
+const StyledParticle = styled.div.attrs(props => {
+    let styleObj = {
+        style: {
+            left: `${props.xPos}px`,
+            transform: `rotate(${props.rotation}deg)`,
+            opacity: `${props.opacity}`
+        }
     }
-}))`
+
+    if (props.fromBottom) styleObj.style.bottom = `${props.yPos}px`;
+    else styleObj.style.top = `${props.yPos}px`;
+
+    return styleObj;
+})`
     position: absolute;
     z-index: 3;
     width: 3px;

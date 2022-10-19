@@ -1,11 +1,11 @@
-import { createRef, RefObject, useEffect, useState, useCallback } from 'react';
+import React, { createRef, RefObject, useEffect, useState, useCallback } from 'react';
 
 import { FRAME_SPEED, GROUND_WIDTH, GROUND_HEIGHT  } from "../../utils/constants";
 import { ItemProps as Item } from '../Item/Item';
 import { TerrainBlock } from '../Terrain/Terrain';
 import { ParticleObj } from '../Ship/Ship';
 
-import StyledPerson from './Person.style';
+import StyledPerson, { StyledHead, StyledBody, StyledBackpack, StyledLeftLeg, StyledRightLeg } from './Person.style';
 import Particle from '../Particle/Particle';
 import Label from '../Label/Label';
 
@@ -24,6 +24,22 @@ type PersonProps = {
     onLeave: () => void;
 }
 
+const cleanParticleArr = (arr: ParticleObj[], setter: React.Dispatch<React.SetStateAction<ParticleObj[]>>) => {
+    let firstParticle = arr[0];
+    if (!firstParticle) return;
+
+    let current = firstParticle.ref.current;
+    if (!current) return;
+
+    let opacity = parseFloat(current.style?.opacity);
+    if (opacity <= 0.2) {
+        setter(arr => {
+            arr.shift();
+            return arr;
+        });
+    }
+}
+
 const Person = ({blocks, items, onLeave}: PersonProps) => {
     const [teleporting, setTeleporting] = useState(true);
     const [leaving, setLeaving] = useState(false);
@@ -31,7 +47,9 @@ const Person = ({blocks, items, onLeave}: PersonProps) => {
     const [yPos, setYPos] = useState(160);
     const [xVel, setXVel] = useState(0);
     const [yVel, setYVel] = useState(0);
+    const [direction, setDirection] = useState(1);
     const [particleArr, setParticleArr] = useState([] as ParticleObj[]);
+    const [jetpackParticleArr, setJetpackParticleArr] = useState([] as ParticleObj[]);
     const [keyPresses, setKeyPresses] = useState({} as KeyPresses);
     const [closeTo, setCloseTo] = useState({} as Item);
     
@@ -76,13 +94,14 @@ const Person = ({blocks, items, onLeave}: PersonProps) => {
             setCloseTo({} as Item);
         }
     
-        const addParticle = () => {
+        const addTeleportParticle = () => {
             let key = Math.random()*200000;
     
             let ref: RefObject<HTMLDivElement> = createRef();
-            let randomX = Math.random()*45;
+            let randomX = Math.random()*30;
+            let randomY = Math.random()*80;
             let obj = {
-                particle: <Particle ref={ref} key={key} ixPos={randomX} iyPos={0} xVel={0} yVel={1} rotation={0} color='blue'/>,
+                particle: <Particle ref={ref} key={key} ixPos={randomX} iyPos={-50 + randomY} xVel={0} yVel={1} rotation={0} color='blue'/>,
                 ref: ref
             }
     
@@ -90,31 +109,38 @@ const Person = ({blocks, items, onLeave}: PersonProps) => {
                 return [...arr, obj];
             });
         }
+
+        const addJetpackParticle = () => {
+            let key = Math.random()*200000;
+    
+            let ref: RefObject<HTMLDivElement> = createRef();
+            let randomX = Math.random()*10;
+            let xAdjust = direction < 0 ? 48 : 0;
+            let obj = {
+                particle: <Particle ref={ref} key={key} fromBottom={true} ixPos={xPos+randomX-5+xAdjust} iyPos={yPos-20} xVel={0} yVel={-1} rotation={0} color='red'/>,
+                ref: ref
+            }
+    
+            setJetpackParticleArr(arr => {
+                return [...arr, obj];
+            });
+        }
     
         //remove particles that have faded out
         const cleanParticles = () => {
-            let firstParticle = particleArr[0];
-            if (!firstParticle) return;
-    
-            let current = firstParticle.ref.current;
-            if (!current) return;
-    
-            let opacity = parseFloat(current.style?.opacity);
-            if (opacity <= 0.2) {
-                setParticleArr(arr => {
-                    arr.shift();
-                    return arr;
-                });
-            }
+            cleanParticleArr(particleArr, setParticleArr);
+            cleanParticleArr(jetpackParticleArr, setJetpackParticleArr);
         }
 
         const manageKeyPresses = () => {
             if (keyPresses['ArrowRight']) {
                 setXVel(5);
+                setDirection(1);
             }
     
             if (keyPresses['ArrowLeft']) {
                 setXVel(-5);
+                setDirection(-1);
             }
     
             if (!keyPresses['ArrowRight'] && !keyPresses['ArrowLeft']) {
@@ -122,6 +148,7 @@ const Person = ({blocks, items, onLeave}: PersonProps) => {
             }
     
             if (keyPresses['Space'] || keyPresses['ArrowUp']) {
+                addJetpackParticle();
                 setYVel(yVel => {
                     if (yVel >= 10) return 10;
                     return yVel + JETPACK_FORCE;
@@ -135,7 +162,7 @@ const Person = ({blocks, items, onLeave}: PersonProps) => {
             }
         }
 
-        if (teleporting) addParticle();
+        if (teleporting) addTeleportParticle();
         cleanParticles();
 
         let windowHeight = window.innerHeight;
@@ -230,11 +257,19 @@ const Person = ({blocks, items, onLeave}: PersonProps) => {
 
     return (
         <>
-            <StyledPerson x={xPos} y={yPos} leaving={leaving}>
+            <StyledPerson x={xPos} y={yPos} leaving={leaving} flipped={direction < 0}>
+                <StyledHead/>
+                <StyledBody/>
+                <StyledBackpack/>
+                <StyledLeftLeg moving={xVel !== 0}/>
+                <StyledRightLeg moving={xVel !== 0}/>
             { 
                 particleArr.map((obj: ParticleObj) => obj.particle)
             }
             </StyledPerson>
+            {
+                jetpackParticleArr.map((obj: ParticleObj) => obj.particle)
+            }
             {
                 closeTo.name 
                     ? <Label fromBottom={true} x={closeTo.x + closeTo.width/2} y={closeTo.y-15} label={closeTo.name}/>

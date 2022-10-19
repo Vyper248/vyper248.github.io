@@ -1,0 +1,32 @@
+export const projects = [
+    {
+        name: 'Time Tracker',
+        url: 'https://vyper248.github.io/time-tracker/',
+        description: 'Basic app for tracking time. Designed to help track time worked during the week, which I thought could be helpful when on flexible working hours.',
+        x: 100,
+        y: 720,
+        offset: 20,
+        width: 100,
+        svg: 'building1.svg',        
+    },
+    {
+        name: 'Food Planner',
+        url: 'https://vyper248.github.io/food-planner/',
+        description: 'I love to be organised, so I created an app to help plan out meals and show me what food I need to order.',
+        x: 400,
+        y: 720,
+        offset: 0,
+        width: 200,
+        svg: 'building2.svg',        
+    },
+    {
+        name: 'Reddit React App',
+        url: 'https://vyper248.github.io/new-reddit/#/PS4',
+        description: 'Second React app I created, this time using React-Router for navigation. It\'s another version of Reddit, this time more in-line with the Reddit website, with more sorting options. Currently using pre-configured sub list. Also decided to create this with a dark theme.',
+        x: 150,
+        y: 318,
+        offset: 30,
+        width: 200,
+        svg: 'building3.svg',        
+    },
+];

@@ -1,12 +1,13 @@
 import { createRef, RefObject, useEffect, useState, useCallback } from 'react';
 
 import { FRAME_SPEED, GROUND_WIDTH, GROUND_HEIGHT  } from "../../utils/constants";
+import { ItemProps as Item } from '../Item/Item';
 import { TerrainBlock } from '../Terrain/Terrain';
 import { ParticleObj } from '../Ship/Ship';
 
 import StyledPerson from './Person.style';
-
 import Particle from '../Particle/Particle';
+import Label from '../Label/Label';
 
 const ALLOWABLE_KEYS = ['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'Enter', 'Escape'];
 const GRAVITY = 1;
@@ -19,10 +20,11 @@ type KeyPresses = {
 
 type PersonProps = {
     blocks: TerrainBlock[];
+    items: Item[];
     onLeave: () => void;
 }
 
-const Person = ({blocks, onLeave}: PersonProps) => {
+const Person = ({blocks, items, onLeave}: PersonProps) => {
     const [teleporting, setTeleporting] = useState(true);
     const [leaving, setLeaving] = useState(false);
     const [xPos, setXPos] = useState(100);
@@ -31,6 +33,7 @@ const Person = ({blocks, onLeave}: PersonProps) => {
     const [yVel, setYVel] = useState(0);
     const [particleArr, setParticleArr] = useState([] as ParticleObj[]);
     const [keyPresses, setKeyPresses] = useState({} as KeyPresses);
+    const [closeTo, setCloseTo] = useState({} as Item);
     
     const everyFrame = useCallback(() => {
         const above = (x: number, y: number, width: number) => {
@@ -53,13 +56,32 @@ const Person = ({blocks, onLeave}: PersonProps) => {
                 }
             }
         }
+
+        const checkItemCollisions = () => {
+            for (let i = 0; i < items.length; i++) {
+                let item = items[i];
+                let adjustedY = item.y;
+                let adjustedX = item.x;
+
+                let isAbove = above(adjustedX, adjustedY, item.width);
+                if (!isAbove) continue;
+
+                if (yPos < adjustedY+item.width && yPos > adjustedY+50) {
+                    if (xVel > 0 || xVel < 0 || yVel > 0 || yVel < -1) {
+                        if (closeTo !== item) setCloseTo(item);
+                    }
+                    return;
+                }
+            }
+            setCloseTo({} as Item);
+        }
     
         const addParticle = () => {
             let key = Math.random()*200000;
     
             let ref: RefObject<HTMLDivElement> = createRef();
             let randomX = Math.random()*45;
-            let adjustedY = window.innerHeight - yPos + 70;
+            let adjustedY = window.innerHeight - yPos + 130;
             let obj = {
                 particle: <Particle ref={ref} key={key} ixPos={xPos+randomX} iyPos={adjustedY+0} xVel={0} yVel={1} rotation={0} color='blue'/>,
                 ref: ref
@@ -144,6 +166,7 @@ const Person = ({blocks, onLeave}: PersonProps) => {
         });
 
         checkCollisions();
+        checkItemCollisions();
     }, [teleporting, keyPresses, xPos, xVel, yPos, yVel, blocks, particleArr]);
 
     const keyDownListener = (e: KeyboardEvent) => {
@@ -170,6 +193,10 @@ const Person = ({blocks, onLeave}: PersonProps) => {
         if (e.code === 'Escape') {
             setTeleporting(true);
             setLeaving(true);
+        }
+
+        if (e.code === 'Enter') {
+            if (closeTo.url) window.open(closeTo.url, '_blank');
         }
     }
 
@@ -207,6 +234,11 @@ const Person = ({blocks, onLeave}: PersonProps) => {
             <StyledPerson x={xPos} y={yPos} leaving={leaving}></StyledPerson>
             { 
                 particleArr.map((obj: ParticleObj) => obj.particle)
+            }
+            {
+                closeTo.name 
+                    ? <Label x={closeTo.x + closeTo.width/2} y={window.innerHeight-closeTo.y+95} label={closeTo.name}/>
+                    : null
             }
         </>
     );

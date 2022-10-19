@@ -140,7 +140,7 @@ const Person = ({blocks, items, onLeave}: PersonProps) => {
 
         let windowHeight = window.innerHeight;
         let windowWidth = window.innerWidth;
-        window.scrollTo(xPos-windowWidth/2, (windowHeight/2)-yPos);
+        window.scrollTo(xPos-windowWidth/2, (GROUND_HEIGHT/2)-yPos+50);
 
         if (teleporting) return;
 
@@ -237,7 +237,7 @@ const Person = ({blocks, items, onLeave}: PersonProps) => {
             </StyledPerson>
             {
                 closeTo.name 
-                    ? <Label x={closeTo.x + closeTo.width/2} y={window.innerHeight-closeTo.y+95} label={closeTo.name}/>
+                    ? <Label fromBottom={true} x={closeTo.x + closeTo.width/2} y={closeTo.y-15} label={closeTo.name}/>
                     : null
             }
         </>

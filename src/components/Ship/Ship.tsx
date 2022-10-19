@@ -235,7 +235,7 @@ const Ship = ({planets, startingShipPos}: ShipProps) => {
             <StyledShip xPos={xPos} yPos={yPos} rotation={rotation}/>
             {
                 closeTo.label 
-                    ? <Label x={closeTo.x + closeTo.size/2} y={closeTo.y + closeTo.size/2} label={closeTo.visitLabel}/>
+                    ? <Label x={closeTo.x + closeTo.size/2} y={closeTo.y + closeTo.size/2 + 30} label={closeTo.visitLabel}/>
                     : null
             }
         </>

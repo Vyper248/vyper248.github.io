@@ -24,7 +24,7 @@ export const projectsLayout = [
         x: 0,
         y: 0,
         width: 1600,
-        height: 100,
+        height: 50,
         collideSides: false
     },
 ];
@@ -69,7 +69,7 @@ export const skillsLayout = [
         x: 0,
         y: 0,
         width: 1600,
-        height: 100,
+        height: 50,
         collideSides: false
     },
 ];

@@ -81,9 +81,8 @@ const Person = ({blocks, items, onLeave}: PersonProps) => {
     
             let ref: RefObject<HTMLDivElement> = createRef();
             let randomX = Math.random()*45;
-            let adjustedY = window.innerHeight - yPos + 130;
             let obj = {
-                particle: <Particle ref={ref} key={key} ixPos={xPos+randomX} iyPos={adjustedY+0} xVel={0} yVel={1} rotation={0} color='blue'/>,
+                particle: <Particle ref={ref} key={key} ixPos={randomX} iyPos={0} xVel={0} yVel={1} rotation={0} color='blue'/>,
                 ref: ref
             }
     
@@ -231,10 +230,11 @@ const Person = ({blocks, items, onLeave}: PersonProps) => {
 
     return (
         <>
-            <StyledPerson x={xPos} y={yPos} leaving={leaving}></StyledPerson>
+            <StyledPerson x={xPos} y={yPos} leaving={leaving}>
             { 
                 particleArr.map((obj: ParticleObj) => obj.particle)
             }
+            </StyledPerson>
             {
                 closeTo.name 
                     ? <Label x={closeTo.x + closeTo.width/2} y={window.innerHeight-closeTo.y+95} label={closeTo.name}/>

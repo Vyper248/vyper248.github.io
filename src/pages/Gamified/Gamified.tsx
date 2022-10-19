@@ -22,14 +22,24 @@ export type Planet = {
     visitLabel: string;
 }
 
+const greenStyle = {
+    groundColor: 'green',
+    groundColorFront: '#76512F',
+    skyColor: 'skyblue',
+}
+
+const grayStyle = {
+    groundColor: '#C2C2C2',
+    groundColorFront: '#686868',
+    skyColor: 'transparent'
+}
+
 const Gamified = () => {
     const [landed, setLanded] = useState(false);
+    const [planetName, setPlanetName] = useState('');
     const [shipPosition, setShipPosition] = useState({x: 0, y: 0, r: 0} as ShipPos);
 
-    const [platformStyle, setPlatformStyle] = useState({
-        groundColor: 'green',
-        skyColor: 'skyblue'
-    });
+    const [platformStyle, setPlatformStyle] = useState(greenStyle);
 
     const planets: Planet[] = [
         {
@@ -40,7 +50,12 @@ const Gamified = () => {
             color: '#0000FF',
             colorLeft: 'green',
             colorRight: 'green',
-            onVisit: (shipPos: ShipPos) => {setLanded(true); setShipPosition(shipPos)},
+            onVisit: (shipPos: ShipPos) => {
+                setLanded(true); 
+                setShipPosition(shipPos);
+                setPlatformStyle(greenStyle);
+                setPlanetName('Projects');
+            },
             visitLabel: 'Press Enter to land'
         },
         {
@@ -51,7 +66,12 @@ const Gamified = () => {
             color: '#C2C2C2',
             colorLeft: '#686868',
             colorRight: '#686868',
-            onVisit: (shipPos: ShipPos) => console.log('Visiting Skills'),
+            onVisit: (shipPos: ShipPos) => {
+                setLanded(true); 
+                setShipPosition(shipPos);
+                setPlatformStyle(grayStyle);
+                setPlanetName('Skills');
+            },
             visitLabel: 'Press Enter to land'
         },
         {
@@ -75,7 +95,7 @@ const Gamified = () => {
         <StyledGamified width={SPACE_WIDTH} height={SPACE_HEIGHT}>
             { 
                 landed 
-                    ? <Platformer blockStyle={platformStyle} planetName='Projects' onLeave={onLeave}/> 
+                    ? <Platformer blockStyle={platformStyle} planetName={planetName} onLeave={onLeave}/> 
                     : (
                         <>
                             <Stars width={SPACE_WIDTH} height={SPACE_HEIGHT} qty={200}/>

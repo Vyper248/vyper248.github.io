@@ -9,7 +9,7 @@ const StyledParticle = styled.div.attrs(props => ({
     }
 }))`
     position: absolute;
-
+    z-index: 3;
     width: 3px;
     height: 3px;
     background-color: ${props => props.color ? props.color : 'orange'};

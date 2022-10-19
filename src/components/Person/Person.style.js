@@ -10,6 +10,7 @@ const StyledPerson = styled.div.attrs(props => {
 })`
     display: inline-block;
     position: absolute;
+    z-index: 2;
     width: 50px;
     height: 50px;
     border-radius: 50%;

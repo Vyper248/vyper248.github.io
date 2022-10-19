@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 
+import { darkenHex } from '../../utils/colors';
+
 //random number between a and b
 const r = (a, b) => {
     return Math.floor((Math.random() * (b-a)) + a);
@@ -44,16 +46,6 @@ const getClipPath = () => {
         ${x8}% ${y8}%,
         ${x9}% ${y9}%
     `;
-}
-
-const darkenHex = (hex) => {
-    const values = ['0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F'];
-    return hex.split('').map(val => {
-        let index = values.indexOf(val);
-        if (index <= 0) return val;
-        if (index === 1) return values[index-1];
-        return values[index-2];
-    }).join('');
 }
 
 const StyledPlanet = styled.span.attrs(props => {

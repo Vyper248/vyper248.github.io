@@ -13,7 +13,7 @@ const StyledShip = styled.div.attrs(props => ({
     border: 1px solid white;
     border-radius: 20px 20px 0px 0px;
     background-color: white;
-    z-index: 2;
+    z-index: 4;
     transform-origin: center;
 
     &::after {

@@ -5,7 +5,7 @@ import { ItemProps as Item } from '../Item/Item';
 import { TerrainBlock } from '../Terrain/Terrain';
 import { ParticleObj } from '../Ship/Ship';
 
-import StyledPerson, { StyledHead, StyledBody, StyledBackpack, StyledLeftLeg, StyledRightLeg } from './Person.style';
+import StyledPerson, { StyledHead, StyledBody, StyledBackpack, StyledLeftLeg, StyledRightLeg, StyledArm } from './Person.style';
 import Particle from '../Particle/Particle';
 import Label from '../Label/Label';
 
@@ -52,6 +52,7 @@ const Person = ({blocks, items, onLeave}: PersonProps) => {
     const [jetpackParticleArr, setJetpackParticleArr] = useState([] as ParticleObj[]);
     const [keyPresses, setKeyPresses] = useState({} as KeyPresses);
     const [closeTo, setCloseTo] = useState({} as Item);
+    const [usingJetpack, setUsingJetpack] = useState(false);
     
     const everyFrame = useCallback(() => {
         const above = (x: number, y: number, width: number) => {
@@ -115,9 +116,10 @@ const Person = ({blocks, items, onLeave}: PersonProps) => {
     
             let ref: RefObject<HTMLDivElement> = createRef();
             let randomX = Math.random()*10;
+            let randomYVel = Math.random();
             let xAdjust = direction < 0 ? 48 : 0;
             let obj = {
-                particle: <Particle ref={ref} key={key} fromBottom={true} ixPos={xPos+randomX-5+xAdjust} iyPos={yPos-20} xVel={0} yVel={-1} rotation={0} color='red'/>,
+                particle: <Particle ref={ref} key={key} fadeRate={0.05} fromBottom={true} ixPos={xPos+randomX-5+xAdjust} iyPos={yPos-20} xVel={0} yVel={-1-randomYVel} rotation={0} color='red'/>,
                 ref: ref
             }
     
@@ -149,10 +151,16 @@ const Person = ({blocks, items, onLeave}: PersonProps) => {
     
             if (keyPresses['Space'] || keyPresses['ArrowUp']) {
                 addJetpackParticle();
+                addJetpackParticle();
+                addJetpackParticle();
+                addJetpackParticle();
                 setYVel(yVel => {
                     if (yVel >= 10) return 10;
                     return yVel + JETPACK_FORCE;
                 });
+                setUsingJetpack(true);
+            } else {
+                setUsingJetpack(false);
             }
     
             if (keyPresses['ArrowDown']) {
@@ -163,6 +171,9 @@ const Person = ({blocks, items, onLeave}: PersonProps) => {
         }
 
         if (teleporting) addTeleportParticle();
+        cleanParticles();
+        cleanParticles();
+        cleanParticles();
         cleanParticles();
 
         let windowHeight = window.innerHeight;
@@ -260,9 +271,10 @@ const Person = ({blocks, items, onLeave}: PersonProps) => {
             <StyledPerson x={xPos} y={yPos} leaving={leaving} flipped={direction < 0}>
                 <StyledHead/>
                 <StyledBody/>
+                <StyledArm moving={xVel !== 0 && !usingJetpack}/>
                 <StyledBackpack/>
-                <StyledLeftLeg moving={xVel !== 0}/>
-                <StyledRightLeg moving={xVel !== 0}/>
+                <StyledLeftLeg moving={xVel !== 0 && !usingJetpack}/>
+                <StyledRightLeg moving={xVel !== 0 && !usingJetpack}/>
             { 
                 particleArr.map((obj: ParticleObj) => obj.particle)
             }

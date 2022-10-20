@@ -11,9 +11,10 @@ type ParticleProps = {
     rotation: number;
     color?: string;
     fromBottom?: boolean;
+    fadeRate?: number;
 }
 
-const Particle = forwardRef(({ ixPos, iyPos, xVel, yVel, rotation, color, fromBottom=false }: ParticleProps, ref) => {
+const Particle = forwardRef(({ ixPos, iyPos, xVel, yVel, rotation, color, fromBottom=false, fadeRate=0.02 }: ParticleProps, ref) => {
     const [xPos, setXPos] = useState(ixPos);
     const [yPos, setYPos] = useState(iyPos);
     const [opacity, setOpacity] = useState(1);
@@ -24,7 +25,7 @@ const Particle = forwardRef(({ ixPos, iyPos, xVel, yVel, rotation, color, fromBo
             setYPos(yPos => yPos + yVel);
     
             setOpacity(opacity => {
-                let newOpacity = opacity - 0.02;
+                let newOpacity = opacity - fadeRate;
                 if (newOpacity < 0) {
                     newOpacity = 0;
                     clearInterval(interval);

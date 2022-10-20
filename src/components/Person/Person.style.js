@@ -9,7 +9,7 @@ const StyledPerson = styled.div.attrs(props => {
 })`
     display: inline-block;
     position: absolute;
-    z-index: 2;
+    z-index: 4;
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -37,6 +37,33 @@ export const StyledHead = styled.div`
     height: 40px;
     border-radius: 50%;
     background-color: white;
+    overflow: hidden;
+
+    /* Large black area */
+    &::after {
+        content: '';
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        background-color: black;
+        position: absolute;
+        top: 0px;
+        left: 30px;
+        transform: rotate(45deg);
+    }
+
+    /* Small black area */
+    &::before {
+        content: '';
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%50%;
+        background-color: black;
+        position: absolute;
+        top: 15px;
+        left: 20px;
+    }
 `;
 
 export const StyledBody = styled.div`
@@ -66,48 +93,51 @@ export const StyledLeftLeg = styled.div`
     height: 35px;
     background-color: white;
     transform-origin: top;
-    transition: 0.1s;
 
     ${props => {
         if (props.moving) {
             return `
-                animation: forward 0.3s linear;
+                animation: move 0.3s linear;
                 animation-iteration-count: infinite;
                 animation-direction: alternate;
-
-                @keyframes forward {
-                    from { transform: rotate(-20deg); }
-                    to { transform: rotate(20deg); }
-                }
             `;
         }
     }}
+
+    @keyframes move {
+        from { transform: rotate(-20deg); }
+        to { transform: rotate(20deg); }
+    }
+
+    /* Feet */
+    &::after {
+        content: '';
+        display: inline-block;
+        position: absolute;
+        top: 28px;
+        left: 8px;
+        width: 10px;
+        height: 7px;
+        border-radius: 0px 50% 0px 0px;
+        background-color: white;
+    }
 `;
 
-export const StyledRightLeg = styled.div`
-    position: absolute;
-    top: 20px;
-    left: 13px;
-    width: 14px;
-    height: 35px;
-    background-color: white;
-    transform-origin: top;
-    transition: 0.5s;
+export const StyledRightLeg = styled(StyledLeftLeg)`
+    ${props => props.moving ? 'animation-direction: alternate-reverse;' : ''}
+`;
 
-    ${props => {
-        if (props.moving) {
-            return `
-                animation: forward 0.3s linear;
-                animation-iteration-count: infinite;
-                animation-direction: alternate-reverse;
+export const StyledArm = styled(StyledRightLeg)`
+    top: -10px;
+    left: 15px;
+    width: 10px;
+    background-color: #BBB;
+    border-radius: 10px 10px 0px 0px;
+    z-index: 4;
 
-                @keyframes forward {
-                    from { transform: rotate(-20deg); }
-                    to { transform: rotate(20deg); }
-                }
-            `;
-        }
-    }}
+    &::after {
+        display: none;
+    }
 `;
 
 export default StyledPerson;

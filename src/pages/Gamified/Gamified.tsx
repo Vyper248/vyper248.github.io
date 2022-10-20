@@ -6,21 +6,10 @@ import Planet from "../../components/Planet/Planet";
 
 import Platformer from "../Platformer/Platformer";
 import { ShipPos } from "../../components/Ship/Ship";
+import { PlanetProps } from "../../components/Planet/Planet";
 
 import { SPACE_WIDTH, SPACE_HEIGHT } from "../../utils/constants";
-import { useState } from "react";
-
-export type Planet = {
-    label: string;
-    x: number;
-    y: number;
-    size: number;
-    color: string;
-    colorLeft: string;
-    colorRight: string;
-    onVisit: (shipPos: ShipPos) => void;
-    visitLabel: string;
-}
+import { useCallback, useState } from "react";
 
 const greenStyle = {
     groundColor: 'green',
@@ -41,7 +30,7 @@ const Gamified = () => {
 
     const [platformStyle, setPlatformStyle] = useState(greenStyle);
 
-    const planets: Planet[] = [
+    const planets: PlanetProps[] = [
         {
             label: 'Projects',
             x: 245,
@@ -87,9 +76,9 @@ const Gamified = () => {
         }
     ];
 
-    const onLeave = () => {
+    const onLeave = useCallback(() => {
         setLanded(false);
-    }
+    }, []);
 
     return (
         <StyledGamified width={SPACE_WIDTH} height={SPACE_HEIGHT}>

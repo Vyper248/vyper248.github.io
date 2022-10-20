@@ -38,6 +38,7 @@ export const StyledHead = styled.div`
     border-radius: 50%;
     background-color: white;
     overflow: hidden;
+    border: 0.5px solid white;
 
     /* Large black area */
     &::after {

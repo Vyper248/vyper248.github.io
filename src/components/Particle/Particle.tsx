@@ -37,7 +37,7 @@ const Particle = forwardRef(({ ixPos, iyPos, xVel, yVel, rotation, color, fromBo
         return () => {
             clearInterval(interval);
         };
-    }, []);
+    }, [fadeRate, xVel, yVel]);
 
     return (
         <StyledParticle ref={ref} xPos={xPos} yPos={yPos} rotation={rotation} opacity={opacity} color={color} fromBottom={fromBottom}></StyledParticle>

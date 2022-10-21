@@ -70,19 +70,26 @@ const Person = ({blocks, items, onLeave}: PersonProps) => {
     const [particleArr, setParticleArr] = useState([] as ParticleObj[]);
     const [jetpackParticleArr, setJetpackParticleArr] = useState([] as ParticleObj[]);
     const [usingJetpack, setUsingJetpack] = useState(false);
+    const [colliding, setColliding] = useState(false);
     
     const [keyPresses, setKeyPresses] = useState({} as KeyPresses);
     const [closeTo, setCloseTo] = useState({} as Item);
 
     const manageKeyPresses = useCallback(() => {
+        let moving = false;
+
         if (keyPresses['ArrowRight']) {
             setXVel(5);
             setDirection(1);
+            setColliding(false);
+            moving = true;
         }
 
         if (keyPresses['ArrowLeft']) {
             setXVel(-5);
             setDirection(-1);
+            setColliding(false);
+            moving = true;
         }
 
         if (!keyPresses['ArrowRight'] && !keyPresses['ArrowLeft']) {
@@ -99,6 +106,8 @@ const Person = ({blocks, items, onLeave}: PersonProps) => {
                 return yVel + JETPACK_FORCE;
             });
             setUsingJetpack(true);
+            setColliding(false);
+            moving = true;
         } else {
             setUsingJetpack(false);
         }
@@ -107,10 +116,14 @@ const Person = ({blocks, items, onLeave}: PersonProps) => {
             if (yVel === 0 && yPos > 160) {
                 setYPos(yPos => yPos-10);
             }
+            setColliding(false);
+            moving = true;
         }
+
+        return moving;
     }, [xPos, yPos, yVel, direction, keyPresses]);
 
-    const everyFrame = useCallback(() => {        
+    const everyFrame = useCallback(() => {      
         //clean old particles that have faded out. Do multiple times for jetpack particles as 4 are added at a time
         cleanParticleArr(particleArr, setParticleArr);
         cleanParticleArr(jetpackParticleArr, setJetpackParticleArr);
@@ -128,23 +141,28 @@ const Person = ({blocks, items, onLeave}: PersonProps) => {
         //if teleporting, prevent movement
         if (teleporting) return;
 
-        manageKeyPresses();
+        //Manage key presses and check whether character has moved
+        let moving = manageKeyPresses();
+
+        //if it has moved then keep going, otherwise if it's colliding and hasn't moved, don't do anything else
+        if (colliding && !moving) return;
 
         //Adjust positioning
         adjustPosition(xVel, yVel, setXPos, setYPos, setYVel);
-
+        
         //check collisions with terrain blocks
         const [adjustValues, newYPos, newYVel] = checkCollisions(blocks, xPos, yPos, yVel);
         if (adjustValues) {
             setYPos(newYPos);
             setYVel(newYVel);
+            setColliding(true);
         }
 
         //check collisions with items (such as project buildings);
         let collidedWith = checkItemCollisions(items, xPos, yPos, xVel, yVel, closeTo);
         if (collidedWith) setCloseTo(collidedWith);
 
-    }, [manageKeyPresses, teleporting, xPos, xVel, yPos, yVel, blocks, particleArr, closeTo, items, jetpackParticleArr]);
+    }, [colliding, manageKeyPresses, teleporting, xPos, xVel, yPos, yVel, blocks, particleArr, closeTo, items, jetpackParticleArr]);
 
     const keyDownListener = useCallback((e: KeyboardEvent) => {
         if (ALLOWABLE_KEYS.includes(e.code)) e.preventDefault();

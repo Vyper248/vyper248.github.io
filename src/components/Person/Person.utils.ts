@@ -62,6 +62,8 @@ export const checkItemCollisions = (items: Item[], xPos: number, yPos: number, x
         }
     }
 
+    if (Object.values(closeTo).length === 0) return null;
+    
     return {} as Item;
 }
 

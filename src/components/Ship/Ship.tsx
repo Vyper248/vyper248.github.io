@@ -1,6 +1,7 @@
 import { useEffect, useState, createRef, RefObject, useCallback } from "react";
 
 import StyledShip from "./Ship.style";
+import ShipImage from '../../svgs/ship.svg';
 
 import { FRAME_SPEED, SPACE_WIDTH, SPACE_HEIGHT } from "../../utils/constants";
 import { PlanetProps as Planet } from "../Planet/Planet";
@@ -181,7 +182,7 @@ const Ship = ({planets, startingShipPos}: ShipProps) => {
             { 
                 particleArr.map((obj: ParticleObj) => obj.particle)
             }
-            <StyledShip xPos={xPos} yPos={yPos} rotation={rotation}/>
+            <StyledShip xPos={xPos} yPos={yPos} rotation={rotation}><img src={ShipImage}/></StyledShip>
             {
                 closeTo.label 
                     ? <Label x={closeTo.x + closeTo.size/2} y={closeTo.y + closeTo.size/2 + 30} label={closeTo.visitLabel}/>

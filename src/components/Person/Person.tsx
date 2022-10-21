@@ -240,7 +240,7 @@ const Person = ({blocks, items, onLeave}: PersonProps) => {
             }
             {
                 closeTo.name 
-                    ? <Label fromBottom={true} x={closeTo.x + closeTo.width/2} y={closeTo.y-15} label={closeTo.name}/>
+                    ? <Label fromBottom={true} x={closeTo.x + closeTo.width/2} y={closeTo.y} label={closeTo.name}/>
                     : null
             }
         </>

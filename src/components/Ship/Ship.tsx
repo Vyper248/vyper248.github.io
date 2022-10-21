@@ -182,7 +182,7 @@ const Ship = ({planets, startingShipPos}: ShipProps) => {
             { 
                 particleArr.map((obj: ParticleObj) => obj.particle)
             }
-            <StyledShip xPos={xPos} yPos={yPos} rotation={rotation}><img src={ShipImage}/></StyledShip>
+            <StyledShip xPos={xPos} yPos={yPos} rotation={rotation}><img src={ShipImage} alt='Players ship'/></StyledShip>
             {
                 closeTo.label 
                     ? <Label x={closeTo.x + closeTo.size/2} y={closeTo.y + closeTo.size/2 + 30} label={closeTo.visitLabel}/>

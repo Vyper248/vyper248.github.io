@@ -2,20 +2,20 @@ export const projectsLayout = [
     {
         x: 150,
         y: 300,
-        width: 600,
+        width: 620,
         height: 40,
         collideSides: false
     },
     {
         x: 750,
         y: 500,
-        width: 600,
+        width: 620,
         height: 40,
         collideSides: false
     },
     {
         x: 50,
-        y: 700,
+        y: 800,
         width: 1000,
         height: 40,
         collideSides: false

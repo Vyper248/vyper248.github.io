@@ -1,3 +1,4 @@
+import Label from '../Label/Label';
 import StyledItem from './Item.style';
 
 export type ItemProps = {
@@ -13,7 +14,12 @@ export type ItemProps = {
 
 const Item = ({svg, ...rest}: ItemProps) => {
     return (
-        <StyledItem {...rest}><img src={require(`../../svgs/${svg}`)}/></StyledItem>
+        <>
+            <StyledItem {...rest}>
+                <img src={require(`../../svgs/${svg}`)}/>
+            </StyledItem>
+            <Label x={rest.x + rest.width/2} y={rest.y} label={rest.name} fromBottom={true}/>
+        </>
     );
 }
 

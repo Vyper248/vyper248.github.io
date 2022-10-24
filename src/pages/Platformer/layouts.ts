@@ -10,7 +10,7 @@ export const projectsLayout = [
     {
         x: 150,
         y: 300,
-        width: 880,
+        width: 1080,
         height: 40,
         label: 'Latest'
     },

@@ -48,7 +48,7 @@ export const checkCollisions = (blocks: TerrainBlock[], xPos: number, yPos: numb
 export const checkItemCollisions = (items: Item[], xPos: number, yPos: number, xVel: number, yVel: number, closeTo: Item): Item | null => {
     for (let i = 0; i < items.length; i++) {
         let item = items[i];
-        let adjustedY = item.y+item.offset;
+        let adjustedY = item.y+item.offset-20;
         let adjustedX = item.x;
 
         let isAbove = above(xPos, yPos, adjustedX, adjustedY, item.width);

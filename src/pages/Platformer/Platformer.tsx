@@ -43,8 +43,9 @@ const Platformer = ({blockStyle, planetName, onLeave}: PlatformerProps) => {
 
         layout.forEach(layoutObj => {
             let y = layoutObj.y;
+            let xAdjust = layoutObj.label ? layoutObj.label.length * 7 : 0;
 
-            for (let x = layoutObj.x+20; x < layoutObj.x + layoutObj.width - 100; x += 200) {
+            for (let x = layoutObj.x+20+xAdjust; x < layoutObj.x + layoutObj.width - 100; x += 200) {
                 positions.push({x, y});
             }
         });
@@ -61,6 +62,7 @@ const Platformer = ({blockStyle, planetName, onLeave}: PlatformerProps) => {
     }
     
     let positions = getAvailablePositions(selectedLayout);
+    console.log(positions);
     let positionedItems = mapAvailablePositions(positions, selectedItems);
 
     return (

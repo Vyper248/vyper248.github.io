@@ -1,13 +1,13 @@
-import StyledTerrain, { StyledBlock } from './Terrain.style';
+import StyledTerrain, { StyledBlock, StyledBlockLabel } from './Terrain.style';
 
-import { BlockStyle } from '../../pages/Platformer/Platformer';
+import { BlockStyle, } from '../../pages/Platformer/Platformer';
 
 export type TerrainBlock = {
     x: number;
     y: number;
     width: number;
     height: number;
-    collideSides: boolean;
+    label: string;
 }
 
 type BlockProps = {
@@ -22,7 +22,9 @@ type TerrainProps = {
 
 const Block = ({details, blockStyle}: BlockProps) => {
     return (
-        <StyledBlock {...details} {...blockStyle}></StyledBlock>
+        <StyledBlock {...details} {...blockStyle}>
+            { details.label ? <StyledBlockLabel>{details.label}</StyledBlockLabel> : null }
+        </StyledBlock>
     );
 }
 

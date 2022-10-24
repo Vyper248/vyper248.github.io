@@ -36,6 +36,31 @@ export const StyledBlock = styled.div`
     }
 `;
 
+export const StyledBlockLabel = styled.label`
+    position: relative;
+    display: inline-block;
+    padding: 4px;
+    border: 1px solid black;
+    z-index: 4;
+    background-color: #76512F;
+    top: -70px;
+    color: white;
+
+    &::after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        top: 100%;
+        transform: translate(-50%, 0%);
+        display: block;
+        border: 1px solid black;
+        border-top: none;
+        width: 10px;
+        height: 30px;
+        background-color: #76512F;
+    }
+`;
+
 const StyledTerrain = styled.div`
     position: relative;
     width: ${GROUND_WIDTH}px;

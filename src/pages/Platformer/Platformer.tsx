@@ -38,12 +38,20 @@ const Platformer = ({blockStyle, planetName, onLeave}: PlatformerProps) => {
         selectedItems = [];
     }
 
+    const estimateLabelWidth = (label: string): number => {
+        let maxLength = 0;
+        label.split('\n').forEach(str => {
+            if (str.length > maxLength) maxLength = str.length;
+        });
+        return maxLength;
+    }
+
     const getAvailablePositions = (layout: TerrainBlock[]) => {
         let positions: Position[] = [];
 
         layout.forEach(layoutObj => {
             let y = layoutObj.y;
-            let xAdjust = layoutObj.label ? layoutObj.label.length * 7 : 0;
+            let xAdjust = layoutObj.label ? estimateLabelWidth(layoutObj.label) * 7 : 0;
 
             for (let x = layoutObj.x+20+xAdjust; x < layoutObj.x + layoutObj.width - 100; x += 200) {
                 positions.push({x, y});
@@ -62,7 +70,6 @@ const Platformer = ({blockStyle, planetName, onLeave}: PlatformerProps) => {
     }
     
     let positions = getAvailablePositions(selectedLayout);
-    console.log(positions);
     let positionedItems = mapAvailablePositions(positions, selectedItems);
 
     return (

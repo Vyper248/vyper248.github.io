@@ -238,11 +238,11 @@ const Person = ({blocks, items, onLeave}: PersonProps) => {
             {
                 jetpackParticleArr.map((obj: ParticleObj) => obj.particle)
             }
-            {
+            {/* {
                 closeTo.name 
                     ? <Label fromBottom={true} x={closeTo.x + closeTo.width/2} y={closeTo.y+17} label={'Visit'}/>
                     : null
-            }
+            } */}
         </>
     );
 }

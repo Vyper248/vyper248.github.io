@@ -1,3 +1,4 @@
+//good buildings - 3,4,7,8,9,14
 export const projects = [
     {
         name: 'Time Tracker',

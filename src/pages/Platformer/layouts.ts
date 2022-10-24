@@ -1,3 +1,11 @@
+const planetInstructions = 
+`Right Arrow: Move Right
+Left Arrow: Move Left
+Up Arrow or Space: Jetpack
+Escape: Leave planet
+Enter: Visit building
+(opens in new tab)`;
+
 export const projectsLayout = [
     {
         x: 150,
@@ -25,7 +33,7 @@ export const projectsLayout = [
         y: 0,
         width: 2600,
         height: 50,
-        label: ''
+        label: planetInstructions
     },
 ];
 

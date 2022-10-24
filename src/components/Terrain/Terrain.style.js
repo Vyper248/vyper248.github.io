@@ -37,14 +37,16 @@ export const StyledBlock = styled.div`
 `;
 
 export const StyledBlockLabel = styled.label`
-    position: relative;
     display: inline-block;
+    position: absolute;
+    bottom: calc(100% + 45px);
+    left: 20px;
     padding: 4px;
     border: 1px solid black;
     z-index: 4;
     background-color: #76512F;
-    top: -70px;
     color: white;
+    white-space: pre-wrap;
 
     &::after {
         content: '';

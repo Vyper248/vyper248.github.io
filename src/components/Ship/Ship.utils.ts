@@ -28,10 +28,19 @@ export const thrusterVelocity = (rotation: number): [number, number] => {
     return [xAdjust, yAdjust];
 }
 
+export const magnitude = (x: number, y: number): number => {
+    return Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2));
+}
+
+export const normaliseVector = (x: number, y: number, mag: number): [number, number] => {
+    if (mag > 0) return [x / mag, y / mag];
+    else return [x, y];
+}
+
 const distanceFromAToB = (a: [number, number], b: [number, number]): number => {
     let xDiff = b[0] - a[0];
     let yDiff = b[1] - a[1];
-    let distance = Math.sqrt(Math.pow(xDiff, 2) + Math.pow(yDiff, 2));
+    let distance = magnitude(xDiff, yDiff);
     return distance;
 }
 

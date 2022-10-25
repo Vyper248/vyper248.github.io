@@ -7,7 +7,7 @@ import { FRAME_SPEED, SPACE_WIDTH, SPACE_HEIGHT } from "../../utils/constants";
 import { PlanetProps as Planet } from "../Planet/Planet";
 
 import { cleanParticleArr } from "../Person/Person.utils";
-import { checkDistanceToPlanets, thrusterVelocity, bottomOfShip, direction } from "./Ship.utils";
+import { checkDistanceToPlanets, thrusterVelocity, bottomOfShip, direction, magnitude, normaliseVector } from "./Ship.utils";
 
 import Particle from "../Particle/Particle";
 import Label from "../Label/Label";
@@ -98,19 +98,16 @@ const Ship = ({planets, startingShipPos}: ShipProps) => {
             let [xAdjust, yAdjust] = direction(rotation, 'forward');
             addParticle(xPos, yPos, rotation, setParticleArr);
 
-            //make sure velocity doesn't exceed max value
-            let adjusted = xVel+xAdjust > MAX_SPEED || xVel+xAdjust < -MAX_SPEED || yVel+yAdjust > MAX_SPEED || yVel+yAdjust < -MAX_SPEED;
+            let speed = magnitude(xVel+xAdjust, yVel+yAdjust);
+            if (speed > MAX_SPEED) {
+                let [newXVel, newYVel] = normaliseVector(xVel+xAdjust, yVel+yAdjust, speed);
+                setXVel(newXVel*MAX_SPEED);
+                setYVel(newYVel*MAX_SPEED);
+            } else {
+                setXVel(xVel => xVel + xAdjust);
+                setYVel(yVel => yVel + yAdjust);
+            }
 
-            if (xVel > MAX_SPEED) setXVel(MAX_SPEED);
-            if (xVel < -MAX_SPEED) setXVel(-MAX_SPEED);
-            if (yVel > MAX_SPEED) setYVel(MAX_SPEED);
-            if (yVel < -MAX_SPEED) setYVel(-MAX_SPEED);
-
-            //if it does, don't increase it.
-            if (adjusted) return;
-
-            setXVel(xVel => xVel + xAdjust);
-            setYVel(yVel => yVel + yAdjust);
         }
     }, [rotation, xPos, yPos, xVel, yVel, setParticleArr, keyPresses]);
 

@@ -31,7 +31,7 @@ export const projectsLayout = [
     {
         x: 550,
         y: 1200,
-        width: 1000,
+        width: 1230,
         height: 40,
         label: 'Old Projects Cont.'
     },

@@ -193,4 +193,14 @@ export const projects = [
         width: 200,
         svg: 'building7.svg',        
     },
+    {
+        name: 'Gradient Generator',
+        url: 'https://vyper248.github.io/CompleteWebDevCourse/backgroundGenerator.html',
+        description: 'This project allows the creation of linear gradients. I added to it by includes sliders to adjust the percentages as well as the ability to add more colours.',
+        x: 0,
+        y: 0,
+        offset: 48,
+        width: 200,
+        svg: 'building4.svg',        
+    },
 ];

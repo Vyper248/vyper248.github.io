@@ -6,31 +6,33 @@ Escape: Leave planet
 Enter: Visit building
 (opens in new tab)`;
 
+let projectY = 0;
+
 export const projectsLayout = [
     {
         x: 150,
-        y: 300,
+        y: projectY+=300,
         width: 1080,
         height: 40,
         label: 'Latest'
     },
     {
         x: 750,
-        y: 600,
+        y: projectY+=300,
         width: 900,
         height: 40,
         label: ''
     },
     {
         x: 50,
-        y: 900,
+        y: projectY+=300,
         width: 1400,
         height: 40,
         label: 'Old Projects'
     },
     {
         x: 550,
-        y: 1200,
+        y: projectY+=300,
         width: 1230,
         height: 40,
         label: 'Old Projects Cont.'

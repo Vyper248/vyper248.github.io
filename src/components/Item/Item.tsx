@@ -10,6 +10,7 @@ export type ItemProps = {
     url: string;
     description: string;
     width: number;
+    group: string;
 }
 
 const Item = ({svg, ...rest}: ItemProps) => {

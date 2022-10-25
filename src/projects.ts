@@ -9,6 +9,7 @@ export const projects = [
         y: 0,
         offset: 50,
         width: 200,
+        group: 'Latest',
         svg: 'building8.svg',        
     },
     {
@@ -19,6 +20,7 @@ export const projects = [
         y: 0,
         offset: 50,
         width: 200,
+        group: 'Latest',
         svg: 'building7.svg',        
     },
     {
@@ -29,6 +31,7 @@ export const projects = [
         y: 0,
         offset: 50,
         width: 200,
+        group: 'Latest',
         svg: 'building14.svg',        
     },
     {
@@ -39,6 +42,7 @@ export const projects = [
         y: 0,
         offset: 50,
         width: 200,
+        group: 'Latest',
         svg: 'building9.svg',        
     },
     {
@@ -49,6 +53,7 @@ export const projects = [
         y: 0,
         offset: 48,
         width: 200,
+        group: 'Latest',
         svg: 'building3.svg',        
     },
     //Older
@@ -60,6 +65,7 @@ export const projects = [
         y: 0,
         offset: 48,
         width: 200,
+        group: '',
         svg: 'building4.svg',        
     },
     {
@@ -70,6 +76,7 @@ export const projects = [
         y: 0,
         offset: 48,
         width: 200,
+        group: '',
         svg: 'building8.svg',        
     },
     {
@@ -80,6 +87,7 @@ export const projects = [
         y: 0,
         offset: 48,
         width: 200,
+        group: '',
         svg: 'building7.svg',        
     },
     {
@@ -90,6 +98,7 @@ export const projects = [
         y: 0,
         offset: 48,
         width: 200,
+        group: '',
         svg: 'building9.svg',        
     },
     //Old Experiments
@@ -101,6 +110,7 @@ export const projects = [
         y: 0,
         offset: 48,
         width: 200,
+        group: 'Old Projects',
         svg: 'building14.svg',        
     },
     {
@@ -111,6 +121,7 @@ export const projects = [
         y: 0,
         offset: 48,
         width: 200,
+        group: 'Old Projects',
         svg: 'building9.svg',        
     },
     {
@@ -121,6 +132,7 @@ export const projects = [
         y: 0,
         offset: 48,
         width: 200,
+        group: 'Old Projects',
         svg: 'building8.svg',        
     },
     {
@@ -131,6 +143,7 @@ export const projects = [
         y: 0,
         offset: 48,
         width: 200,
+        group: 'Old Projects',
         svg: 'building7.svg',        
     },
     {
@@ -141,6 +154,7 @@ export const projects = [
         y: 0,
         offset: 48,
         width: 200,
+        group: 'Old Projects',
         svg: 'building4.svg',        
     },
     {
@@ -151,6 +165,7 @@ export const projects = [
         y: 0,
         offset: 48,
         width: 200,
+        group: 'Old Projects',
         svg: 'building3.svg',        
     },
     {
@@ -161,6 +176,7 @@ export const projects = [
         y: 0,
         offset: 48,
         width: 200,
+        group: 'Old Projects Cont.',
         svg: 'building8.svg',        
     },
     {
@@ -171,6 +187,7 @@ export const projects = [
         y: 0,
         offset: 48,
         width: 200,
+        group: 'Old Projects Cont.',
         svg: 'building4.svg',        
     },
     {
@@ -181,6 +198,7 @@ export const projects = [
         y: 0,
         offset: 48,
         width: 200,
+        group: 'Old Projects Cont.',
         svg: 'building3.svg',        
     },
     {
@@ -191,6 +209,7 @@ export const projects = [
         y: 0,
         offset: 48,
         width: 200,
+        group: 'Old Projects Cont.',
         svg: 'building7.svg',        
     },
     {
@@ -201,6 +220,7 @@ export const projects = [
         y: 0,
         offset: 48,
         width: 200,
+        group: 'Old Projects Cont.',
         svg: 'building4.svg',        
     },
 ];

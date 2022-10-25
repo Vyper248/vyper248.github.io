@@ -23,9 +23,8 @@ type PlatformerProps = {
     onLeave: () => void;
 }
 
-type Position = {
-    x: number;
-    y: number;
+type ItemGroup = {
+    [key: string]: ItemProps[];
 }
 
 const Platformer = ({blockStyle, planetName, onLeave}: PlatformerProps) => {
@@ -46,31 +45,65 @@ const Platformer = ({blockStyle, planetName, onLeave}: PlatformerProps) => {
         return maxLength;
     }
 
-    const getAvailablePositions = (layout: TerrainBlock[]) => {
-        let positions: Position[] = [];
+    //group items by their group name
+    const getItemGroups = (items: ItemProps[]) => {
+        const itemGroups = {} as ItemGroup;
+
+        items.forEach(itemObj => {
+            let itemLabel = itemObj.group;
+            if (!itemGroups[itemLabel]) itemGroups[itemLabel] = [];
+            itemGroups[itemLabel].push(itemObj);
+        });
+
+        return itemGroups;
+    }
+
+    const mapAvailablePositions = (itemGroups: ItemGroup, layout: TerrainBlock[]) => {
+        let positionedItems = [] as ItemProps[];
 
         layout.forEach(layoutObj => {
-            let y = layoutObj.y;
+            //get items linked to this layout block
+            let itemsForGroup = itemGroups[layoutObj.label];
+            if (!itemsForGroup) return;
+
+            //get starting x position based on label width and layout x position
             let xAdjust = layoutObj.label ? estimateLabelWidth(layoutObj.label) * 8 : 0;
+            let x = layoutObj.x + xAdjust + 20;
 
-            for (let x = layoutObj.x+20+xAdjust; x < layoutObj.x + layoutObj.width - 100; x += 200) {
-                positions.push({x, y});
-            }
+            //get array of items with position added
+            let itemArr = itemsForGroup.map(itemObj => {
+                x += 200;
+                return {...itemObj, x: x-200, y: layoutObj.y};
+            });
+
+            //add to item array and set the layout width based on number of items so don't need to do it manually
+            positionedItems.push(...itemArr);
+            layoutObj.width = (itemsForGroup.length * 200) + xAdjust + 50;
         });
 
-        return positions;
+        return positionedItems;
     }
-    
-    const mapAvailablePositions = (positions: Position[], items: ItemProps[]) => {
-        return items.flatMap((itemObj, i) => {
-            let position = positions[i];
-            if (!position) return [];
-            return {...itemObj, x: position.x, y: position.y};
+
+    //get array of items that have no linked terrain block, can console log so they can be fixed
+    const getItemsNotPositioned = (itemGroups: ItemGroup, layout: TerrainBlock[]) => {
+        let itemGroupKeys = Object.keys(itemGroups);
+        let layoutLabels = layout.map(layoutObj => layoutObj.label);
+
+        itemGroupKeys = itemGroupKeys.flatMap(itemGroupKey => {
+            if (layoutLabels.includes(itemGroupKey)) return [];
+            else return [itemGroupKey];
         });
+
+        return itemGroupKeys.flatMap(itemGroupKey => itemGroups[itemGroupKey]);
     }
-    
-    let positions = getAvailablePositions(selectedLayout);
-    let positionedItems = mapAvailablePositions(positions, selectedItems);
+
+    //Map items to a position based on item group to terrain label
+    let itemGroups = getItemGroups(selectedItems);
+    let positionedItems = mapAvailablePositions(itemGroups, selectedLayout);
+
+    //Check if any items didn't find a group to add to
+    let unpositionedItems = getItemsNotPositioned(itemGroups, selectedLayout);
+    if (unpositionedItems.length > 0) console.log('Unpositioned Items: ', unpositionedItems);
 
     return (
         <StyledPlatformer>

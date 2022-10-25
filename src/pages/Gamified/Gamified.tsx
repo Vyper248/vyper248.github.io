@@ -8,7 +8,7 @@ import Platformer from "../Platformer/Platformer";
 import { ShipPos } from "../../components/Ship/Ship";
 import { PlanetProps } from "../../components/Planet/Planet";
 
-import { SPACE_WIDTH, SPACE_HEIGHT } from "../../utils/constants";
+import { SPACE_WIDTH, SPACE_HEIGHT, GROUND_WIDTH, GROUND_HEIGHT } from "../../utils/constants";
 import { useCallback, useState } from "react";
 
 const greenStyle = {
@@ -81,7 +81,7 @@ const Gamified = () => {
     }, []);
 
     return (
-        <StyledGamified width={SPACE_WIDTH} height={SPACE_HEIGHT}>
+        <StyledGamified width={landed ? GROUND_WIDTH : SPACE_WIDTH} height={landed ? GROUND_HEIGHT : SPACE_HEIGHT}>
             { 
                 landed 
                     ? <Platformer blockStyle={platformStyle} planetName={planetName} onLeave={onLeave}/> 

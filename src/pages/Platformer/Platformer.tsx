@@ -5,7 +5,7 @@ import StyledPlatformer from './Platformer.style';
 
 import { GROUND_WIDTH, GROUND_HEIGHT } from '../../utils/constants';
 import { projectsLayout, skillsLayout } from './layouts';
-import { projects } from './projects';
+import { projects } from '../../projects';
 import { TerrainBlock } from '../../components/Terrain/Terrain';
 
 import Stars from '../../components/Stars/Stars';

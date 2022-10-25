@@ -17,16 +17,23 @@ export const projectsLayout = [
     {
         x: 750,
         y: 600,
-        width: 620,
+        width: 900,
         height: 40,
         label: ''
     },
     {
         x: 50,
         y: 900,
-        width: 1000,
+        width: 1400,
         height: 40,
         label: 'Old Projects'
+    },
+    {
+        x: 550,
+        y: 1200,
+        width: 1000,
+        height: 40,
+        label: 'Old Projects Cont.'
     },
     { //Bottom
         x: 0,

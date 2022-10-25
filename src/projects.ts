@@ -47,7 +47,7 @@ export const projects = [
     },
     {
         name: 'Reddit React App',
-        url: 'https://vyper248.github.io/new-reddit/#/PS4',
+        url: 'https://vyper248.github.io/new-reddit/#/PS5/new',
         description: 'Second React app I created, this time using React-Router for navigation. It\'s another version of Reddit, this time more in-line with the Reddit website, with more sorting options. Currently using pre-configured sub list. Also decided to create this with a dark theme.',
         x: 0,
         y: 0,

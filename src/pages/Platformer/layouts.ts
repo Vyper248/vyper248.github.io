@@ -3,6 +3,7 @@ const planetInstructions =
 Left Arrow: Move Left
 Up Arrow or Space: Jetpack
 Escape: Leave planet
+i: Project Information
 Enter: Visit building
 (opens in new tab)`;
 
@@ -17,7 +18,7 @@ export const projectsLayout = [
         label: 'Latest'
     },
     {
-        x: 750,
+        x: 650,
         y: projectY+=300,
         width: 900,
         height: 40,
@@ -31,11 +32,11 @@ export const projectsLayout = [
         label: 'Old Projects'
     },
     {
-        x: 550,
+        x: 350,
         y: projectY+=300,
         width: 1230,
         height: 40,
-        label: 'Old Projects Cont.'
+        label: 'Experiments'
     },
     { //Bottom
         x: 0,

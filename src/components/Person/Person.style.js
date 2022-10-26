@@ -30,6 +30,51 @@ const StyledPerson = styled.div.attrs(props => {
     }
 `
 
+export const StyledThoughts = styled.div`
+    position: absolute;
+    display: inline-block;
+    bottom: calc(100% + 75px);
+    left: 100%;
+    width: max-content;
+    max-width: 250px;
+    white-space: pre-wrap;
+    border: 1px solid black;
+    background-color: white;
+    border-radius: 20px;
+    padding: 8px;
+
+    & > span {
+        display: inline-block;
+        transform: scaleX(${props => props.flipped ? '-1' : '1'});
+    }
+
+    &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: calc(100% - 7px);
+        left: -15px;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: white;
+        border: 1px solid black;
+    }
+
+    &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: calc(100% + 13px);
+        left: -22px;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: white;
+        border: 1px solid black;
+    }
+`;
+
 export const StyledHead = styled.div`
     position: absolute;
     top: -50px;

@@ -7,9 +7,8 @@ import { ParticleObj } from '../Ship/Ship';
 
 import { cleanParticleArr, checkCollisions, checkItemCollisions, adjustPosition } from './Person.utils';
 
-import StyledPerson, { StyledHead, StyledBody, StyledBackpack, StyledLeftLeg, StyledRightLeg, StyledArm } from './Person.style';
+import StyledPerson, { StyledThoughts, StyledHead, StyledBody, StyledBackpack, StyledLeftLeg, StyledRightLeg, StyledArm } from './Person.style';
 import Particle from '../Particle/Particle';
-import Label from '../Label/Label';
 
 const ALLOWABLE_KEYS = ['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'Enter', 'Escape'];
 const JETPACK_FORCE = 2;
@@ -74,6 +73,8 @@ const Person = ({blocks, items, onLeave}: PersonProps) => {
     
     const [keyPresses, setKeyPresses] = useState({} as KeyPresses);
     const [closeTo, setCloseTo] = useState({} as Item);
+
+    const [infoText, setInfoText] = useState('');
 
     const manageKeyPresses = useCallback(() => {
         let moving = false;
@@ -160,7 +161,11 @@ const Person = ({blocks, items, onLeave}: PersonProps) => {
 
         //check collisions with items (such as project buildings);
         let collidedWith = checkItemCollisions(items, xPos, yPos, xVel, yVel, closeTo);
-        if (collidedWith) setCloseTo(collidedWith);
+        if (collidedWith) {
+            setCloseTo(collidedWith);
+            if (infoText.length > 0 && collidedWith.description) setInfoText(collidedWith.description);
+            else if (!collidedWith.description) setInfoText('');
+        }
 
     }, [colliding, manageKeyPresses, teleporting, xPos, xVel, yPos, yVel, blocks, particleArr, closeTo, items, jetpackParticleArr]);
 
@@ -189,7 +194,12 @@ const Person = ({blocks, items, onLeave}: PersonProps) => {
         if (e.code === 'Enter') {
             if (closeTo.url) window.open(closeTo.url, '_blank');
         }
-    }, [closeTo]);
+
+        if (e.code === 'KeyI') {
+            if (infoText.length > 0) setInfoText('');
+            else if (closeTo.description) setInfoText(closeTo.description);
+        }
+    }, [closeTo, infoText]);
 
     //start main interval for each frame
     useEffect(() => {
@@ -225,6 +235,7 @@ const Person = ({blocks, items, onLeave}: PersonProps) => {
     return (
         <>
             <StyledPerson x={xPos} y={yPos} leaving={leaving} flipped={direction < 0}>
+                { infoText.length > 0 ? <StyledThoughts flipped={direction < 0}><span>{infoText}</span></StyledThoughts> : null }
                 <StyledHead/>
                 <StyledBody/>
                 <StyledArm moving={xVel !== 0 && !usingJetpack}/>
@@ -238,11 +249,6 @@ const Person = ({blocks, items, onLeave}: PersonProps) => {
             {
                 jetpackParticleArr.map((obj: ParticleObj) => obj.particle)
             }
-            {/* {
-                closeTo.name 
-                    ? <Label fromBottom={true} x={closeTo.x + closeTo.width/2} y={closeTo.y+17} label={'Visit'}/>
-                    : null
-            } */}
         </>
     );
 }

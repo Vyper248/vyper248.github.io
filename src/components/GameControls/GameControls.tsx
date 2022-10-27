@@ -1,17 +1,40 @@
+import { useEffect } from 'react';
+
 import StyledGameControls from './GameControls.style';
 import { BsTriangleFill } from 'react-icons/bs';
+import { useState } from 'react';
 
 const GameControls = () => {
+    const [closed, setClosed] = useState(true);
+
+    const onToggle = () => {
+        setClosed(closed => !closed);
+    }
+
+    useEffect(() => {
+        const keyUpListener = (e: KeyboardEvent) => {
+            if (e.code === 'KeyC') {
+                setClosed(closed => !closed);
+            }
+        }
+
+        window.addEventListener('keyup', keyUpListener);
+
+        return () => {
+            window.removeEventListener('keyup', keyUpListener);
+        }
+    }, []);
+
     return (
-        <StyledGameControls>
+        <StyledGameControls onClick={onToggle} closed={closed}>
             <div>
                 <div>
-                    Esc
+                    {closed ? 'C' : 'Esc' }
                 </div>
             </div>
             <div className='span2'>
                 <span>
-                    Leave Planet
+                    {closed ? 'Show Controls' : 'Leave Planet'}
                 </span>
             </div>
 

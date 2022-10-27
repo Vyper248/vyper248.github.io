@@ -7,6 +7,15 @@ const StyledGameControls = styled.div`
     left: 10px;
     display: grid;
     grid-template-columns: 50px 50px 50px;
+    background-color: rgba(0,0,0,0.7);
+    border-radius: 10px;
+    height: ${props => props.closed ? '50px' : '250px'};
+    overflow: hidden;
+    transition: height 0.3s;
+
+    &:hover {
+        cursor: pointer;
+    }
 
     & > div {
         width: 100%;
@@ -18,6 +27,9 @@ const StyledGameControls = styled.div`
 
         span {
             font-size: 12px;
+            font-weight: bold;
+            color: white;
+            /* text-shadow: 0px 0px 4px black; */
         }
 
         div {
@@ -29,8 +41,8 @@ const StyledGameControls = styled.div`
             display: flex;
             align-items: center;
             justify-content: center;
-            background-color: white;
-            opacity: 0.8;
+            background-color: rgba(255,255,255,0.8);
+            /* opacity: 0.8; */
 
             span {
                 position: absolute;
@@ -42,6 +54,14 @@ const StyledGameControls = styled.div`
 
     & > div.span2 {
         grid-column: span 2;
+    }
+
+    & > div.span3 {
+        grid-column: span 3;
+
+        span {
+            margin: auto;
+        }
     }
 `
 

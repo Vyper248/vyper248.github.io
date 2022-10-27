@@ -6,10 +6,11 @@ import StyledPlatformer from './Platformer.style';
 import { GROUND_WIDTH, GROUND_HEIGHT } from '../../utils/constants';
 import { projectsLayout, skillsLayout } from './layouts';
 import { projects } from '../../projects';
-import { TerrainBlock } from '../../components/Terrain/Terrain';
 
+import { TerrainBlock } from '../../components/Terrain/Terrain';
 import Stars from '../../components/Stars/Stars';
 import Item, { ItemProps } from '../../components/Item/Item';
+import GameControls from '../../components/GameControls/GameControls';
 
 export type BlockStyle = {
     groundColor: string;
@@ -78,7 +79,7 @@ const Platformer = ({blockStyle, planetName, onLeave}: PlatformerProps) => {
 
             //add to item array and set the layout width based on number of items so don't need to do it manually
             positionedItems.push(...itemArr);
-            layoutObj.width = (itemsForGroup.length * 200) + xAdjust + 50;
+            layoutObj.width = (itemsForGroup.length * 200) + xAdjust + 90;
         });
 
         return positionedItems;
@@ -109,6 +110,7 @@ const Platformer = ({blockStyle, planetName, onLeave}: PlatformerProps) => {
         <StyledPlatformer>
             <Stars width={GROUND_WIDTH} height={GROUND_HEIGHT} qty={200}/>
             <Terrain layout={selectedLayout} blockStyle={blockStyle}/>
+            <GameControls/>
             <Person blocks={selectedLayout} items={positionedItems} onLeave={onLeave}/>
             {
                 positionedItems.map((item) => {

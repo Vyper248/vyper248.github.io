@@ -4,35 +4,45 @@ import { darkenHex } from '../../utils/colors';
 
 import { GROUND_WIDTH, GROUND_HEIGHT } from '../../utils/constants';
 
+const depth = 40;
+
 export const StyledBlock = styled.div`
+    perspective: 800px;
+    perspective-origin: -200px -600px;
     position: absolute;
     left: ${props => props.x}px;
     bottom: ${props => props.y}px;
     width: ${props => props.width}px;
     height: ${props => props.height}px;
-    background-color: ${props => props.groundColorFront};
+    z-index: 2;
 
-    &::after {
-        content: '';
-        position: absolute;
-        left: -12px;
-        top: -40px;
-        width: ${props => props.width}px;
-        height: 40px;
-        background-color: ${props => props.groundColor};
-        transform: skewX(30deg);
+    & div.block {
+        width: 100%;
+        height: 100%;
+        transform-style: preserve-3d;
     }
 
-    &::before {
-        content: '';
+    & div.side {
         position: absolute;
-        left: -23px;
-        top: -20px;
-        width: 22px;
-        height: ${props => props.height}px;
+        width: 100%;
+        height: 100%;
+        border: 1px solid ${props => darkenHex(props.groundColorFront)};
+    }
+
+    & div.front {
         background-color: ${props => props.groundColorFront};
-        transform: skewY(60deg);
-        border-right: 1px solid ${props => darkenHex(props.groundColorFront)};
+    }
+
+    & div.right {
+        width: ${depth}px;
+        background-color: ${props => props.groundColorFront};
+        transform: rotateY(-90deg) translateZ(${depth/2}px) translateX(-${depth/2}px);
+    }
+
+    & div.top {
+        height: ${depth}px;
+        background-color: ${props => props.groundColor};
+        transform: rotateX(90deg) translateZ(${depth/2}px) translateY(-${depth/2}px);
     }
 `;
 

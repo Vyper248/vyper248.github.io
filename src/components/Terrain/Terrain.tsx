@@ -23,6 +23,11 @@ type TerrainProps = {
 const Block = ({details, blockStyle}: BlockProps) => {
     return (
         <StyledBlock {...details} {...blockStyle}>
+            <div className='block'>
+                <div className='side front'></div>
+                <div className='side right'></div>
+                <div className='side top'></div>
+            </div>
             { details.label ? <StyledBlockLabel>{details.label}</StyledBlockLabel> : null }
         </StyledBlock>
     );

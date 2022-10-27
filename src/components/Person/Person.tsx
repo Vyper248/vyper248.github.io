@@ -167,7 +167,7 @@ const Person = ({blocks, items, onLeave}: PersonProps) => {
             else if (!collidedWith.description) setInfoText('');
         }
 
-    }, [colliding, manageKeyPresses, teleporting, xPos, xVel, yPos, yVel, blocks, particleArr, closeTo, items, jetpackParticleArr]);
+    }, [infoText.length, colliding, manageKeyPresses, teleporting, xPos, xVel, yPos, yVel, blocks, particleArr, closeTo, items, jetpackParticleArr]);
 
     const keyDownListener = useCallback((e: KeyboardEvent) => {
         if (ALLOWABLE_KEYS.includes(e.code)) e.preventDefault();

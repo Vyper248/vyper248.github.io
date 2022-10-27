@@ -65,7 +65,7 @@ export const projects = [
         y: 0,
         offset: 48,
         width: 200,
-        group: '',
+        group: 'Old Projects',
         svg: 'building4.svg',        
     },
     {
@@ -76,7 +76,7 @@ export const projects = [
         y: 0,
         offset: 48,
         width: 200,
-        group: '',
+        group: 'Old Projects',
         svg: 'building8.svg',        
     },
     {
@@ -87,7 +87,7 @@ export const projects = [
         y: 0,
         offset: 48,
         width: 200,
-        group: '',
+        group: 'Old Projects',
         svg: 'building7.svg',        
     },
     {
@@ -98,7 +98,7 @@ export const projects = [
         y: 0,
         offset: 48,
         width: 200,
-        group: '',
+        group: 'Old Projects',
         svg: 'building9.svg',        
     },
     //Old Projects
@@ -110,7 +110,7 @@ export const projects = [
         y: 0,
         offset: 48,
         width: 200,
-        group: 'Old Projects',
+        group: 'Very Old Projects',
         svg: 'building14.svg',        
     },
     {
@@ -121,7 +121,7 @@ export const projects = [
         y: 0,
         offset: 48,
         width: 200,
-        group: 'Old Projects',
+        group: 'Very Old Projects',
         svg: 'building3.svg',        
     },
     {
@@ -132,7 +132,7 @@ export const projects = [
         y: 0,
         offset: 48,
         width: 200,
-        group: 'Old Projects',
+        group: 'Very Old Projects',
         svg: 'building8.svg',        
     },
     {
@@ -143,7 +143,7 @@ export const projects = [
         y: 0,
         offset: 48,
         width: 200,
-        group: 'Old Projects',
+        group: 'Very Old Projects',
         svg: 'building4.svg',        
     },
     {
@@ -154,7 +154,7 @@ export const projects = [
         y: 0,
         offset: 48,
         width: 200,
-        group: 'Old Projects',
+        group: 'Very Old Projects',
         svg: 'building3.svg',        
     },
     {
@@ -165,7 +165,7 @@ export const projects = [
         y: 0,
         offset: 48,
         width: 200,
-        group: 'Old Projects',
+        group: 'Very Old Projects',
         svg: 'building7.svg',        
     },
     {
@@ -176,7 +176,7 @@ export const projects = [
         y: 0,
         offset: 48,
         width: 200,
-        group: 'Old Projects',
+        group: 'Very Old Projects',
         svg: 'building4.svg',        
     },
     //Experiments

@@ -22,14 +22,14 @@ export const projectsLayout = [
         y: projectY+=300,
         width: 900,
         height: 40,
-        label: ''
+        label: 'Old Projects'
     },
     {
         x: 50,
         y: projectY+=300,
         width: 1400,
         height: 40,
-        label: 'Old Projects'
+        label: 'Very Old Projects'
     },
     {
         x: 350,
@@ -43,7 +43,7 @@ export const projectsLayout = [
         y: 0,
         width: 2600,
         height: 50,
-        label: planetInstructions
+        label: ''
     },
 ];
 

@@ -60,8 +60,8 @@ const Person = ({blocks, items, onLeave}: PersonProps) => {
     const [teleporting, setTeleporting] = useState(true);
     const [leaving, setLeaving] = useState(false);
 
-    const [xPos, setXPos] = useState(100);
-    const [yPos, setYPos] = useState(160);
+    const [xPos, setXPos] = useState(200);
+    const [yPos, setYPos] = useState(110);
     const [xVel, setXVel] = useState(0);
     const [yVel, setYVel] = useState(0);
     const [direction, setDirection] = useState(1);

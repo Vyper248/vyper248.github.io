@@ -47,41 +47,29 @@ export const projectsLayout = [
     },
 ];
 
+projectY = 0;
+
 export const skillsLayout = [
     {
-        x: 850,
-        y: 150,
+        x: 450,
+        y: projectY+=300,
         width: 600,
         height: 40,
-        label: ''
+        label: 'Experienced'
     },
     {
         x: 150,
-        y: 300,
+        y: projectY+=300,
         width: 600,
         height: 40,
-        label: ''
+        label: 'Learning'
     },
     {
         x: 550,
-        y: 500,
+        y: projectY+=300,
         width: 800,
         height: 40,
-        label: ''
-    },
-    {
-        x: 150,
-        y: 700,
-        width: 500,
-        height: 40,
-        label: ''
-    },
-    {
-        x: 750,
-        y: 800,
-        width: 500,
-        height: 40,
-        label: ''
+        label: 'Older Skills'
     },
     { //Bottom
         x: 0,

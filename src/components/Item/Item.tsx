@@ -5,6 +5,7 @@ export type ItemProps = {
     x: number;
     y: number;
     offset: number;
+    offsetX?: number;
     svg: string;
     name: string;
     url: string;
@@ -14,12 +15,13 @@ export type ItemProps = {
 }
 
 const Item = ({svg, ...rest}: ItemProps) => {
+    let offsetX = rest.offsetX || 0;
     return (
         <>
             <StyledItem {...rest}>
                 <img src={require(`../../svgs/${svg}`)}/>
             </StyledItem>
-            <Label x={rest.x + rest.width/2} y={rest.y} label={rest.name} fromBottom={true}/>
+            <Label x={rest.x + rest.width/2 + offsetX} y={rest.y} label={rest.name} fromBottom={true}/>
         </>
     );
 }

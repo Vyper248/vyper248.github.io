@@ -7,6 +7,7 @@ const StyledLabel = styled.div`
     transform: translate(-50%, -50%);
     text-shadow: 1px 1px 10px black;
     z-index: 2;
+    white-space: nowrap;
 
     ${props => {
         return props.fromBottom

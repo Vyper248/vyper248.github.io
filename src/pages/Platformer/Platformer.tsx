@@ -6,6 +6,7 @@ import StyledPlatformer from './Platformer.style';
 import { GROUND_WIDTH, GROUND_HEIGHT } from '../../utils/constants';
 import { projectsLayout, skillsLayout } from './layouts';
 import { projects } from '../../projects';
+import { skills } from '../../skills';
 
 import Stars from '../../components/Stars/Stars';
 import Item from '../../components/Item/Item';
@@ -32,7 +33,7 @@ const Platformer = ({blockStyle, planetName, onLeave}: PlatformerProps) => {
     if (planetName === 'Skills') {
         //change to different layout
         selectedLayout = skillsLayout;
-        selectedItems = [];
+        selectedItems = skills;
     }
 
     let positionedItems = getPositionedItems(selectedItems, selectedLayout);

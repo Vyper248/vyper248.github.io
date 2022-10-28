@@ -137,7 +137,9 @@ const Person = ({blocks, items, onLeave}: PersonProps) => {
 
         //set scroll position
         let windowWidth = window.innerWidth;
-        window.scrollTo(xPos-windowWidth/2, (GROUND_HEIGHT/2)-yPos+50);
+        let windowHeight = window.innerHeight;
+        let adjustedY = GROUND_HEIGHT - yPos;
+        window.scrollTo(xPos-windowWidth/2, adjustedY - windowHeight/2 - 50);
 
         //if teleporting, prevent movement
         if (teleporting) return;

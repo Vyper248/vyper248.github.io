@@ -9,7 +9,7 @@ const StyledGameControls = styled.div`
     grid-template-columns: 50px 50px 50px;
     background-color: rgba(0,0,0,0.7);
     border-radius: 10px;
-    height: ${props => props.closed ? '50px' : '250px'};
+    height: ${props => props.closed ? '50px' : props.height};
     overflow: hidden;
     transition: height 0.3s;
 

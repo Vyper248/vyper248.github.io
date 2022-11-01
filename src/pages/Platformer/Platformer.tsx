@@ -42,7 +42,7 @@ const Platformer = ({blockStyle, planetName, onLeave}: PlatformerProps) => {
         <StyledPlatformer>
             <Stars width={GROUND_WIDTH} height={GROUND_HEIGHT} qty={200}/>
             <Terrain layout={selectedLayout} blockStyle={blockStyle}/>
-            <GameControls/>
+            <GameControls layout={planetName}/>
             <Person blocks={selectedLayout} items={positionedItems} onLeave={onLeave}/>
             {
                 positionedItems.map((item) => {

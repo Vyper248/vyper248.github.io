@@ -1,10 +1,12 @@
+import { Dispatch, SetStateAction, useEffect } from 'react';
 import StyledGamified from "./Gamified.style";
 
 import Ship from "../../components/Gamified/Ship/Ship";
 import Stars from "../../components/Gamified/Stars/Stars";
 import Planet from "../../components/Gamified/Planet/Planet";
-
+import GameControls from '../../components/Gamified/GameControls/GameControls';
 import Platformer from "../Platformer/Platformer";
+
 import { ShipPos } from "../../components/Gamified/Ship/Ship";
 import { PlanetProps } from "../../components/Gamified/Planet/Planet";
 
@@ -23,12 +25,27 @@ const grayStyle = {
     skyColor: 'transparent'
 }
 
-const Gamified = () => {
+const Gamified = ({setGamified}: {setGamified: Dispatch<SetStateAction<boolean>>}) => {
     const [landed, setLanded] = useState(false);
     const [planetName, setPlanetName] = useState('');
     const [shipPosition, setShipPosition] = useState({x: 0, y: 0, r: 0} as ShipPos);
 
     const [platformStyle, setPlatformStyle] = useState(greenStyle);
+
+    //go back to normal portfolio if pressing esc while in space
+    useEffect(() => {
+        const keyUpListener = (e: KeyboardEvent) => {
+            if (e.code === 'Escape' && !landed) {
+                setGamified(false);
+            }
+        }
+
+        window.addEventListener('keyup', keyUpListener);
+
+        return () => {
+            window.removeEventListener('keyup', keyUpListener);
+        }
+    }, [landed, setGamified]);
 
     const planets: PlanetProps[] = [
         {
@@ -82,6 +99,7 @@ const Gamified = () => {
 
     return (
         <StyledGamified width={landed ? GROUND_WIDTH : SPACE_WIDTH} height={landed ? GROUND_HEIGHT : SPACE_HEIGHT}>
+            <GameControls layout='Space'/>
             { 
                 landed 
                     ? <Platformer blockStyle={platformStyle} planetName={planetName} onLeave={onLeave}/> 

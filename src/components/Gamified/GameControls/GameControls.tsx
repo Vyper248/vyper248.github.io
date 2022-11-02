@@ -21,6 +21,23 @@ const CloseLeaveControls = ({closed}: {closed: boolean}) => {
     );
 }
 
+const CloseLeaveControlsSpace = ({closed}: {closed: boolean}) => {
+    return (
+        <>
+            <div>
+                <div>
+                    {closed ? 'C' : 'Esc' }
+                </div>
+            </div>
+            <div className='span2'>
+                <span>
+                    {closed ? 'Show Controls' : 'Exit Game'}
+                </span>
+            </div>
+        </>
+    );
+}
+
 const EnterControls = () => {
     return (
         <>
@@ -98,6 +115,15 @@ const GameControls = ({layout}: {layout: string}) => {
         return (
             <StyledGameControls height='150px' onClick={onToggle} closed={closed}>
                 <CloseLeaveControls closed={closed}/>
+                <MoveControls/>
+            </StyledGameControls>
+        );
+    }
+
+    if (layout === 'Space') {
+        return (
+            <StyledGameControls height='150px' onClick={onToggle} closed={closed}>
+                <CloseLeaveControlsSpace closed={closed}/>
                 <MoveControls/>
             </StyledGameControls>
         );

@@ -1,6 +1,6 @@
 import React, { createRef, RefObject, useEffect, useState, useCallback } from 'react';
 
-import { FRAME_SPEED, GROUND_HEIGHT  } from "../../utils/constants";
+import { FRAME_SPEED, GROUND_HEIGHT  } from "../../../utils/constants";
 import { ItemProps as Item } from '../Item/Item';
 import { TerrainBlock } from '../Terrain/Terrain';
 import { ParticleObj } from '../Ship/Ship';

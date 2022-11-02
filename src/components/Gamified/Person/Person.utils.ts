@@ -1,4 +1,4 @@
-import { GROUND_WIDTH, GROUND_HEIGHT  } from "../../utils/constants";
+import { GROUND_WIDTH, GROUND_HEIGHT  } from "../../../utils/constants";
 
 import { ParticleObj } from "../Ship/Ship";
 import { TerrainBlock } from "../Terrain/Terrain";

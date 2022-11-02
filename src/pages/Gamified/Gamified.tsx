@@ -1,12 +1,12 @@
 import StyledGamified from "./Gamified.style";
 
-import Ship from "../../components/Ship/Ship";
-import Stars from "../../components/Stars/Stars";
-import Planet from "../../components/Planet/Planet";
+import Ship from "../../components/Gamified/Ship/Ship";
+import Stars from "../../components/Gamified/Stars/Stars";
+import Planet from "../../components/Gamified/Planet/Planet";
 
 import Platformer from "../Platformer/Platformer";
-import { ShipPos } from "../../components/Ship/Ship";
-import { PlanetProps } from "../../components/Planet/Planet";
+import { ShipPos } from "../../components/Gamified/Ship/Ship";
+import { PlanetProps } from "../../components/Gamified/Planet/Planet";
 
 import { SPACE_WIDTH, SPACE_HEIGHT, GROUND_WIDTH, GROUND_HEIGHT } from "../../utils/constants";
 import { useCallback, useState } from "react";

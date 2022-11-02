@@ -1,7 +1,7 @@
 import { useEffect, useState, forwardRef } from "react";
 import StyledParticle from "./Particle.style";
 
-import { FRAME_SPEED } from "../../utils/constants";
+import { FRAME_SPEED } from "../../../utils/constants";
 
 type ParticleProps = {
     ixPos: number;

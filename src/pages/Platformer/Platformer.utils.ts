@@ -1,5 +1,5 @@
-import { ItemProps } from '../../components/Item/Item';
-import { TerrainBlock } from '../../components/Terrain/Terrain';
+import { ItemProps } from '../../components/Gamified/Item/Item';
+import { TerrainBlock } from '../../components/Gamified/Terrain/Terrain';
 
 type ItemGroup = {
     [key: string]: ItemProps[];

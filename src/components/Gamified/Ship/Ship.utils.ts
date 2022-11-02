@@ -1,6 +1,6 @@
 import { PlanetProps as Planet } from "../Planet/Planet";
 
-import { FRAME_SPEED } from "../../utils/constants";
+import { FRAME_SPEED } from "../../../utils/constants";
 
 const MOVE_SPEED = 0.2*FRAME_SPEED/30;
 

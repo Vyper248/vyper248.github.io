@@ -1,9 +1,9 @@
 import { useEffect, useState, createRef, RefObject, useCallback } from "react";
 
 import StyledShip from "./Ship.style";
-import ShipImage from '../../svgs/ship.svg';
+import ShipImage from '../../../svgs/ship.svg';
 
-import { FRAME_SPEED, SPACE_WIDTH, SPACE_HEIGHT } from "../../utils/constants";
+import { FRAME_SPEED, SPACE_WIDTH, SPACE_HEIGHT } from "../../../utils/constants";
 import { PlanetProps as Planet } from "../Planet/Planet";
 
 import { cleanParticleArr } from "../Person/Person.utils";

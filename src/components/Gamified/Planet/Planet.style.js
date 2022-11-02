@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { darkenHex } from '../../utils/colors';
+import { darkenHex } from '../../../utils/colors';
 
 //random number between a and b
 const r = (a, b) => {

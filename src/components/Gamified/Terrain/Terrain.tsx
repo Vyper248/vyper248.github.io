@@ -1,6 +1,6 @@
 import StyledTerrain, { StyledBlock, StyledBlockLabel } from './Terrain.style';
 
-import { BlockStyle, } from '../../pages/Platformer/Platformer';
+import { BlockStyle, } from '../../../pages/Platformer/Platformer';
 
 export type TerrainBlock = {
     x: number;

@@ -19,7 +19,7 @@ const Item = ({svg, ...rest}: ItemProps) => {
     return (
         <>
             <StyledItem {...rest}>
-                <img src={require(`../../svgs/${svg}`)}/>
+                <img src={require(`../../../svgs/${svg}`)}/>
             </StyledItem>
             <Label x={rest.x + rest.width/2 + offsetX} y={rest.y} label={rest.name} fromBottom={true}/>
         </>

@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
-import { darkenHex } from '../../utils/colors';
+import { darkenHex } from '../../../utils/colors';
 
-import { GROUND_WIDTH, GROUND_HEIGHT } from '../../utils/constants';
+import { GROUND_WIDTH, GROUND_HEIGHT } from '../../../utils/constants';
 
 const depth = 40;
 

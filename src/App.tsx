@@ -1,14 +1,16 @@
-import { useState } from 'react';
+import { useState, lazy, Suspense } from 'react';
 
-import Gamified from "./pages/Gamified/Gamified";
 import Portfolio from "./pages/Portfolio/Portfolio";
+import LoadingSpace from './components/Normal/LoadingSpace/LoadingSpace.style';
+
+const Gamified = lazy(() => import("./pages/Gamified/Gamified"));
 
 function App() {
   const [gamified, setGamified] = useState(false);
 
   return (
     <div className="App">
-      { gamified ? <Gamified setGamified={setGamified}/> : <Portfolio setGamified={setGamified}/> }
+      { gamified ? <Suspense fallback={<LoadingSpace/>}><Gamified setGamified={setGamified}/></Suspense> : <Portfolio setGamified={setGamified}/> }
     </div>
   );
 }

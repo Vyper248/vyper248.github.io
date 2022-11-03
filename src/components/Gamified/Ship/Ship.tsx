@@ -71,6 +71,13 @@ const Ship = ({planets, startingShipPos}: ShipProps) => {
         // eslint-disable-next-line
     }, []);
 
+    //adjust scroll position when ship position changes, if needed
+    useEffect(() => {
+        let windowHeight = window.innerHeight;
+        let windowWidth = window.innerWidth;
+        window.scrollTo(xPos-windowWidth/2, yPos-windowHeight/2);
+    }, [xPos, yPos]);
+
     const manageKeyPresses = useCallback(() => {
         if (keyPresses['ArrowRight']) {
             setRotation(rotation => rotation+ROTATION_SPEED);
@@ -113,10 +120,6 @@ const Ship = ({planets, startingShipPos}: ShipProps) => {
 
     const everyFrame = useCallback(() => {
         if (particleArr.length > 0) cleanParticleArr(particleArr, setParticleArr);
-
-        let windowHeight = window.innerHeight;
-        let windowWidth = window.innerWidth;
-        window.scrollTo(xPos-windowWidth/2, yPos-windowHeight/2);
         
         manageKeyPresses();
         

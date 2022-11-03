@@ -1,3 +1,7 @@
+:root {
+  --headingFont: 'StardosStencil';
+}
+
 * {
   box-sizing: border-box;
 }

@@ -5,10 +5,10 @@ const StyledProject = styled.a`
     justify-content: center;
     align-items: center;
     text-align: center;
-    width: 150px;
+    width: 100%;
     height: 150px;
+    min-height: 100%;
     background-color: #DEF;
-    margin: 5px;
     padding: 10px;
     text-decoration: none;
     color: black;

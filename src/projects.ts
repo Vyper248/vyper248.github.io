@@ -104,7 +104,7 @@ export const projects = [
     //Old Projects
     {
         name: 'Basic Image Gallery',
-        url: 'https://vyper248.github.io/OldStuff/imageGallery.html',
+        url: 'https://vyper248.github.io/oldPortfolio/OldStuff/imageGallery.html',
         description: 'A very simple image gallery.',
         x: 0,
         y: 0,
@@ -115,7 +115,7 @@ export const projects = [
     },
     {
         name: 'Spyrograph',
-        url: 'https://vyper248.github.io/OldStuff/spyrograph.html',
+        url: 'https://vyper248.github.io/oldPortfolio/OldStuff/spyrograph.html',
         description: 'A basic spyrograph creator. Can create multiple circular paths, each with a rotator which draws the line. These can have different speeds / rotations / colours etc. Global speed can be changed for faster viewing. Uses P5.',
         x: 0,
         y: 0,
@@ -126,7 +126,7 @@ export const projects = [
     },
     {
         name: 'Tic Tac Toe',
-        url: 'https://vyper248.github.io/OldStuff/TicTacToe.html',
+        url: 'https://vyper248.github.io/oldPortfolio/OldStuff/TicTacToe.html',
         description: 'Basic 2 player Tic Tac Toe game. Requires 2 people taking turns.',
         x: 0,
         y: 0,
@@ -137,7 +137,7 @@ export const projects = [
     },
     {
         name: 'Tic Tac Toe (2)',
-        url: 'https://vyper248.github.io/OldStuff/TicTacToe2.html',
+        url: 'https://vyper248.github.io/oldPortfolio/OldStuff/TicTacToe2.html',
         description: 'Tic Tac Toe against the AI. Also includes option to adjust the board size, although you can\'t really win with large boards!',
         x: 0,
         y: 0,
@@ -148,7 +148,7 @@ export const projects = [
     },
     {
         name: 'Colour Guessing Game',
-        url: 'https://vyper248.github.io/OldStuff/colorGuessing.html',
+        url: 'https://vyper248.github.io/oldPortfolio/OldStuff/colorGuessing.html',
         description: 'Simple game to test how well you know RGB colours. Can you guess the correct one?',
         x: 0,
         y: 0,
@@ -159,7 +159,7 @@ export const projects = [
     },
     {
         name: 'To Do List',
-        url: 'https://vyper248.github.io/OldStuff/toDoList.html',
+        url: 'https://vyper248.github.io/oldPortfolio/OldStuff/toDoList.html',
         description: 'Basic To Do List. Can add, edit and delete items, and of course mark them as complete or not. Data is stored in local storage, no server used (just for testing).',
         x: 0,
         y: 0,
@@ -170,7 +170,7 @@ export const projects = [
     },
     {
         name: 'Gradient Generator',
-        url: 'https://vyper248.github.io/CompleteWebDevCourse/backgroundGenerator.html',
+        url: 'https://vyper248.github.io/oldPortfolio/CompleteWebDevCourse/backgroundGenerator.html',
         description: 'This project allows the creation of linear gradients. I added to it by including sliders to adjust the percentages as well as the ability to add more colours.',
         x: 0,
         y: 0,
@@ -182,7 +182,7 @@ export const projects = [
     //Experiments
     {
         name: 'Random Walkers',
-        url: 'https://vyper248.github.io/OldStuff/randomWalker.html',
+        url: 'https://vyper248.github.io/oldPortfolio/OldStuff/randomWalker.html',
         description: 'Playing around with randomness to create walkers. Has a few controls for display, size, speed and random type. Uses P5.',
         x: 0,
         y: 0,
@@ -193,7 +193,7 @@ export const projects = [
     },
     {
         name: 'Perlin Noise',
-        url: 'https://vyper248.github.io/OldStuff/noise.html',
+        url: 'https://vyper248.github.io/oldPortfolio/OldStuff/noise.html',
         description: 'Experimenting with different ways of using and displaying noise, including a simple wave, a flow field and a 3D representation. Uses P5.',
         x: 0,
         y: 0,
@@ -204,7 +204,7 @@ export const projects = [
     },
     {
         name: 'Stick Figure',
-        url: 'https://vyper248.github.io/OldStuff/myStickFigure.html',
+        url: 'https://vyper248.github.io/oldPortfolio/OldStuff/myStickFigure.html',
         description: 'Experimenting with creating an animatable stick figure. Can create and save different poses and use those to create an animation. But it was never completed. Uses P5.',
         x: 0,
         y: 0,
@@ -215,7 +215,7 @@ export const projects = [
     },
     {
         name: 'Forces',
-        url: 'https://vyper248.github.io/OldStuff/forces.html',
+        url: 'https://vyper248.github.io/oldPortfolio/OldStuff/forces.html',
         description: 'Messing around with different forces such as wind, drag, friction and gravity. Includes a few other options to play with, although collision was just basic with no real physics involved, so doesn\'t look great. Uses P5.',
         x: 0,
         y: 0,

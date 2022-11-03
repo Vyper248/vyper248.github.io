@@ -99,7 +99,7 @@ const Gamified = ({setGamified}: {setGamified: Dispatch<SetStateAction<boolean>>
 
     return (
         <StyledGamified width={landed ? GROUND_WIDTH : SPACE_WIDTH} height={landed ? GROUND_HEIGHT : SPACE_HEIGHT}>
-            <GameControls layout='Space'/>
+            { landed ? null : <GameControls layout='Space'/> }
             { 
                 landed 
                     ? <Platformer blockStyle={platformStyle} planetName={planetName} onLeave={onLeave}/> 

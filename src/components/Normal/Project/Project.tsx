@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import StyledProject from './Project.style';
 
 export type ProjectProps = {

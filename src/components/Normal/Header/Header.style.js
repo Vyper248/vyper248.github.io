@@ -31,7 +31,7 @@ const StyledHeader = styled.div`
         text-align: center;
         font-variant: small-caps;
         font-size: 3em;
-        font-family: 'StardosStencil';
+        font-family: var(--headingFont);
     }
 `
 

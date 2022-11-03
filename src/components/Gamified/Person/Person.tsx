@@ -124,6 +124,14 @@ const Person = ({blocks, items, onLeave}: PersonProps) => {
         return moving;
     }, [xPos, yPos, yVel, direction, keyPresses]);
 
+    useEffect(() => {
+        //set scroll position
+        let windowWidth = window.innerWidth;
+        let windowHeight = window.innerHeight;
+        let adjustedY = GROUND_HEIGHT - yPos;
+        window.scrollTo(xPos-windowWidth/2, adjustedY - windowHeight/2 - 50);
+    }, [xPos, yPos]);
+
     const everyFrame = useCallback(() => {      
         //clean old particles that have faded out. Do multiple times for jetpack particles as 4 are added at a time
         cleanParticleArr(particleArr, setParticleArr);
@@ -134,12 +142,6 @@ const Person = ({blocks, items, onLeave}: PersonProps) => {
         
         //when teleporting, add particles
         if (teleporting) addTeleportParticle(setParticleArr);
-
-        //set scroll position
-        let windowWidth = window.innerWidth;
-        let windowHeight = window.innerHeight;
-        let adjustedY = GROUND_HEIGHT - yPos;
-        window.scrollTo(xPos-windowWidth/2, adjustedY - windowHeight/2 - 50);
 
         //if teleporting, prevent movement
         if (teleporting) return;
@@ -168,7 +170,6 @@ const Person = ({blocks, items, onLeave}: PersonProps) => {
             if (infoText.length > 0 && collidedWith.description) setInfoText(collidedWith.description);
             else if (!collidedWith.description) setInfoText('');
         }
-
     }, [infoText.length, colliding, manageKeyPresses, teleporting, xPos, xVel, yPos, yVel, blocks, particleArr, closeTo, items, jetpackParticleArr]);
 
     const keyDownListener = useCallback((e: KeyboardEvent) => {

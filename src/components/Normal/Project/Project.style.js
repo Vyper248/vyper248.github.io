@@ -7,14 +7,13 @@ const StyledProject = styled.a`
     text-align: center;
     width: calc(20% - 10px);
     margin: 5px;
-    height: 150px;
+    height: ${props => props.displayMode === 'minimal' ? '80px;' : '150px;'};
     min-height: 100%;
     background-color: var(--project-color);
-    /* border: 1px solid var(--border-color); */
     padding: 10px;
     text-decoration: none;
-    color: black;
-    transition: width 0s, background-color 0.4s;
+    color: var(--text-color);
+    transition: 0.4s;
 
     &:hover {
         cursor: pointer;
@@ -23,40 +22,39 @@ const StyledProject = styled.a`
 
     @media screen and (max-width: 700px) {
         width: calc(25% - 10px);
-        transition: width 0s;
     }
 
     @media screen and (max-width: 600px) {
         width: calc(33% - 10px);
-        transition: width 0s;
     }
 
     @media screen and (max-width: 350px) {
         width: calc(50% - 10px);
-        transition: width 0s;
     }
 `
 
 export const StyledLargeProject = styled.a`
-    width: 100%;
-    border: 1px solid var(--border-color);
-    color: black;
+    width: ${props => props.displayMode === 'minimal' ? '145px;' : '100%;'};
+    border: 1px solid var(--project-color);
+    color: var(--text-color);
     text-decoration: none;
     margin: 10px 5px;
-    transition: width 0s, background-color 0.4s;
+    transition: 0.4s;
+    background-color: var(--project-color);
 
     &:hover {
         background-color: var(--project-color-hover);
         border-color: var(--project-color-hover);
 
         .screenshot {
-            border-bottom: 1px solid var(--project-color-hover);
+            border-bottom: 1px solid var(--project-color);
         }
     }
 
     & .screenshot {
-        border-bottom: 1px solid var(--border-color);
+        border-bottom: 1px solid var(--project-color);
         height: max-content;
+        overflow: hidden;
 
         img {
             width: 100%;
@@ -67,6 +65,7 @@ export const StyledLargeProject = styled.a`
     & .name {
         padding: 10px;
         margin: 5px 0px;
+        min-height: ${props => props.displayMode === 'minimal' ? '60px;' : '0px'};
     }
 
     & .description {
@@ -77,6 +76,10 @@ export const StyledLargeProject = styled.a`
 export const StyledMediumProject = styled(StyledLargeProject)`
     width: calc(50% - 10px);
     margin: 5px;
+
+    & .name {
+        min-height: 0px;
+    }
 
     @media screen and (max-width: 500px) {
         width: 100%;

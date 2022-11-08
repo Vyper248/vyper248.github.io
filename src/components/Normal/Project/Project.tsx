@@ -1,5 +1,6 @@
-import { useState } from 'react';
 import StyledProject, { StyledLargeProject, StyledMediumProject } from './Project.style';
+
+import { useAppSelector } from '../../../redux/hooks';
 
 export type ProjectProps = {
     name: string;
@@ -11,10 +12,11 @@ export type ProjectProps = {
 }
 
 const Project = ({ name, url, description, screenshot, displaySize=1 }: ProjectProps) => {
+    const displayMode = useAppSelector(state => state.setup.displayMode);
 
     if (displaySize === 3) {
         return (
-            <StyledLargeProject href={url} target='_blank'>
+            <StyledLargeProject href={url} target='_blank' displayMode={displayMode}>
                 <div className='screenshot'><img src={require(`../../../websiteScreenshots/${screenshot}`)}/></div>
                 <h4 className='name'>{ name }</h4>
                 <div className='description'>{ description }</div>
@@ -22,9 +24,9 @@ const Project = ({ name, url, description, screenshot, displaySize=1 }: ProjectP
         );
     }
 
-    if (displaySize === 2) {
+    if (displaySize === 2 && displayMode !== 'minimal') {
         return (
-            <StyledMediumProject href={url} target='_blank'>
+            <StyledMediumProject href={url} target='_blank' displayMode={displayMode}>
                 <h4 className='name'>{ name }</h4>
                 <div className='description'>{ description }</div>
             </StyledMediumProject>
@@ -32,7 +34,7 @@ const Project = ({ name, url, description, screenshot, displaySize=1 }: ProjectP
     }
 
     return (
-        <StyledProject href={url} target='_blank'>
+        <StyledProject href={url} target='_blank' displayMode={displayMode}>
             { name }
         </StyledProject>
     );

@@ -9,6 +9,7 @@ const StyledButton = styled.div`
     margin: ${props => props.margin ? props.margin : '5px'};
     display: inline-block;
     text-align: center;
+    ${props => props.selected ? 'filter: brightness(75%);' : ''}
 
     &:hover {
         cursor: pointer;

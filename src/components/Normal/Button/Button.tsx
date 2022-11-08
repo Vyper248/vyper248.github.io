@@ -8,16 +8,15 @@ type ButtonProps = {
     textColor?: string;
     width?: string;
     margin?: string;
+    selected?: boolean;
 }
 
-const Button = ({label='', onClick=()=>{}, color='#CCC', textColor, width, margin}: ButtonProps) => {
+const Button = ({label='', onClick=()=>{}, color='#CCC', ...rest}: ButtonProps) => {
     return (
         <StyledButton 
-            color={color} 
-            textColor={textColor}
-            width={width} 
-            margin={margin} 
-            onClick={onClick}>{label}</StyledButton>
+            color={color}
+            onClick={onClick}
+            {...rest}>{label}</StyledButton>
     );
 }
 

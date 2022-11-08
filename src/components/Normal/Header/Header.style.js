@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const StyledHeader = styled.div`
     width: 100%;
-    background-color: var(--project-color);
+    background-color: var(--header-color);
     margin: 0px;
 
     & > div.container {
@@ -13,6 +13,10 @@ const StyledHeader = styled.div`
     & div#links {
         padding: 10px;
         display: flex;
+
+        & a {
+            color: var(--text-color);
+        }
 
         & > div {
             display: flex;

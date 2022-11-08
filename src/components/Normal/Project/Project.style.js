@@ -5,27 +5,45 @@ const StyledProject = styled.a`
     justify-content: center;
     align-items: center;
     text-align: center;
-    width: 100%;
+    width: calc(20% - 10px);
+    margin: 5px;
     height: 150px;
     min-height: 100%;
     background-color: var(--project-color);
+    /* border: 1px solid var(--border-color); */
     padding: 10px;
     text-decoration: none;
     color: black;
+    transition: width 0s, background-color 0.4s;
 
     &:hover {
         cursor: pointer;
         background-color: var(--project-color-hover);
     }
+
+    @media screen and (max-width: 700px) {
+        width: calc(25% - 10px);
+        transition: width 0s;
+    }
+
+    @media screen and (max-width: 600px) {
+        width: calc(33% - 10px);
+        transition: width 0s;
+    }
+
+    @media screen and (max-width: 350px) {
+        width: calc(50% - 10px);
+        transition: width 0s;
+    }
 `
 
 export const StyledLargeProject = styled.a`
-    grid-column: span 5;
+    width: 100%;
     border: 1px solid var(--border-color);
     color: black;
     text-decoration: none;
-    margin: 10px 0px;
-    transition: 0.4s;
+    margin: 10px 5px;
+    transition: width 0s, background-color 0.4s;
 
     &:hover {
         background-color: var(--project-color-hover);
@@ -57,7 +75,13 @@ export const StyledLargeProject = styled.a`
 `;
 
 export const StyledMediumProject = styled(StyledLargeProject)`
-    grid-column: span 2;
+    width: calc(50% - 10px);
+    margin: 5px;
+
+    @media screen and (max-width: 500px) {
+        width: 100%;
+        transition: width 0s;
+    }
 `;
 
 export default StyledProject;

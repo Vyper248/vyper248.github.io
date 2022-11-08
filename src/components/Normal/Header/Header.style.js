@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const StyledHeader = styled.div`
     width: 100%;
-    background-color: #DEF;
+    background-color: var(--project-color);
     margin: 0px;
 
     & > div.container {

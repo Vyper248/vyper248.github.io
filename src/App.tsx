@@ -1,7 +1,7 @@
 import { useState, lazy, Suspense } from 'react';
 
 import Portfolio from "./pages/Portfolio/Portfolio";
-import LoadingSpace from './components/Normal/LoadingSpace/LoadingSpace.style';
+import LoadingSpace from './components/Gamified/LoadingSpace/LoadingSpace.style';
 
 const Gamified = lazy(() => import("./pages/Gamified/Gamified"));
 

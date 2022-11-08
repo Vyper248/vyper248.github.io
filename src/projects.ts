@@ -10,7 +10,9 @@ export const projects = [
         offset: 50,
         width: 200,
         group: 'Latest',
-        svg: 'building8.svg',        
+        svg: 'building8.svg',     
+        screenshot: 'GamingCommerce.png',
+        displaySize: 3
     },
     {
         name: 'Time Tracker',
@@ -21,7 +23,9 @@ export const projects = [
         offset: 50,
         width: 200,
         group: 'Latest',
-        svg: 'building7.svg',        
+        svg: 'building7.svg',    
+        screenshot: 'TimeTracker.png',
+        displaySize: 3    
     },
     {
         name: 'Food Planner',
@@ -32,7 +36,9 @@ export const projects = [
         offset: 50,
         width: 200,
         group: 'Latest',
-        svg: 'building14.svg',        
+        svg: 'building14.svg',  
+        screenshot: 'FoodPlanner.png',
+        displaySize: 3      
     },
     {
         name: 'Budget App',
@@ -43,7 +49,9 @@ export const projects = [
         offset: 50,
         width: 200,
         group: 'Latest',
-        svg: 'building9.svg',        
+        svg: 'building9.svg',     
+        screenshot: 'Budget.png',
+        displaySize: 3   
     },
     {
         name: 'Reddit React App',
@@ -54,9 +62,11 @@ export const projects = [
         offset: 48,
         width: 200,
         group: 'Latest',
-        svg: 'building3.svg',        
+        svg: 'building3.svg',      
+        screenshot: 'NewReddit.png',
+        displaySize: 3  
     },
-    //Older
+    //Old Projects
     {
         name: 'Watching Together',
         url: 'https://watch-together.onrender.com/',
@@ -67,6 +77,7 @@ export const projects = [
         width: 200,
         group: 'Old Projects',
         svg: 'building4.svg',        
+        displaySize: 2
     },
     {
         name: 'Chat Room',
@@ -77,7 +88,8 @@ export const projects = [
         offset: 48,
         width: 200,
         group: 'Old Projects',
-        svg: 'building8.svg',        
+        svg: 'building8.svg', 
+        displaySize: 2       
     },
     {
         name: 'Forest Finder',
@@ -88,7 +100,8 @@ export const projects = [
         offset: 48,
         width: 200,
         group: 'Old Projects',
-        svg: 'building7.svg',        
+        svg: 'building7.svg',   
+        displaySize: 2     
     },
     {
         name: 'Advent of Code',
@@ -99,9 +112,10 @@ export const projects = [
         offset: 48,
         width: 200,
         group: 'Old Projects',
-        svg: 'building9.svg',        
+        svg: 'building9.svg',    
+        displaySize: 2    
     },
-    //Old Projects
+    //Very Old Projects
     {
         name: 'Basic Image Gallery',
         url: 'https://vyper248.github.io/oldPortfolio/OldStuff/imageGallery.html',

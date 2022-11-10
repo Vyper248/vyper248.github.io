@@ -13,6 +13,7 @@ export const updateStyle = (style: 'dark' | 'light') => {
     if (style === 'dark') {
         root.style.setProperty('--background-color', 'black');
         root.style.setProperty('--text-color', 'white');
+        root.style.setProperty('--text-color-hover', '#CCC');
         root.style.setProperty('--border-color', 'lightgray');
         root.style.setProperty('--project-color', '#333');
         root.style.setProperty('--project-color-hover', '#555');
@@ -20,6 +21,7 @@ export const updateStyle = (style: 'dark' | 'light') => {
     } else {
         root.style.setProperty('--background-color', 'white');
         root.style.setProperty('--text-color', 'black');
+        root.style.setProperty('--text-color-hover', '#444');
         root.style.setProperty('--border-color', 'lightgray');
         root.style.setProperty('--project-color', '#DEF');
         root.style.setProperty('--project-color-hover', '#CDF');

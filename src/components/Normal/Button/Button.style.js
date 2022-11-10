@@ -11,6 +11,15 @@ const StyledButton = styled.div`
     text-align: center;
     ${props => props.selected ? 'filter: brightness(75%);' : ''}
 
+    ${props => props.selected ? `
+        &:before {
+            content: 'display = ';
+            opacity: 0.4;
+            font-family: monospaced;
+            font-variant: small-caps;
+        }
+    ` : ''}
+
     &:hover {
         cursor: pointer;
         filter: brightness(75%);

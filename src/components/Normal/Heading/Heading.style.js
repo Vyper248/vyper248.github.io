@@ -8,9 +8,9 @@ const StyledHeading = styled.h2`
     font-size: 2em;
     font-family: var(--headingFont);
 
-    background-color: var(--project-color);
+    /* background-color: var(--project-color); */
 
-    &::before {
+    /* &::before {
         content: '';
         position: absolute;
         left: 0px;
@@ -30,6 +30,16 @@ const StyledHeading = styled.h2`
         width: 100px;
         border-right: 2px solid var(--text-color);
         border-bottom: 2px solid var(--text-color);
+    } */
+
+    &::before {
+        content: '< ';
+        opacity: 0.4;
+    }
+
+    &::after {
+        content: ' />';
+        opacity: 0.4;
     }
 `
 

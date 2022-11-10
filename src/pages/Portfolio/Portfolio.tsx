@@ -3,6 +3,7 @@ import StyledPortfolio from './Portfolio.style';
 
 import { useAppSelector, useAppDispatch } from '../../redux/hooks';
 import { setDisplayMode, setStyle } from '../../redux/setupSlice';
+import { updateStyle } from '../../utils/colors';
 
 import { projects } from '../../projects';
 import { skills } from '../../skills';
@@ -34,25 +35,6 @@ const Portfolio = ({setGamified}: {setGamified: Dispatch<SetStateAction<boolean>
 
     const onClickMinified = () => {
         dispatch(setDisplayMode('minimal'));
-    }
-
-    const updateStyle = (style: 'dark' | 'light') => {
-        const root = document.documentElement;
-        if (style === 'dark') {
-            root.style.setProperty('--background-color', 'black');
-            root.style.setProperty('--text-color', 'white');
-            root.style.setProperty('--border-color', 'lightgray');
-            root.style.setProperty('--project-color', '#333');
-            root.style.setProperty('--project-color-hover', '#555');
-            root.style.setProperty('--header-color', '#777');
-        } else {
-            root.style.setProperty('--background-color', 'white');
-            root.style.setProperty('--text-color', 'black');
-            root.style.setProperty('--border-color', 'lightgray');
-            root.style.setProperty('--project-color', '#DEF');
-            root.style.setProperty('--project-color-hover', '#CDF');
-            root.style.setProperty('--header-color', '#DEF');
-        }
     }
 
     const onChangeStyle = (value: boolean) => {

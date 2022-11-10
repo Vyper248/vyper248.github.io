@@ -15,7 +15,7 @@ import Label from "../Label/Label";
 const ROTATION_SPEED = 10*FRAME_SPEED/30;
 const THRUSTER_SPEED = 30;
 const MAX_SPEED = 5;
-const ALLOWABLE_KEYS = ['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'Enter'];
+const ALLOWABLE_KEYS = ['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'Enter', 'Escape'];
 
 type KeyPresses = {
     [key: string]: boolean;

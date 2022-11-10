@@ -6,7 +6,7 @@ const StyledProject = styled.a`
     align-items: center;
     text-align: center;
     width: calc(20% - 10px);
-    margin: 5px;
+    margin: 5px 5px 0px 0px;
     height: ${props => props.displayMode === 'minimal' ? '80px;' : '150px;'};
     min-height: 100%;
     background-color: var(--project-color);

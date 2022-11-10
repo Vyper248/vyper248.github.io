@@ -50,9 +50,9 @@ const Portfolio = ({setGamified}: {setGamified: Dispatch<SetStateAction<boolean>
                 <Button label='Normal' onClick={onClickNormal} color='#DEF' selected={displayMode === 'normal'}/>
                 <Button label='Minified' onClick={onClickMinified} color='#DEF' selected={displayMode === 'minimal'}/>
                 <InputCheckbox label='Dark Mode' checked={style === 'dark'} onChange={onChangeStyle}/>
-                <Heading heading='Projects'/>
+                <Heading heading='< Projects >'/>
                 <ProjectContainer projects={projects}/>
-                <Heading heading='Skills'/>
+                <Heading heading='< Skills >'/>
                 <SkillsContainer skills={skills}/>
             </Container>
         </StyledPortfolio>

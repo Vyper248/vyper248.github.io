@@ -1,4 +1,5 @@
 import StyledSkillsContainer from './SkillsContainer.style';
+import { StyledProjectGroup } from '../ProjectContainer/ProjectContainer.style';
 
 import { getGroups } from '../../../utils/utils';
 
@@ -32,24 +33,14 @@ const SkillsContainer = ({ skills, group=false }: SkillsContainerProps) => {
                 Object.keys(groups).map((groupName: string) => {
                     let groupProjects = groups[groupName];
                     return (
-                        <div key={groupName}>
+                        <StyledProjectGroup key={groupName}>
                             <h3>{groupName}</h3>
                             <SkillsContainer skills={groupProjects} group={true}/>
-                        </div>
+                        </StyledProjectGroup>
                     );
                 })
             }
         </>
-    );
-
-    return (
-        <StyledSkillsContainer>
-            {
-                skills.map(skill => {
-                    return <Skill key={skill.name} {...skill}/>
-                })
-            }
-        </StyledSkillsContainer>
     );
 }
 

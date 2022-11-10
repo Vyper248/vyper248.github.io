@@ -9,12 +9,12 @@ const StyledButton = styled.div`
     margin: ${props => props.margin ? props.margin : '5px'};
     display: inline-block;
     text-align: center;
-    ${props => props.selected ? 'filter: brightness(75%);' : ''}
+    ${props => props.selected ? 'filter: brightness(85%);' : ''}
 
     ${props => props.selected ? `
         &:before {
             content: 'display = ';
-            opacity: 0.4;
+            opacity: 0.7;
             font-family: monospaced;
             font-variant: small-caps;
         }
@@ -22,7 +22,7 @@ const StyledButton = styled.div`
 
     &:hover {
         cursor: pointer;
-        filter: brightness(75%);
+        filter: brightness(85%);
     }
 `
 

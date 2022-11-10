@@ -4,7 +4,7 @@ export const projects = [
     {
         name: 'Gaming Commerce',
         url: 'https://gaming-commerce.netlify.app/',
-        description: 'E-Commerce website created to practise with Stripe payments, GraphQL, Redux Toolkit and Serverless Functions.',
+        description: 'Fake E-Commerce website created to practise with Stripe payments, GraphQL, Redux Toolkit and Serverless Functions.',
         x: 0,
         y: 0,
         offset: 50,

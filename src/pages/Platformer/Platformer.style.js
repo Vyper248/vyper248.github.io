@@ -6,6 +6,7 @@ const StyledPlatformer = styled.div`
     width: ${GROUND_WIDTH}px;
     height: ${GROUND_HEIGHT}px;
     z-index: 1;
+    scroll-behavior: auto;
 `
 
 export default StyledPlatformer;

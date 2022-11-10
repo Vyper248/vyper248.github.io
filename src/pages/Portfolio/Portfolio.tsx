@@ -15,6 +15,7 @@ import Container from '../../components/Normal/Container/Container';
 import Button from '../../components/Normal/Button/Button';
 import Heading from '../../components/Normal/Heading/Heading';
 import InputCheckbox from '../../components/Normal/InputCheckbox/InputCheckbox';
+import About from '../../components/Normal/About/About';
 
 const Portfolio = ({setGamified}: {setGamified: Dispatch<SetStateAction<boolean>>}) => {
     const style = useAppSelector(state => state.setup.style);
@@ -52,7 +53,7 @@ const Portfolio = ({setGamified}: {setGamified: Dispatch<SetStateAction<boolean>
                 <InputCheckbox label='Dark Mode' checked={style === 'dark'} onChange={onChangeStyle}/>
 
                 <Heading heading='About'/>
-
+                <About/>
                 <Heading heading='Projects'/>
                 <ProjectContainer projects={projects}/>
                 <Heading heading='Skills'/>

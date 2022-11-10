@@ -27,6 +27,27 @@ const StyledHeader = styled.div`
         & .gap {
             flex-grow: 1;
         }
+
+        & .scrollBtn {
+            margin: 5px;
+            font-size: 1.2em;
+            font-variant: small-caps;
+
+            :hover {
+                cursor: pointer;
+                color: var(--text-color-hover);
+            }
+
+            &::before {
+                content: '<';
+                opacity: 0.4;
+            }
+
+            &::after {
+                content: '/>';
+                opacity: 0.4;
+            }
+        }
     }
 
     h1 {

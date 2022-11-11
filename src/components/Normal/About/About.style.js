@@ -6,7 +6,7 @@ const StyledAbout = styled.div`
     & #myImage {
         width: 150px;
         height: 200px;
-        margin-right: 5px;
+        margin-right: 10px;
     }
 
     & #aboutMe {

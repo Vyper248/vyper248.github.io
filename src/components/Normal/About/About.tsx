@@ -6,7 +6,7 @@ import CodeMirror from '@uiw/react-codemirror';
 import { javascript } from '@codemirror/lang-javascript';
 
 const summary = "I love to create websites, especially if they're useful in some way. "+
-"One of the first large websites I created was for a carehome I worked for, which greatly increased productivity on the admin side of things. "+
+"One of the first large websites I created was for a carehome I worked for, which greatly increased productivity on the admin side of things."+
 "";
 
 const aboutMe = 
@@ -14,9 +14,9 @@ const aboutMe =
 const Job_Title = 'Web Developer';
 let Current_Library = 'React';
 const Interests = ['Gaming', 'Programming', 'Exploring', 'Escape Rooms'];
-    
+
 let Summary = "${summary}";
-    
+
 const images = ['outdoorsImage1.jpeg', 'outdoorsImage2.jpeg', 'catPhoto.jpeg']
 let selectedImage = images[0];`
 

@@ -68,6 +68,18 @@ export const projects = [
     },
     //Old Projects
     {
+        name: 'Care Home Management',
+        url: 'https://care-home-management.onrender.com',
+        description: 'One of the first large websites I made after learning React (actually recreated from an older JS/PHP/SQL website I made). Plenty of mistakes and things I\'d do differently, but it functioned well and was used for a care home I worked for to increase productivity.\nRender.com takes time to open.',
+        x: 0,
+        y: 0,
+        offset: 48,
+        width: 200,
+        group: 'Old Projects',
+        svg: 'building3.svg',        
+        displaySize: 2
+    },
+    {
         name: 'Watching Together',
         url: 'https://watch-together.onrender.com/',
         description: 'A simple website using Socket.io to allow 2 people to watch the same show or movie together. Events like pausing, playing and seeking are synced between the 2 users. There\'s also a text feature to allow communication without taking focus away from the screen.\nRender.com takes time to open.',

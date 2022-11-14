@@ -42,6 +42,7 @@ export const StyledThoughts = styled.div`
     background-color: white;
     border-radius: 20px;
     padding: 8px;
+    color: black;
 
     & > span {
         display: inline-block;

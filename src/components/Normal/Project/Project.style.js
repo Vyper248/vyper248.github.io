@@ -41,6 +41,7 @@ export const StyledLargeProject = styled.a`
     margin: 10px 5px;
     transition: 0.4s;
     background-color: var(--project-color);
+    white-space: break-spaces;
 
     &:hover {
         background-color: var(--project-color-hover);

@@ -118,7 +118,7 @@ export const projects = [
     {
         name: 'Advent of Code',
         url: 'https://vyper248.github.io/advent-of-code-2018/',
-        description: 'My solutions to the Advent of Code 2018 challenges. Not trying to get on the leaderboards with this, which would require getting up far too early each day, just something to do for fun.',
+        description: 'My solutions to the Advent of Code 2018 challenges. Not trying to get on the leaderboards with this, which would require getting up far too early each day, just something to do for fun. Includes visualisations for several challenges (click the eyes).',
         x: 0,
         y: 0,
         offset: 48,

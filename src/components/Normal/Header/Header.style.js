@@ -4,6 +4,7 @@ const StyledHeader = styled.div`
     width: 100%;
     background-color: var(--header-color);
     margin: 0px;
+    margin-bottom: 5px;
 
     & > div.container {
         max-width: 800px;

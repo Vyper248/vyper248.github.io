@@ -39,6 +39,7 @@ export const StyledLargeProject = styled.a`
     color: var(--text-color);
     text-decoration: none;
     margin: 10px 5px;
+    margin-bottom: ${props => props.displayMode === 'minimal' ? '5px;' : '40px;'};
     transition: 0.4s;
     background-color: var(--project-color);
     white-space: break-spaces;

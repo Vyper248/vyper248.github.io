@@ -17,7 +17,7 @@ export const updateStyle = (style: 'dark' | 'light') => {
         root.style.setProperty('--border-color', 'lightgray');
         root.style.setProperty('--project-color', '#333');
         root.style.setProperty('--project-color-hover', '#555');
-        root.style.setProperty('--header-color', '#777');
+        root.style.setProperty('--header-color', '#333');
     } else {
         root.style.setProperty('--background-color', 'white');
         root.style.setProperty('--text-color', 'black');

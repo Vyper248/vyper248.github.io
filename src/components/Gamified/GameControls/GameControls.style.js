@@ -42,6 +42,7 @@ const StyledGameControls = styled.div`
             align-items: center;
             justify-content: center;
             background-color: rgba(255,255,255,0.8);
+            color: black;
             /* opacity: 0.8; */
 
             span {

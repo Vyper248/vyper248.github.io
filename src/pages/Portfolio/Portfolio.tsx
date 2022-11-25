@@ -30,12 +30,12 @@ const Portfolio = ({setGamified}: {setGamified: Dispatch<SetStateAction<boolean>
         setGamified(true);
     }
 
-    const onClickNormal = () => {
-        dispatch(setDisplayMode('normal'));
-    }
-
-    const onClickMinified = () => {
-        dispatch(setDisplayMode('minimal'));
+    const onClickDisplayMode = () => {
+        if (displayMode === 'normal') {
+            dispatch(setDisplayMode('minimal'));
+        } else {
+            dispatch(setDisplayMode('normal'));
+        }
     }
 
     const onChangeStyle = (value: boolean) => {
@@ -48,8 +48,7 @@ const Portfolio = ({setGamified}: {setGamified: Dispatch<SetStateAction<boolean>
             <Header/>
             <Container>
                 <Button label='Gamified' onClick={onClickGamified} color='#F77'/>
-                <Button label='Normal' onClick={onClickNormal} color='#DEF' selected={displayMode === 'normal'}/>
-                <Button label='Minified' onClick={onClickMinified} color='#DEF' selected={displayMode === 'minimal'}/>
+                <Button label={displayMode === 'minimal' ? 'Minified' : 'Normal'} onClick={onClickDisplayMode} color='#DEF' selected={true}/>
                 <InputCheckbox label='Dark Mode' checked={style === 'dark'} onChange={onChangeStyle}/>
 
                 <Heading heading='About'/>

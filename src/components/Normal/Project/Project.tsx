@@ -9,6 +9,7 @@ export type ProjectProps = {
     group: string;
     screenshot?: string;
     displaySize?: number;
+    skills: string[];
 }
 
 const Project = ({ name, url, description, screenshot, displaySize=1 }: ProjectProps) => {

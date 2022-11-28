@@ -10,7 +10,7 @@ type SetupState = {
 }
 
 const initialState: SetupState = {
-    displayMode: 'normal',
+    displayMode: 'minimal',
     style: 'light'
 }
 

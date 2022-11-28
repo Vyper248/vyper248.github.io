@@ -12,7 +12,8 @@ export const projects = [
         group: 'Latest',
         svg: 'building8.svg',     
         screenshot: 'GamingCommerce.png',
-        displaySize: 3
+        displaySize: 3,
+        skills: ['React', 'Redux', 'Styled-Components', 'GraphQL', 'TypeScript', 'Serverless Functions']
     },
     {
         name: 'Time Tracker',
@@ -25,7 +26,8 @@ export const projects = [
         group: 'Latest',
         svg: 'building7.svg',    
         screenshot: 'TimeTracker.png',
-        displaySize: 3    
+        displaySize: 3,
+        skills: ['React', 'Styled-Components']
     },
     {
         name: 'Food Planner',
@@ -38,7 +40,8 @@ export const projects = [
         group: 'Latest',
         svg: 'building14.svg',  
         screenshot: 'FoodPlanner.png',
-        displaySize: 3      
+        displaySize: 3,
+        skills: ['React', 'Redux', 'Styled-Components', 'React-Router']
     },
     {
         name: 'Budget App',
@@ -51,7 +54,8 @@ export const projects = [
         group: 'Latest',
         svg: 'building9.svg',     
         screenshot: 'Budget.png',
-        displaySize: 3   
+        displaySize: 3,
+        skills: ['React', 'Redux', 'Styled-Components', 'Serverless Functions', 'Knex']   
     },
     {
         name: 'Reddit React App',
@@ -64,7 +68,8 @@ export const projects = [
         group: 'Latest',
         svg: 'building3.svg',      
         screenshot: 'NewReddit.png',
-        displaySize: 3  
+        displaySize: 3,
+        skills: ['React', 'Redux', 'React-Router', 'Styled-Components', 'Serverless Functions']  
     },
     //Old Projects
     {
@@ -77,7 +82,34 @@ export const projects = [
         width: 200,
         group: 'Old Projects',
         svg: 'building3.svg',        
-        displaySize: 2
+        displaySize: 2,
+        skills: ['React', 'React-Router', 'Redux', 'Styled-Components', 'Express', 'Knex']
+    },
+    {
+        name: 'React Components',
+        url: 'https://vyper248.github.io/React-Components/',
+        description: 'Component library I started building to avoid re-creating regularly used components.',
+        x: 0,
+        y: 0,
+        offset: 48,
+        width: 200,
+        group: 'Old Projects',
+        svg: 'building9.svg',        
+        displaySize: 2,
+        skills: ['React', 'Styled-Components']
+    },
+    {
+        name: 'Borderlands 3 App',
+        url: 'https://vyper248.github.io/borderlands3/',
+        description: 'Meant as a basic app to keep track of which items were worth keeping and what they all did. Decided a bank would be useful too, to keep track of what I already had in the bank, so added that later.',
+        x: 0,
+        y: 0,
+        offset: 48,
+        width: 200,
+        group: 'Old Projects',
+        svg: 'building7.svg',        
+        displaySize: 2,
+        skills: ['React', 'Styled-Components']
     },
     {
         name: 'Watching Together',
@@ -89,7 +121,8 @@ export const projects = [
         width: 200,
         group: 'Old Projects',
         svg: 'building4.svg',        
-        displaySize: 2
+        displaySize: 2,
+        skills: ['Express', 'Socket.io', 'EJS']
     },
     {
         name: 'Chat Room',
@@ -101,7 +134,8 @@ export const projects = [
         width: 200,
         group: 'Old Projects',
         svg: 'building8.svg', 
-        displaySize: 2       
+        displaySize: 2,
+        skills: ['Express', 'Socket.io']       
     },
     {
         name: 'Forest Finder',
@@ -113,19 +147,34 @@ export const projects = [
         width: 200,
         group: 'Old Projects',
         svg: 'building7.svg',   
-        displaySize: 2     
+        displaySize: 2,
+        skills: ['Express', 'EJS', 'Passport', 'Mongoose', 'Bootstrap']     
     },
     {
-        name: 'Advent of Code',
-        url: 'https://vyper248.github.io/advent-of-code-2018/',
-        description: 'My solutions to the Advent of Code 2018 challenges. Not trying to get on the leaderboards with this, which would require getting up far too early each day, just something to do for fun. Includes visualisations for several challenges (click the eyes).',
+        name: 'Advent of Code 2019',
+        url: 'https://vyper248.github.io/advent-of-code-2019/',
+        description: 'My solutions to the Advent of Code 2019 challenges. Includes visualisations for a couple of challenges (click the eyes).',
         x: 0,
         y: 0,
         offset: 48,
         width: 200,
         group: 'Old Projects',
         svg: 'building9.svg',    
-        displaySize: 2    
+        displaySize: 2,
+        skills: []    
+    },
+    {
+        name: 'Advent of Code 2018',
+        url: 'https://vyper248.github.io/advent-of-code-2018/',
+        description: 'My solutions to the Advent of Code 2018 challenges. Includes visualisations for several challenges (click the eyes).',
+        x: 0,
+        y: 0,
+        offset: 48,
+        width: 200,
+        group: 'Old Projects',
+        svg: 'building9.svg',    
+        displaySize: 2,
+        skills: ['JavaScript']    
     },
     //Very Old Projects
     {
@@ -137,7 +186,8 @@ export const projects = [
         offset: 48,
         width: 200,
         group: 'Very Old Projects',
-        svg: 'building14.svg',        
+        svg: 'building14.svg',
+        skills: []        
     },
     {
         name: 'Spyrograph',
@@ -148,7 +198,8 @@ export const projects = [
         offset: 48,
         width: 200,
         group: 'Very Old Projects',
-        svg: 'building3.svg',        
+        svg: 'building3.svg',
+        skills: []        
     },
     {
         name: 'Tic Tac Toe',
@@ -159,7 +210,8 @@ export const projects = [
         offset: 48,
         width: 200,
         group: 'Very Old Projects',
-        svg: 'building8.svg',        
+        svg: 'building8.svg',
+        skills: []        
     },
     {
         name: 'Tic Tac Toe (2)',
@@ -170,7 +222,8 @@ export const projects = [
         offset: 48,
         width: 200,
         group: 'Very Old Projects',
-        svg: 'building4.svg',        
+        svg: 'building4.svg',
+        skills: []        
     },
     {
         name: 'Colour Guessing Game',
@@ -181,7 +234,8 @@ export const projects = [
         offset: 48,
         width: 200,
         group: 'Very Old Projects',
-        svg: 'building3.svg',        
+        svg: 'building3.svg',
+        skills: []        
     },
     {
         name: 'To Do List',
@@ -192,7 +246,8 @@ export const projects = [
         offset: 48,
         width: 200,
         group: 'Very Old Projects',
-        svg: 'building7.svg',        
+        svg: 'building7.svg',
+        skills: []        
     },
     {
         name: 'Gradient Generator',
@@ -203,7 +258,8 @@ export const projects = [
         offset: 48,
         width: 200,
         group: 'Very Old Projects',
-        svg: 'building4.svg',        
+        svg: 'building4.svg',
+        skills: []        
     },
     //Experiments
     {
@@ -215,7 +271,8 @@ export const projects = [
         offset: 48,
         width: 200,
         group: 'Experiments',
-        svg: 'building3.svg',        
+        svg: 'building3.svg',
+        skills: []        
     },
     {
         name: 'Perlin Noise',
@@ -226,7 +283,8 @@ export const projects = [
         offset: 48,
         width: 200,
         group: 'Experiments',
-        svg: 'building8.svg',        
+        svg: 'building8.svg',
+        skills: []        
     },
     {
         name: 'Stick Figure',
@@ -237,7 +295,8 @@ export const projects = [
         offset: 48,
         width: 200,
         group: 'Experiments',
-        svg: 'building7.svg',        
+        svg: 'building7.svg',
+        skills: []        
     },
     {
         name: 'Forces',
@@ -248,6 +307,7 @@ export const projects = [
         offset: 48,
         width: 200,
         group: 'Experiments',
-        svg: 'building4.svg',        
+        svg: 'building4.svg',
+        skills: []        
     },
 ];

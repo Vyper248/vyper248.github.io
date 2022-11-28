@@ -8,6 +8,8 @@ import { projectsLayout, skillsLayout } from './layouts';
 import { projects } from '../../projects';
 import { skills } from '../../skills';
 
+import { ItemProps } from '../../components/Gamified/Item/Item';
+
 import Stars from '../../components/Gamified/Stars/Stars';
 import Item from '../../components/Gamified/Item/Item';
 import GameControls from '../../components/Gamified/GameControls/GameControls';
@@ -28,7 +30,7 @@ type PlatformerProps = {
 
 const Platformer = ({blockStyle, planetName, onLeave}: PlatformerProps) => {
     let selectedLayout = projectsLayout;
-    let selectedItems = projects;
+    let selectedItems = projects as ItemProps[];
 
     if (planetName === 'Skills') {
         //change to different layout

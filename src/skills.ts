@@ -48,7 +48,7 @@ export const skills = [
         svg: 'react.svg',        
     },
     {
-        name: 'Redux Toolkit',
+        name: 'Redux',
         url: '',
         description: '',
         x: 0,
@@ -70,6 +70,18 @@ export const skills = [
         width: 150,
         group: 'Experienced',
         svg: 'styled-components.svg',        
+    },
+    {
+        name: 'React-Router',
+        url: '',
+        description: '',
+        x: 0,
+        y: 0,
+        offset: 70,
+        offsetX: 50,
+        width: 150,
+        group: 'Experienced',
+        svg: 'react-router.svg',        
     },
     //Learning
     {
@@ -107,6 +119,30 @@ export const skills = [
         width: 150,
         group: 'Learning',
         svg: 'nextJS.svg',        
+    },
+    {
+        name: 'GraphQL',
+        url: '',
+        description: '',
+        x: 0,
+        y: 0,
+        offset: 50,
+        offsetX: 30,
+        width: 150,
+        group: 'Learning',
+        svg: 'graphQL.svg',        
+    },
+    {
+        name: 'Serverless Functions',
+        url: '',
+        description: '',
+        x: 0,
+        y: 0,
+        offset: 50,
+        offsetX: 30,
+        width: 150,
+        group: 'Learning',
+        svg: '',        
     },
     //Older Skills
     {

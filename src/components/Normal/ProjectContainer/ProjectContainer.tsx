@@ -9,15 +9,40 @@ import Project from '../Project/Project';
 type ProjectContainerProps = {
     projects: ProjectProps[];
     group?: boolean;
+    filters: string[];
 }
 
-const ProjectContainer = ({ projects, group=false }: ProjectContainerProps) => {
+const checkFilters = (project: ProjectProps, filters: string[]) => {
+    if (filters.length === 0) return true;
+
+    let alwaysUsed = new Set(['JavaScript', 'HTML5', 'CSS3']);
+
+    let projectSkills = new Set(project.skills);
+    let filterCheck = true;
+
+    for (let i = 0; i < filters.length; i++) {
+        let filter = filters[i];
+
+        //no point adding these to every project, so just ignore
+        if (alwaysUsed.has(filter)) continue;
+        
+        if (!projectSkills.has(filter)) {
+            filterCheck = false;
+            break;
+        } 
+    }
+
+    return filterCheck;
+}
+
+const ProjectContainer = ({ projects, filters, group=false }: ProjectContainerProps) => {
     if (group) {
         return (
             <StyledProjectContainer>
                 {
                     projects.map((project: ProjectProps) => {
-                        return <Project key={project.name} {...project}/>
+                        if (checkFilters(project, filters)) return <Project key={project.name} {...project}/>
+                        else return null;
                     })
                 }
             </StyledProjectContainer>
@@ -34,7 +59,7 @@ const ProjectContainer = ({ projects, group=false }: ProjectContainerProps) => {
                     return (
                         <StyledProjectGroup key={groupName}>
                             <h3>{groupName}</h3>
-                            <ProjectContainer projects={groupProjects} group={true}/>
+                            <ProjectContainer projects={groupProjects} filters={filters} group={true}/>
                         </StyledProjectGroup>
                     );
                 })

@@ -16,6 +16,7 @@ export type ItemProps = {
 
 const Item = ({svg, ...rest}: ItemProps) => {
     let offsetX = rest.offsetX || 0;
+    if (svg === '') return null;
     return (
         <>
             <StyledItem {...rest}>

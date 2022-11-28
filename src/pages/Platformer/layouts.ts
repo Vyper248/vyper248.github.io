@@ -51,21 +51,21 @@ projectY = 0;
 
 export const skillsLayout = [
     {
-        x: 450,
+        x: 150,
         y: projectY+=300,
         width: 600,
         height: 40,
         label: 'Experienced'
     },
     {
-        x: 150,
+        x: 450,
         y: projectY+=300,
         width: 600,
         height: 40,
         label: 'Learning'
     },
     {
-        x: 550,
+        x: 350,
         y: projectY+=300,
         width: 800,
         height: 40,

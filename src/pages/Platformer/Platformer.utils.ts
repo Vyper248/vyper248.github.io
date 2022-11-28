@@ -35,12 +35,16 @@ const mapAvailablePositions = (itemGroups: ItemGroup, layout: TerrainBlock[]) =>
         let itemsForGroup = itemGroups[layoutObj.label];
         if (!itemsForGroup) return;
 
+        //filter out any skills with no SVG
+        itemsForGroup = itemsForGroup.filter(itemObj => itemObj.svg.length > 0);
+
         //get starting x position based on label width and layout x position
         let xAdjust = layoutObj.label ? estimateLabelWidth(layoutObj.label) * 8 : 0;
         let x = layoutObj.x + xAdjust + 20;
 
         //get array of items with position added
-        let itemArr = itemsForGroup.map(itemObj => {
+        let itemArr = itemsForGroup.flatMap(itemObj => {
+            if (itemObj.svg === '') return [];
             x += 200;
             return {...itemObj, x: x-200, y: layoutObj.y};
         });

@@ -24,7 +24,6 @@ const CollapsibleContent = ({ open, children }: CollapsibleContentProps) => {
                 if (groupRef.current) {
                     let divHeight = groupRef.current.clientHeight + 20;
                     setHeight(divHeight);
-                    console.log(divHeight);
                 }
                 count++;
                 if (count >= 40) clearInterval(interval);

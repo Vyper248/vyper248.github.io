@@ -6,6 +6,7 @@ import Stars from "../../components/Gamified/Stars/Stars";
 import Planet from "../../components/Gamified/Planet/Planet";
 import GameControls from '../../components/Gamified/GameControls/GameControls';
 import Platformer from "../Platformer/Platformer";
+import Name from '../../components/Gamified/Name/Name';
 
 import { ShipPos } from "../../components/Gamified/Ship/Ship";
 import { PlanetProps } from "../../components/Gamified/Planet/Planet";
@@ -105,6 +106,7 @@ const Gamified = ({setGamified}: {setGamified: Dispatch<SetStateAction<boolean>>
                     ? <Platformer blockStyle={platformStyle} planetName={planetName} onLeave={onLeave}/> 
                     : (
                         <>
+                            <Name/>
                             <Stars width={SPACE_WIDTH} height={SPACE_HEIGHT} qty={200}/>
                             {
                                 planets.map((planet) => {

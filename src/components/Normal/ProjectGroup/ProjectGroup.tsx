@@ -1,14 +1,11 @@
-import StyledProjectContainer, { StyledProjectGroup } from './ProjectContainer.style';
+import StyledProjectContainer from './ProjectGroup.style';
 
-import { getGroups } from '../../../utils/utils';
-
-import { ProjectProps } from '../Project/Project';
+import type { ProjectProps } from '../Project/Project';
 
 import Project from '../Project/Project';
 
 type ProjectContainerProps = {
     projects: ProjectProps[];
-    group?: boolean;
     filters: string[];
 }
 
@@ -35,8 +32,7 @@ const checkFilters = (project: ProjectProps, filters: string[]) => {
     return filterCheck;
 }
 
-const ProjectContainer = ({ projects, filters, group=false }: ProjectContainerProps) => {
-    if (group) {
+const ProjectGroup = ({ projects, filters }: ProjectContainerProps) => {
         return (
             <StyledProjectContainer>
                 {
@@ -47,25 +43,6 @@ const ProjectContainer = ({ projects, filters, group=false }: ProjectContainerPr
                 }
             </StyledProjectContainer>
         );
-    }
-    
-    const groups = getGroups(projects) as {[key: string]: ProjectProps[]};
-    
-    return (
-        <>
-            {
-                Object.keys(groups).map((groupName: string) => {
-                    let groupProjects = groups[groupName];
-                    return (
-                        <StyledProjectGroup key={groupName}>
-                            <h3>{groupName}</h3>
-                            <ProjectContainer projects={groupProjects} filters={filters} group={true}/>
-                        </StyledProjectGroup>
-                    );
-                })
-            }
-        </>
-    );
 }
 
-export default ProjectContainer;
+export default ProjectGroup;

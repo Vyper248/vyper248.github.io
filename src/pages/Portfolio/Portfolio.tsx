@@ -1,7 +1,5 @@
 import React, { Dispatch, SetStateAction, useEffect, useState } from 'react';
 import StyledPortfolio from './Portfolio.style';
-import CodeMirror from '@uiw/react-codemirror';
-import { javascript } from '@codemirror/lang-javascript';
 
 import { useAppSelector, useAppDispatch } from '../../redux/hooks';
 import { setDisplayMode, setStyle } from '../../redux/setupSlice';
@@ -11,8 +9,9 @@ import { projects } from '../../projects';
 import { skills } from '../../skills';
 
 import Header from '../../components/Normal/Header/Header';
-import ProjectContainer from '../../components/Normal/ProjectContainer/ProjectContainer';
-import SkillsContainer from '../../components/Normal/SkillsContainer/SkillsContainer';
+import SkillsContainer from '../../components/Normal/SkillsGroup/SkillsGroup';
+import Skills from '../../components/Normal/Skills/Skills';
+import Projects from '../../components/Normal/Projects/Projects';
 import Container from '../../components/Normal/Container/Container';
 import Button from '../../components/Normal/Button/Button';
 import Heading from '../../components/Normal/Heading/Heading';
@@ -93,23 +92,8 @@ const Portfolio = ({setGamified}: {setGamified: Dispatch<SetStateAction<boolean>
 
                 <Heading heading='About'/>
                 <About/>
-                <Heading heading='Skills'/>
-                <div>
-                    <SkillsContainer skills={[...skills, ...extraSkills]} filters={filterArr} toggleFilter={toggleFilter}/>
-                </div>
-                <Heading heading='Projects'/>
-                { filterArr.length > 0 ?
-                    <div id='filters'>
-                        <CodeMirror value={`const Filter_List = ['${filterArr.join('\', \'')}'];`} extensions={[javascript({ jsx: true })]}
-                            theme={style === 'light' ? 'light' : 'dark'}
-                            editable={false}
-                            basicSetup={{
-                                lineNumbers: false,
-                                foldGutter: false,
-                                highlightActiveLine: false,
-                            }}/>
-                    </div> : null }
-                <ProjectContainer projects={projects} filters={filterArr}/>
+                <Skills skills={[...skills, ...extraSkills]} filters={filterArr} toggleFilter={toggleFilter}/>
+                <Projects projects={projects} filters={filterArr}/>
             </Container>
         </StyledPortfolio>
     );

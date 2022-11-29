@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import StyledProjectContainer from '../ProjectContainer/ProjectContainer.style';
+import StyledProjectContainer from '../ProjectGroup/ProjectGroup.style';
 
 const StyledSkillsContainer = styled(StyledProjectContainer)`
     

@@ -18,7 +18,7 @@ export const projectsLayout = [
         label: 'Latest'
     },
     {
-        x: 650,
+        x: 400,
         y: projectY+=300,
         width: 900,
         height: 40,
@@ -32,7 +32,7 @@ export const projectsLayout = [
         label: 'Very Old Projects'
     },
     {
-        x: 350,
+        x: 950,
         y: projectY+=300,
         width: 1230,
         height: 40,
@@ -51,14 +51,14 @@ projectY = 0;
 
 export const skillsLayout = [
     {
-        x: 150,
+        x: 250,
         y: projectY+=300,
         width: 600,
         height: 40,
         label: 'Experienced'
     },
     {
-        x: 450,
+        x: 650,
         y: projectY+=300,
         width: 600,
         height: 40,

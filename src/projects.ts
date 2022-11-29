@@ -172,7 +172,7 @@ export const projects = [
         offset: 48,
         width: 200,
         group: 'Old Projects',
-        svg: 'building9.svg',    
+        svg: 'building8.svg',    
         displaySize: 2,
         skills: ['JavaScript']    
     },

@@ -1,9 +1,12 @@
+import { useState } from 'react';
+
 import StyledSkills from './Skills.style';
 
 import { getGroups } from '../../../utils/utils';
 
 import SkillsGroup from '../SkillsGroup/SkillsGroup';
 import Heading from '../Heading/Heading';
+import CollapsibleContent from '../CollapsibleContent/CollapsibleContent';
 import type { SkillType } from '../Skill/Skill';
 
 type SkillsProps = {
@@ -13,12 +16,14 @@ type SkillsProps = {
 }
 
 const Skills = ({ skills, filters, toggleFilter }: SkillsProps) => {
+    const [open, setOpen] = useState(true);
+
     const groups = getGroups(skills) as {[key: string]: SkillType[]};
 
     return (
         <StyledSkills>
-            <Heading heading='Skills'/>
-            <div className='groupContent'>
+            <Heading heading='Skills' collapsible={true} collapsed={!open} onClick={() => setOpen(!open)}/>
+            <CollapsibleContent open={open}>
                 {
                     Object.keys(groups).map((groupName: string) => {
                         let groupProjects = groups[groupName];
@@ -30,7 +35,7 @@ const Skills = ({ skills, filters, toggleFilter }: SkillsProps) => {
                         );
                     })
                 }
-            </div>
+            </CollapsibleContent>
         </StyledSkills>
     );
 }

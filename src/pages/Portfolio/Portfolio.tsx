@@ -1,4 +1,4 @@
-import React, { Dispatch, SetStateAction, useEffect, useState } from 'react';
+import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 import StyledPortfolio from './Portfolio.style';
 
 import { useAppSelector, useAppDispatch } from '../../redux/hooks';
@@ -9,12 +9,10 @@ import { projects } from '../../projects';
 import { skills } from '../../skills';
 
 import Header from '../../components/Normal/Header/Header';
-import SkillsContainer from '../../components/Normal/SkillsGroup/SkillsGroup';
 import Skills from '../../components/Normal/Skills/Skills';
 import Projects from '../../components/Normal/Projects/Projects';
 import Container from '../../components/Normal/Container/Container';
 import Button from '../../components/Normal/Button/Button';
-import Heading from '../../components/Normal/Heading/Heading';
 import InputCheckbox from '../../components/Normal/InputCheckbox/InputCheckbox';
 import About from '../../components/Normal/About/About';
 
@@ -90,7 +88,6 @@ const Portfolio = ({setGamified}: {setGamified: Dispatch<SetStateAction<boolean>
                 <Button label={displayMode === 'minimal' ? 'Minified' : 'Normal'} onClick={onClickDisplayMode} color='#DEF' selected={true}/>
                 <InputCheckbox label='Dark Mode' checked={style === 'dark'} onChange={onChangeStyle}/>
 
-                <Heading heading='About'/>
                 <About/>
                 <Skills skills={[...skills, ...extraSkills]} filters={filterArr} toggleFilter={toggleFilter}/>
                 <Projects projects={projects} filters={filterArr}/>

@@ -10,6 +10,7 @@ import { ProjectProps as Project } from '../Project/Project';
 
 import Heading from '../Heading/Heading';
 import ProjectGroup from '../ProjectGroup/ProjectGroup';
+import CollapsibleContent from '../CollapsibleContent/CollapsibleContent';
 
 type ProjectsProps = {
     projects: Project[];
@@ -18,15 +19,15 @@ type ProjectsProps = {
 
 const Projects = ({ projects, filters }: ProjectsProps) => {
     const style = useAppSelector(state => state.setup.style);
+
     const [open, setOpen] = useState(true);
 
     const groups = getGroups(projects) as {[key: string]: Project[]};
-    
+
     return (
-        <StyledProjects open={open}>
-            <Heading heading='Projects'/>
-            {/* <div onClick={() => setOpen(!open)}>Test</div> */}
-            <div className='groupContent'>
+        <StyledProjects>
+            <Heading heading='Projects' collapsible={true} collapsed={!open} onClick={() => setOpen(!open)}/>
+            <CollapsibleContent open={open}>
                 { 
                     filters.length > 0 ?
                         <div id='filters'>
@@ -51,7 +52,7 @@ const Projects = ({ projects, filters }: ProjectsProps) => {
                         );
                     })
                 }
-            </div>
+            </CollapsibleContent>
         </StyledProjects>
     );
 }

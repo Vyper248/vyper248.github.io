@@ -55,11 +55,16 @@ export const StyledLargeProject = styled.a`
 
     & .screenshot {
         border-bottom: 1px solid var(--project-color);
-        height: max-content;
+        /* height: max-content; */
         overflow: hidden;
+        padding-top: 67%;
+        position: relative;
 
         img {
             width: 100%;
+            position: absolute;
+            top: 0px;
+            left: 0px;
             display: block;
         }
     }

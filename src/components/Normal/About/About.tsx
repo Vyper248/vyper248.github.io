@@ -5,6 +5,9 @@ import { useAppSelector } from '../../../redux/hooks';
 import CodeMirror from '@uiw/react-codemirror';
 import { javascript } from '@codemirror/lang-javascript';
 
+import CollapsibleContent from '../CollapsibleContent/CollapsibleContent';
+import Heading from '../Heading/Heading';
+
 const summary = "I love to create websites that are useful in some way. "+
 "One of the first large websites I created was for a carehome I worked for, which greatly increased productivity on the admin side of things."+
 "";
@@ -25,6 +28,7 @@ let selectedImage = images[0];`
 const About = () => {
     const style = useAppSelector(state => state.setup.style);
     const [about, setAbout] = useState(aboutMe);
+    const [open, setOpen] = useState(true);
 
     const [image, setImage] = useState('outdoorsImage1.jpeg');
 
@@ -36,22 +40,27 @@ const About = () => {
     }
 
     return (
-        <StyledAbout>
-            <div id='myImage'><img src={require(`../../../profileImages/${image}`)}/></div>
-            <div id='aboutMe'>
-                <CodeMirror
-                    value={about}
-                    extensions={[javascript({ jsx: true })]}
-                    theme={style === 'light' ? 'light' : 'dark'}
-                    basicSetup={{
-                        lineNumbers: false,
-                        foldGutter: false,
-                        highlightActiveLine: false
-                    }}
-                    onChange={onChangeAbout}
-                />
-            </div>
-        </StyledAbout>
+        <>
+            <Heading heading='About' collapsible={true} collapsed={!open} onClick={() => setOpen(!open)}/>
+            <CollapsibleContent open={open}>
+                <StyledAbout>
+                    <div id='myImage'><img alt='Myself' src={require(`../../../profileImages/${image}`)}/></div>
+                    <div id='aboutMe'>
+                        <CodeMirror
+                            value={about}
+                            extensions={[javascript({ jsx: true })]}
+                            theme={style === 'light' ? 'light' : 'dark'}
+                            basicSetup={{
+                                lineNumbers: false,
+                                foldGutter: false,
+                                highlightActiveLine: false
+                            }}
+                            onChange={onChangeAbout}
+                        />
+                    </div>
+                </StyledAbout>
+            </CollapsibleContent>
+        </>
     );
 }
 

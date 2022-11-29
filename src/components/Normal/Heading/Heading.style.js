@@ -17,6 +17,15 @@ const StyledHeading = styled.h2`
         content: ' />';
         opacity: 0.4;
     }
+
+    & .faded {
+        opacity: 0.4;
+        font-variant: normal;
+    }
+
+    & .collapsed {
+        cursor: pointer;
+    }
 `
 
 export default StyledHeading;

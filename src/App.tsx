@@ -13,7 +13,7 @@ function App() {
     setTimeout(() => {
       let node = document.querySelector('.preload-transitions');
       node?.classList.remove('preload-transitions');
-    }, 60);
+    }, 60); 
 
   }, []);
 

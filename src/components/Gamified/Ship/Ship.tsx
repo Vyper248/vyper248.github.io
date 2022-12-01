@@ -1,5 +1,8 @@
 import { useEffect, useState, createRef, RefObject, useCallback } from "react";
 
+import { useAppSelector, useAppDispatch } from "../../../redux/hooks";
+import { setX, setY } from "../../../redux/shipSlice";
+
 import StyledShip from "./Ship.style";
 import ShipImage from '../../../svgs/ship.svg';
 
@@ -54,8 +57,15 @@ const addParticle = (xPos: number, yPos: number, rotation: number, setParticleAr
 }
 
 const Ship = ({planets, startingShipPos}: ShipProps) => {
-    const [xPos, setXPos] = useState(window.innerWidth/2);
-    const [yPos, setYPos] = useState(window.innerHeight/2);
+    const dispatch = useAppDispatch();
+    const xPos = useAppSelector(state => state.ship.xPos);
+    const setXPos = (val:number) => dispatch(setX(val));
+    const yPos = useAppSelector(state => state.ship.yPos);
+    const setYPos = (val:number) => dispatch(setY(val));
+
+
+    // const [xPos, setXPos] = useState(window.innerWidth/2);
+    // const [yPos, setYPos] = useState(window.innerHeight/2);
     const [xVel, setXVel] = useState(0);
     const [yVel, setYVel] = useState(0);
     const [rotation, setRotation] = useState(0);
@@ -128,16 +138,18 @@ const Ship = ({planets, startingShipPos}: ShipProps) => {
         let closeToPlanet = checkDistanceToPlanets(planets, xPos, yPos, closeTo);
         if (closeToPlanet) setCloseTo(closeToPlanet);
 
-        setXPos(xPos => {
+        setXPos(((xPos:number) => {
             if (xPos < -20) return SPACE_WIDTH+20 + xVel;
             if (xPos > SPACE_WIDTH+20) return -20 + xVel;
             return xPos + xVel;
-        });
-        setYPos(yPos => {
+        })(xPos));
+
+        setYPos(((yPos:number) => {
             if (yPos < -20) return SPACE_HEIGHT+20 + yVel;
             if (yPos > SPACE_HEIGHT+20) return -20 + yVel;
             return yPos + yVel;
-        });
+        })(yPos));
+        
     }, [xVel, yVel, xPos, yPos, particleArr, manageKeyPresses, planets, closeTo]);
 
     const keyDownListener = useCallback((e: KeyboardEvent) => {

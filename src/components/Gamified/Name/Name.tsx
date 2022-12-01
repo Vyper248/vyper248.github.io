@@ -1,4 +1,6 @@
+import { useCallback, useEffect } from 'react';
 import StyledName from './Name.style';
+import { useAppSelector } from '../../../redux/hooks';
 
 import { getPoints } from '../../../utils/utils';
 
@@ -12,7 +14,7 @@ const Name = () => {
             { 
                 pointArr.map(point => {
                     let [x, y] = point;
-                    return <NameParticle x={x} y={y}/>
+                    return <NameParticle key={`${x}-${y}`} x={x} y={y}/>
                 })
             }
         </StyledName>

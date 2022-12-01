@@ -1,5 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import setupReducer from "./setupSlice";
+import shipReducer from "./shipSlice";
 
 import { Middleware } from '@reduxjs/toolkit';
 
@@ -22,7 +23,8 @@ const reHydrateStore = () => {
 
 export const store = configureStore({
     reducer: {
-        setup: setupReducer
+        setup: setupReducer,
+		ship: shipReducer
     },
     preloadedState: reHydrateStore(),
     middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(localStorageMiddleware),

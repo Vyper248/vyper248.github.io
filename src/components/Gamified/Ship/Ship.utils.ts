@@ -37,7 +37,7 @@ export const normaliseVector = (x: number, y: number, mag: number): [number, num
     else return [x, y];
 }
 
-const distanceFromAToB = (a: [number, number], b: [number, number]): number => {
+export const distanceFromAToB = (a: [number, number], b: [number, number]): number => {
     let xDiff = b[0] - a[0];
     let yDiff = b[1] - a[1];
     let distance = magnitude(xDiff, yDiff);

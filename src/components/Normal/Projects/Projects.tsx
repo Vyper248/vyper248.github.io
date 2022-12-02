@@ -17,6 +17,29 @@ type ProjectsProps = {
     filters: string[];
 }
 
+const checkFilters = (project: Project, filters: string[]) => {
+    if (filters.length === 0) return true;
+
+    let alwaysUsed = new Set(['JavaScript', 'HTML5', 'CSS3']);
+
+    let projectSkills = new Set(project.skills);
+    let filterCheck = true;
+
+    for (let i = 0; i < filters.length; i++) {
+        let filter = filters[i];
+
+        //no point adding these to every project, so just ignore
+        if (alwaysUsed.has(filter)) continue;
+        
+        if (!projectSkills.has(filter)) {
+            filterCheck = false;
+            break;
+        } 
+    }
+
+    return filterCheck;
+}
+
 const Projects = ({ projects, filters }: ProjectsProps) => {
     const style = useAppSelector(state => state.setup.style);
 
@@ -44,10 +67,15 @@ const Projects = ({ projects, filters }: ProjectsProps) => {
                 {
                     Object.keys(groups).map((groupName: string) => {
                         let groupProjects = groups[groupName];
+
+                        const filteredProjects = groupProjects.filter(project => checkFilters(project, filters));
+
+                        if (filteredProjects.length === 0) return null;
+                        
                         return (
                             <div key={groupName} className='group'>
                                 <h3>{groupName}</h3>
-                                <ProjectGroup projects={groupProjects} filters={filters}/>
+                                <ProjectGroup projects={filteredProjects}/>
                             </div>
                         );
                     })

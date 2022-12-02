@@ -38,6 +38,13 @@ export const projectsLayout = [
         height: 40,
         label: 'Experiments'
     },
+    {
+        x: 150,
+        y: projectY,
+        width: 1080,
+        height: 40,
+        label: 'Tools'
+    },
     { //Bottom
         x: 0,
         y: 0,

@@ -176,6 +176,31 @@ export const projects = [
         displaySize: 2,
         skills: ['JavaScript']    
     },
+    //Tools
+    {
+        name: 'Gradient Generator',
+        url: 'https://vyper248.github.io/oldPortfolio/CompleteWebDevCourse/backgroundGenerator.html',
+        description: 'This project allows the creation of linear gradients. I added to it by including sliders to adjust the percentages as well as the ability to add more colours.',
+        x: 0,
+        y: 0,
+        offset: 48,
+        width: 200,
+        group: 'Tools',
+        svg: 'building3.svg',
+        skills: []        
+    },
+    {
+        name: 'Pixel Array Generator',
+        url: 'https://vyper248.github.io/pixel-array-generator/',
+        description: 'Very basic SolidJS app to make it quick and easy to get an array of pixels. It was useful when creating my name in the Gamified version of my portfolio.',
+        x: 0,
+        y: 0,
+        offset: 48,
+        width: 200,
+        group: 'Tools',
+        svg: 'building8.svg',
+        skills: ['SolidJS', 'TypeScript']        
+    },
     //Very Old Projects
     {
         name: 'Basic Image Gallery',
@@ -247,18 +272,6 @@ export const projects = [
         width: 200,
         group: 'Very Old Projects',
         svg: 'building7.svg',
-        skills: []        
-    },
-    {
-        name: 'Gradient Generator',
-        url: 'https://vyper248.github.io/oldPortfolio/CompleteWebDevCourse/backgroundGenerator.html',
-        description: 'This project allows the creation of linear gradients. I added to it by including sliders to adjust the percentages as well as the ability to add more colours.',
-        x: 0,
-        y: 0,
-        offset: 48,
-        width: 200,
-        group: 'Very Old Projects',
-        svg: 'building4.svg',
         skills: []        
     },
     //Experiments

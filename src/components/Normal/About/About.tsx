@@ -14,7 +14,7 @@ const summary = "I love to create websites that are useful in some way. "+
 
 const aboutMe = 
 `const Name = 'Chris Wilson';
-const Job_Title = 'Web Developer';
+const Profession = 'Web Developer';
 let Current_Library = 'React';
 const Interests = ['Gaming', 'Programming', 'Exploring', 'Escape Rooms'];
 

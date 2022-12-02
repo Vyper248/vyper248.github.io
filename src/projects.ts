@@ -101,7 +101,7 @@ export const projects = [
     {
         name: 'Borderlands 3 App',
         url: 'https://vyper248.github.io/borderlands3/',
-        description: 'Meant as a basic app to keep track of which items were worth keeping and what they all did. Decided a bank would be useful too, to keep track of what I already had in the bank, so added that later.',
+        description: 'Meant as a basic app to keep track of which items were worth keeping and what they all did. Decided a bank would be useful too, to keep track of what I already had in the bank, so added that later. Didn\'t keep it updated when I stopped playing though.',
         x: 0,
         y: 0,
         offset: 48,

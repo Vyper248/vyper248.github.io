@@ -15,6 +15,12 @@ export type ProjectProps = {
 const Project = ({ name, url, description, screenshot, displaySize=1 }: ProjectProps) => {
     const displayMode = useAppSelector(state => state.setup.displayMode);
 
+    let renderMessage = false;
+    if (description.includes('Render.com')) {
+        description = description.replace('Render.com takes time to open.', '');
+        renderMessage = true;
+    }
+
     if (displaySize === 3) {
         return (
             <StyledLargeProject href={url} target='_blank' displayMode={displayMode}>
@@ -27,9 +33,13 @@ const Project = ({ name, url, description, screenshot, displaySize=1 }: ProjectP
 
     if (displaySize === 2 && displayMode !== 'minimal') {
         return (
-            <StyledMediumProject href={url} target='_blank' displayMode={displayMode}>
-                <h4 className='name'>{ name }</h4>
-                <div className='description'>{ description }</div>
+            <StyledMediumProject displayMode={displayMode}>
+                <a className='name' href={url} target='_blank'>{ name }</a>
+                <div className='description'>
+                    { description } 
+                    <div className='spacer'></div>
+                    { renderMessage ? <div className='renderMessage'>Note: Render.com takes time to open.</div> : null }
+                </div>
             </StyledMediumProject>
         )
     }

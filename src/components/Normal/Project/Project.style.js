@@ -39,7 +39,7 @@ export const StyledLargeProject = styled.a`
     color: var(--text-color);
     text-decoration: none;
     margin: 10px 5px;
-    margin-bottom: ${props => props.displayMode === 'minimal' ? '5px;' : '40px;'};
+    margin-bottom: ${props => props.displayMode === 'minimal' ? '5px;' : '30px;'};
     transition: 0.4s;
     background-color: var(--project-color);
     white-space: break-spaces;
@@ -78,19 +78,98 @@ export const StyledLargeProject = styled.a`
     & .description {
         padding: 10px;
     }
+
+    @media screen and (max-width: 700px) {
+        margin: 5px 5px;
+    }
 `;
 
-export const StyledMediumProject = styled(StyledLargeProject)`
-    width: calc(50% - 10px);
-    margin: 5px;
+// export const StyledMediumProject = styled(StyledLargeProject)`
+//     width: calc(50% - 10px);
+//     margin: 5px;
+
+//     & .name {
+//         min-height: 0px;
+//     }
+
+//     @media screen and (max-width: 500px) {
+//         width: 100%;
+//         transition: width 0s;
+//     }
+// `;
+
+export const StyledMediumProject = styled.div`
+    display: flex;
+    margin: 5px 5px;
+    color: var(--text-color);
+    text-decoration: none;
+    white-space: break-spaces;
+    height: 130px;
+    width: 100%;
 
     & .name {
-        min-height: 0px;
+        font-weight: bold;
+        margin: 0px;
+        display: flex;
+        height: 100%;
+        width: 150px;
+        min-width: 150px;
+        background-color: var(--project-color);
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        text-align: center;
+        transition: 0.4s;
+        color: var(--text-color);
+        text-decoration: none;
+
+        &:hover {
+            background-color: var(--project-color-hover);
+            border-color: var(--project-color-hover);
+        }
     }
 
-    @media screen and (max-width: 500px) {
+    & .description {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        padding: 10px;
+        margin-left: 5px;
+        /* background-color: var(--project-color); */
+        border: 2px solid var(--project-color);
+        transition: 0.4s;
+        overflow: scroll;
         width: 100%;
-        transition: width 0s;
+
+        .spacer {
+            flex-grow: 1;
+        }
+
+        .renderMessage {
+            color: red;
+        }
+    }
+
+    @media screen and (max-width: 700px) {
+        width: calc(25% - 10px);
+        margin: 5px 5px 5px 5px;
+
+        & .name { 
+            width: 100%;
+            min-width: 100%;
+        }
+
+        & .description {
+            display: none;
+        }
+    }
+
+    @media screen and (max-width: 600px) {
+        width: calc(33% - 10px);
+    }
+
+    @media screen and (max-width: 350px) {
+        width: calc(50% - 10px);
     }
 `;
 

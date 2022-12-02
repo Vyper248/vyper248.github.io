@@ -187,6 +187,7 @@ export const projects = [
         width: 200,
         group: 'Tools',
         svg: 'building3.svg',
+        displaySize: 2,
         skills: []        
     },
     {
@@ -199,6 +200,7 @@ export const projects = [
         width: 200,
         group: 'Tools',
         svg: 'building8.svg',
+        displaySize: 2,
         skills: ['SolidJS', 'TypeScript']        
     },
     //Very Old Projects
@@ -212,6 +214,7 @@ export const projects = [
         width: 200,
         group: 'Very Old Projects',
         svg: 'building14.svg',
+        displaySize: 2,
         skills: []        
     },
     {
@@ -224,6 +227,7 @@ export const projects = [
         width: 200,
         group: 'Very Old Projects',
         svg: 'building3.svg',
+        displaySize: 2,
         skills: []        
     },
     {
@@ -236,6 +240,7 @@ export const projects = [
         width: 200,
         group: 'Very Old Projects',
         svg: 'building8.svg',
+        displaySize: 2,
         skills: []        
     },
     {
@@ -248,6 +253,7 @@ export const projects = [
         width: 200,
         group: 'Very Old Projects',
         svg: 'building4.svg',
+        displaySize: 2,
         skills: []        
     },
     {
@@ -260,6 +266,7 @@ export const projects = [
         width: 200,
         group: 'Very Old Projects',
         svg: 'building3.svg',
+        displaySize: 2,
         skills: []        
     },
     {
@@ -272,6 +279,7 @@ export const projects = [
         width: 200,
         group: 'Very Old Projects',
         svg: 'building7.svg',
+        displaySize: 2,
         skills: []        
     },
     //Experiments
@@ -285,6 +293,7 @@ export const projects = [
         width: 200,
         group: 'Experiments',
         svg: 'building3.svg',
+        displaySize: 2,
         skills: []        
     },
     {
@@ -297,6 +306,7 @@ export const projects = [
         width: 200,
         group: 'Experiments',
         svg: 'building8.svg',
+        displaySize: 2,
         skills: []        
     },
     {
@@ -309,6 +319,7 @@ export const projects = [
         width: 200,
         group: 'Experiments',
         svg: 'building7.svg',
+        displaySize: 2,
         skills: []        
     },
     {
@@ -321,6 +332,7 @@ export const projects = [
         width: 200,
         group: 'Experiments',
         svg: 'building4.svg',
+        displaySize: 2,
         skills: []        
     },
 ];

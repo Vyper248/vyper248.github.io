@@ -22,7 +22,7 @@ const ProjectGroup = ({ projects, heading }: ProjectContainerProps) => {
     return (
         <StyledProjectContainer>
             <h3>{heading} <span className='faded'>&& visible === </span><span className='toggle' onClick={toggleOpen}>{open ? 'true' : 'false'}</span></h3>
-            <CollapsibleContent open={open}>
+            <CollapsibleContent open={open} instant={true}>
                 <div className='group'>
                     {
                         projects.map((project: ProjectProps) => <Project key={project.name} {...project}/>)

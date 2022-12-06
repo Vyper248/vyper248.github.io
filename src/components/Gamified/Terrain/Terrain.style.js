@@ -8,7 +8,8 @@ const depth = 40;
 
 export const StyledBlock = styled.div`
     perspective: 800px;
-    perspective-origin: -200px -600px;
+    /* perspective-origin: -200px -600px; */
+    perspective-origin: -${props => props.x}px -600px;
     position: absolute;
     left: ${props => props.x}px;
     bottom: ${props => props.y}px;

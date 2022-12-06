@@ -8,6 +8,10 @@ const StyledContainer = styled.div`
     @media screen and (max-width: 600px) {
         padding: 5px;
     }
+
+    @media screen and (min-width: 2000px) {
+        max-width: 1600px;
+    }
 `
 
 export default StyledContainer;

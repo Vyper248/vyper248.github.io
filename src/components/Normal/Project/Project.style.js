@@ -5,7 +5,7 @@ const StyledProject = styled.a`
     justify-content: center;
     align-items: center;
     text-align: center;
-    width: calc(20% - 10px);
+    width: calc(20% - 5px);
     margin: 5px 5px 0px 0px;
     height: ${props => props.displayMode === 'minimal' ? '80px;' : '150px;'};
     min-height: 100%;
@@ -30,6 +30,10 @@ const StyledProject = styled.a`
 
     @media screen and (max-width: 350px) {
         width: calc(50% - 10px);
+    }
+
+    @media screen and (min-width: 2000px) {
+        width: calc(12.5% - 10px);
     }
 `
 
@@ -81,6 +85,12 @@ export const StyledLargeProject = styled.a`
 
     @media screen and (max-width: 700px) {
         margin: 5px 5px;
+    }
+
+    @media screen and (min-width: 2000px) {
+        margin: 20px 20px;
+        width: ${props => props.displayMode === 'minimal' ? 'calc(20% - 10px);' : 'calc(50% - 40px);'};
+        margin: ${props => props.displayMode === 'minimal' ? '5px 5px' : '20px 20px'};
     }
 `;
 
@@ -170,6 +180,11 @@ export const StyledMediumProject = styled.div`
 
     @media screen and (max-width: 350px) {
         width: calc(50% - 10px);
+    }
+
+    @media screen and (min-width: 2000px) {
+        margin: 10px 20px;
+        width: calc(50% - 40px);
     }
 `;
 

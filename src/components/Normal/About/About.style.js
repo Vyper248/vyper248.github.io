@@ -2,11 +2,13 @@ import styled from 'styled-components';
 
 const StyledAbout = styled.div`
     display: flex;
+    justify-content: center;
 
     & #myImage {
         width: 150px;
         height: 200px;
         margin-right: 10px;
+        margin-top: 10px;
     }
 
     & #aboutMe {
@@ -25,6 +27,12 @@ const StyledAbout = styled.div`
 
         & .cm-editor {
             background-color: transparent !important;
+        }
+    }
+
+    @media screen and (min-width: 2000px) {
+        & #aboutMe {
+            max-width: 700px;
         }
     }
 `

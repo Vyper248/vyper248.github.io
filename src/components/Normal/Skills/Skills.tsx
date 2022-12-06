@@ -27,7 +27,7 @@ const Skills = ({ skills, filters, toggleFilter }: SkillsProps) => {
                 {
                     Object.keys(groups).map((groupName: string) => {
                         let groupProjects = groups[groupName];
-                        return <SkillsGroup skills={groupProjects} heading={groupName} filters={filters} toggleFilter={toggleFilter}/>;
+                        return <SkillsGroup key={groupName} skills={groupProjects} heading={groupName} filters={filters} toggleFilter={toggleFilter}/>;
                     })
                 }
             </CollapsibleContent>

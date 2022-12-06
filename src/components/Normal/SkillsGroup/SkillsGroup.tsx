@@ -4,18 +4,22 @@ import Skill, { SkillType } from '../Skill/Skill';
 
 type SkillsContainerProps = {
     skills: SkillType[];
+    heading: string;
     filters: string[];
     toggleFilter: (value: string) => () => void;
 }
 
-const SkillsContainer = ({ skills, filters, toggleFilter }: SkillsContainerProps) => {
+const SkillsContainer = ({ skills, heading, filters, toggleFilter }: SkillsContainerProps) => {
     return (
         <StyledSkillsContainer>
-            {
-                skills.map((skill: SkillType) => {
-                    return <Skill key={skill.name} filters={filters} toggleFilter={toggleFilter} {...skill}/>
-                })
-            }
+            <h3>{heading}</h3>
+            <div className='group'>
+                {
+                    skills.map((skill: SkillType) => {
+                        return <Skill key={skill.name} filters={filters} toggleFilter={toggleFilter} {...skill}/>
+                    })
+                }
+            </div>
         </StyledSkillsContainer>
     );
 }

@@ -7,15 +7,16 @@ import StyledCollapsibleContent from './CollapsibleContent.style';
 type CollapsibleContentProps = {
     open: boolean;
     children: ReactNode;
+    instant?: boolean;
 }
 
-const CollapsibleContent = ({ open, children }: CollapsibleContentProps) => {
+const CollapsibleContent = ({ open, instant=false, children }: CollapsibleContentProps) => {
     const displayMode = useAppSelector(state => state.setup.displayMode);
     const groupRef = useRef<HTMLDivElement>(null);
     const [height, setHeight] = useState(0);
 
     useEffect(() => {
-        if (groupRef) {
+        if (groupRef && !instant) {
             let div = groupRef.current;
             if (!div) return;
 
@@ -33,7 +34,7 @@ const CollapsibleContent = ({ open, children }: CollapsibleContentProps) => {
                 clearInterval(interval);
             }
         }
-    }, [groupRef, displayMode]);
+    }, [groupRef, instant, displayMode]);
 
     return (
         <StyledCollapsibleContent open={open} height={height}>

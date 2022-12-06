@@ -50,7 +50,7 @@ const Projects = ({ projects, filters }: ProjectsProps) => {
     return (
         <StyledProjects>
             <Heading heading='Projects' collapsible={true} collapsed={!open} onClick={() => setOpen(!open)}/>
-            <CollapsibleContent open={open}>
+            <CollapsibleContent open={open} instant={true}>
                 { 
                     filters.length > 0 ?
                         <div id='filters'>
@@ -72,12 +72,7 @@ const Projects = ({ projects, filters }: ProjectsProps) => {
 
                         if (filteredProjects.length === 0) return null;
                         
-                        return (
-                            <div key={groupName} className='group'>
-                                <h3>{groupName}</h3>
-                                <ProjectGroup projects={filteredProjects}/>
-                            </div>
-                        );
+                        return <ProjectGroup key={groupName} projects={filteredProjects} heading={groupName}/>;
                     })
                 }
             </CollapsibleContent>

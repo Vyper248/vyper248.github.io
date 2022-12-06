@@ -23,9 +23,10 @@ const StyledHeading = styled.h2`
         font-variant: normal;
     }
 
-    & .collapsed {
+    & .toggle:hover {
         cursor: pointer;
-    }
+        opacity: 0.7;
+    }   
 `
 
 export default StyledHeading;

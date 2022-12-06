@@ -11,7 +11,7 @@ const HiddenText = ({collapsed, onClick} : {collapsed: boolean; onClick?: () => 
     return (
         <span>
             <span className='faded'> hidden=&#123;</span>
-            <span className='collapsed' onClick={onClick}>{collapsed ? 'true' : 'false'}</span>
+            <span className='toggle' onClick={onClick}>{collapsed ? 'true' : 'false'}</span>
             <span className='faded'>&#125;</span>
         </span>
     );

@@ -86,19 +86,6 @@ export const projects = [
         skills: ['React', 'React-Router', 'Redux', 'Styled-Components', 'Express', 'Knex']
     },
     {
-        name: 'React Components',
-        url: 'https://vyper248.github.io/React-Components/',
-        description: 'Component library I started building to avoid re-creating regularly used components.',
-        x: 0,
-        y: 0,
-        offset: 48,
-        width: 200,
-        group: 'Old Projects',
-        svg: 'building9.svg',        
-        displaySize: 2,
-        skills: ['React', 'Styled-Components']
-    },
-    {
         name: 'Borderlands 3 App',
         url: 'https://vyper248.github.io/borderlands3/',
         description: 'Meant as a basic app to keep track of which items were worth keeping and what they all did. Decided a bank would be useful too, to keep track of what I already had in the bank, so added that later. Didn\'t keep it updated when I stopped playing though.',
@@ -177,6 +164,19 @@ export const projects = [
         skills: ['JavaScript']    
     },
     //Tools
+    {
+        name: 'React Components',
+        url: 'https://vyper248.github.io/React-Components/',
+        description: 'Component library I started building to avoid re-creating regularly used components.',
+        x: 0,
+        y: 0,
+        offset: 48,
+        width: 200,
+        group: 'Tools',
+        svg: 'building7.svg',        
+        displaySize: 2,
+        skills: ['React', 'Styled-Components']
+    },
     {
         name: 'Gradient Generator',
         url: 'https://vyper248.github.io/oldPortfolio/CompleteWebDevCourse/backgroundGenerator.html',

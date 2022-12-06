@@ -1,6 +1,20 @@
 //good buildings - 3,4,7,8,9,14
 export const projects = [
-    //Latest
+    //Featured
+    {
+        name: 'Reddit React App',
+        url: 'https://vyper248.github.io/new-reddit/#/PS5/new',
+        description: 'My own version of Reddit, but without the clutter. Created with a dark theme and expanded to include more features over time.',
+        x: 0,
+        y: 0,
+        offset: 48,
+        width: 200,
+        group: 'Featured',
+        svg: 'building3.svg',      
+        screenshot: 'NewReddit.png',
+        displaySize: 3,
+        skills: ['React', 'Redux', 'React-Router', 'Styled-Components', 'Serverless Functions']  
+    },
     {
         name: 'Gaming Commerce',
         url: 'https://gaming-commerce.netlify.app/',
@@ -9,7 +23,7 @@ export const projects = [
         y: 0,
         offset: 50,
         width: 200,
-        group: 'Latest',
+        group: 'Featured',
         svg: 'building8.svg',     
         screenshot: 'GamingCommerce.png',
         displaySize: 3,
@@ -23,7 +37,7 @@ export const projects = [
         y: 0,
         offset: 50,
         width: 200,
-        group: 'Latest',
+        group: 'Featured',
         svg: 'building7.svg',    
         screenshot: 'TimeTracker.png',
         displaySize: 3,
@@ -37,7 +51,7 @@ export const projects = [
         y: 0,
         offset: 50,
         width: 200,
-        group: 'Latest',
+        group: 'Featured',
         svg: 'building14.svg',  
         screenshot: 'FoodPlanner.png',
         displaySize: 3,
@@ -51,25 +65,11 @@ export const projects = [
         y: 0,
         offset: 50,
         width: 200,
-        group: 'Latest',
+        group: 'Featured',
         svg: 'building9.svg',     
         screenshot: 'Budget.png',
         displaySize: 3,
         skills: ['React', 'Redux', 'Styled-Components', 'Serverless Functions', 'Knex']   
-    },
-    {
-        name: 'Reddit React App',
-        url: 'https://vyper248.github.io/new-reddit/#/PS5/new',
-        description: 'My own version of Reddit, but without the clutter. Created with a dark theme and expanded to include more features over time.',
-        x: 0,
-        y: 0,
-        offset: 48,
-        width: 200,
-        group: 'Latest',
-        svg: 'building3.svg',      
-        screenshot: 'NewReddit.png',
-        displaySize: 3,
-        skills: ['React', 'Redux', 'React-Router', 'Styled-Components', 'Serverless Functions']  
     },
     //Old Projects
     {

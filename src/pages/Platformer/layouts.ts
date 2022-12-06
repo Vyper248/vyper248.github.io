@@ -15,7 +15,7 @@ export const projectsLayout = [
         y: projectY+=300,
         width: 1080,
         height: 40,
-        label: 'Latest'
+        label: 'Featured'
     },
     {
         x: 400,

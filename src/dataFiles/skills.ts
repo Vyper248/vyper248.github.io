@@ -144,6 +144,18 @@ export const skills = [
         group: 'Learning',
         svg: '',        
     },
+    {
+        name: 'Jest',
+        url: '',
+        description: '',
+        x: 0,
+        y: 0,
+        offset: 50,
+        offsetX: 30,
+        width: 150,
+        group: 'Learning',
+        svg: 'jest.svg',        
+    },
     //Older Skills
     {
         name: 'PHP',

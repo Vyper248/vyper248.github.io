@@ -5,8 +5,8 @@ import StyledPlatformer from './Platformer.style';
 
 import { GROUND_WIDTH, GROUND_HEIGHT } from '../../utils/constants';
 import { projectsLayout, skillsLayout } from './layouts';
-import { projects } from '../../projects';
-import { skills } from '../../skills';
+import { projects } from '../../dataFiles/projects';
+import { skills } from '../../dataFiles/skills';
 
 import { ItemProps } from '../../components/Gamified/Item/Item';
 

@@ -5,8 +5,8 @@ import { useAppSelector, useAppDispatch } from '../../redux/hooks';
 import { setDisplayMode, setStyle } from '../../redux/setupSlice';
 import { updateStyle } from '../../utils/colors';
 
-import { projects } from '../../projects';
-import { skills } from '../../skills';
+import { projects } from '../../dataFiles/projects';
+import { skills } from '../../dataFiles/skills';
 
 import Header from '../../components/Normal/Header/Header';
 import Skills from '../../components/Normal/Skills/Skills';

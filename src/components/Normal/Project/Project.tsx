@@ -1,6 +1,7 @@
 import StyledProject, { StyledLargeProject, StyledMediumProject } from './Project.style';
 
 import { useAppSelector } from '../../../redux/hooks';
+import Tag from '../Tag/Tag';
 
 export type ProjectProps = {
     name: string;
@@ -12,7 +13,7 @@ export type ProjectProps = {
     skills: string[];
 }
 
-const Project = ({ name, url, description, screenshot, displaySize=1 }: ProjectProps) => {
+const Project = ({ name, url, description, screenshot, displaySize=1, skills }: ProjectProps) => {
     const displayMode = useAppSelector(state => state.setup.displayMode);
 
     let renderMessage = false;
@@ -27,6 +28,7 @@ const Project = ({ name, url, description, screenshot, displaySize=1 }: ProjectP
                 <div className='screenshot'><img src={require(`../../../websiteScreenshots/${screenshot}`)}/></div>
                 <h4 className='name'>{ name }</h4>
                 <div className='description'>{ description }</div>
+                <div className='skills'>{skills.map(skill => <Tag label={skill}/>)}</div>
             </StyledLargeProject>
         );
     }
@@ -38,6 +40,7 @@ const Project = ({ name, url, description, screenshot, displaySize=1 }: ProjectP
                 <div className='description'>
                     { description } 
                     <div className='spacer'></div>
+                    <div className='skills'>{skills.map(skill => <Tag label={skill}/>)}</div>
                     { renderMessage ? <div className='renderMessage'>Note: Render.com takes time to open.</div> : null }
                 </div>
             </StyledMediumProject>

@@ -8,6 +8,7 @@
   --project-color: #DEF;
   --project-color-hover: #CDF;
   --header-color: #DEF;
+  --tag-background: gray;
 }
 
 .preload-transitions * {

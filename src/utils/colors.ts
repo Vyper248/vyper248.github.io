@@ -18,6 +18,7 @@ export const updateStyle = (style: 'dark' | 'light') => {
         root.style.setProperty('--project-color', '#333');
         root.style.setProperty('--project-color-hover', '#555');
         root.style.setProperty('--header-color', '#333');
+        root.style.setProperty('--tag-background', 'gray');
     } else {
         root.style.setProperty('--background-color', 'white');
         root.style.setProperty('--text-color', 'black');
@@ -26,5 +27,6 @@ export const updateStyle = (style: 'dark' | 'light') => {
         root.style.setProperty('--project-color', '#DEF');
         root.style.setProperty('--project-color-hover', '#CDF');
         root.style.setProperty('--header-color', '#DEF');
+        root.style.setProperty('--tag-background', '#BCE');
     }
 }

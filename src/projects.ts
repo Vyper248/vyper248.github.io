@@ -161,7 +161,7 @@ export const projects = [
         group: 'Old Projects',
         svg: 'building8.svg',    
         displaySize: 2,
-        skills: ['JavaScript']    
+        skills: []    
     },
     //Tools
     {

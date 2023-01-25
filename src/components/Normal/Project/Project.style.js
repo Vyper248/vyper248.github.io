@@ -83,6 +83,11 @@ export const StyledLargeProject = styled.a`
         padding: 10px;
     }
 
+    & .skills {
+        padding: 0px 5px 5px 5px;
+        ${props => props.displayMode === 'minimal' ? 'display: none;' : ''};
+    }
+
     @media screen and (max-width: 700px) {
         margin: 5px 5px;
     }

@@ -28,7 +28,7 @@ const Project = ({ name, url, description, screenshot, displaySize=1, skills }: 
                 <div className='screenshot'><img src={require(`../../../websiteScreenshots/${screenshot}`)}/></div>
                 <h4 className='name'>{ name }</h4>
                 <div className='description'>{ description }</div>
-                <div className='skills'>{skills.map(skill => <Tag label={skill}/>)}</div>
+                <div className='skills'>{skills.map(skill => <Tag key={`${name}-${skill}`} label={skill}/>)}</div>
             </StyledLargeProject>
         );
     }
@@ -40,8 +40,8 @@ const Project = ({ name, url, description, screenshot, displaySize=1, skills }: 
                 <div className='description'>
                     { description } 
                     <div className='spacer'></div>
-                    <div className='skills'>{skills.map(skill => <Tag label={skill}/>)}</div>
                     { renderMessage ? <div className='renderMessage'>Note: Render.com takes time to open.</div> : null }
+                    <div className='skills'>{skills.map(skill => <Tag key={`${name}-${skill}`} label={skill}/>)}</div>
                 </div>
             </StyledMediumProject>
         )

@@ -10,9 +10,13 @@ import { aboutMe } from '../../../dataFiles/aboutMe';
 import CollapsibleContent from '../CollapsibleContent/CollapsibleContent';
 import Heading from '../Heading/Heading';
 
+const aboutMeImage = `
+const images = ['outdoorsImage1.jpeg','outdoorsImage2.jpeg','catPhoto.jpeg'];
+let selectedImage = images[0];`;
+
 const About = () => {
     const style = useAppSelector(state => state.setup.style);
-    const [about, setAbout] = useState(aboutMe);
+    const [about, setAbout] = useState(aboutMeImage);
     const [open, setOpen] = useState(true);
 
     const [image, setImage] = useState('outdoorsImage1.jpeg');
@@ -31,6 +35,17 @@ const About = () => {
                 <StyledAbout>
                     <div id='myImage'><img alt='Myself' src={require(`../../../profileImages/${image}`)}/></div>
                     <div id='aboutMe'>
+                        <CodeMirror
+                            value={aboutMe}
+                            extensions={[javascript({ jsx: true })]}
+                            editable={false}
+                            theme={style === 'light' ? 'light' : 'dark'}
+                            basicSetup={{
+                                lineNumbers: false,
+                                foldGutter: false,
+                                highlightActiveLine: false
+                            }}
+                        />
                         <CodeMirror
                             value={about}
                             extensions={[javascript({ jsx: true })]}

@@ -23,11 +23,18 @@ const StyledAbout = styled.div`
 
         & .cm-content {
             max-width: 100%;
+            padding-bottom: 0px;
+            padding-top: 0px;
         }
 
         & .cm-editor {
             background-color: transparent !important;
         }
+    }
+
+    /* Add top padding to first code editor, but not second */
+    & #aboutMe > .cm-theme-dark:first-child .cm-content {
+        padding-top: 5px;
     }
 
     @media screen and (min-width: 2000px) {

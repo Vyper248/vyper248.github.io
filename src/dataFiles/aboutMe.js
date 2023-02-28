@@ -6,8 +6,6 @@ const Interests = ['Gaming', 'Programming', 'Exploring', 'Escape Rooms'];
 
 let Summary = "I love to create web apps, especially those that help with productivity in some way or just make a particular experience better. In my free time I love gaming, especially a good open world game that I can get immersed in.";
 
-let Note = "I'm a developer, not a designer, but I'm always happy to give my thoughts on any designs.";
-
 const Latest_Experience = \`
     From 2013 to 2022 I worked for the family business in the care sector, doing payroll, invoicing, billing etc.
 

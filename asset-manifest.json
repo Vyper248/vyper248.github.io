@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.9a9e0981.css",
-    "main.js": "/static/js/main.f7e56163.js",
+    "main.js": "/static/js/main.bbe3c02b.js",
     "static/js/651.35bb7d9a.chunk.js": "/static/js/651.35bb7d9a.chunk.js",
     "static/js/787.1ed0c42c.chunk.js": "/static/js/787.1ed0c42c.chunk.js",
     "static/js/185.beb9c5f7.chunk.js": "/static/js/185.beb9c5f7.chunk.js",
@@ -10,6 +10,7 @@
     "static/media/FoodPlanner.png": "/static/media/FoodPlanner.a18a32e211551ef1c597.png",
     "static/media/Budget.png": "/static/media/Budget.cc4a6a38f4e715aff364.png",
     "static/media/TimeTracker.png": "/static/media/TimeTracker.87bb999e9fb1826446e7.png",
+    "static/media/PractiseWithCards.png": "/static/media/PractiseWithCards.6ce00a577684b4c422ef.png",
     "static/media/StardosStencil-Regular.ttf": "/static/media/StardosStencil-Regular.653b33500cc1e43b6fa2.ttf",
     "static/media/catPhoto.jpeg": "/static/media/catPhoto.4408e9c5fb964feedfc1.jpeg",
     "static/media/outdoorsImage2.jpeg": "/static/media/outdoorsImage2.05297dc86c6157f9d934.jpeg",
@@ -47,13 +48,13 @@
     "static/media/html5.svg": "/static/media/html5.84c6adac417775a66b55.svg",
     "static/media/css3.svg": "/static/media/css3.9882e252f3baf8b8d576.svg",
     "main.9a9e0981.css.map": "/static/css/main.9a9e0981.css.map",
-    "main.f7e56163.js.map": "/static/js/main.f7e56163.js.map",
+    "main.bbe3c02b.js.map": "/static/js/main.bbe3c02b.js.map",
     "651.35bb7d9a.chunk.js.map": "/static/js/651.35bb7d9a.chunk.js.map",
     "787.1ed0c42c.chunk.js.map": "/static/js/787.1ed0c42c.chunk.js.map",
     "185.beb9c5f7.chunk.js.map": "/static/js/185.beb9c5f7.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.9a9e0981.css",
-    "static/js/main.f7e56163.js"
+    "static/js/main.bbe3c02b.js"
   ]
 }

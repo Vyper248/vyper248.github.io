@@ -16,6 +16,20 @@ export const projects = [
         skills: ['React', 'Redux', 'React-Router', 'Styled-Components', 'Serverless Functions']  
     },
     {
+        name: 'Practise with Cards',
+        url: 'https://vyper248.github.io/memoriser',
+        description: 'Fairly simple flash card app for practising. Supports different groups, has a dynamic grid layout and options for sharing.',
+        x: 0,
+        y: 0,
+        offset: 50,
+        width: 200,
+        group: 'Featured',
+        svg: 'building9.svg',     
+        screenshot: 'PractiseWithCards.png',
+        displaySize: 3,
+        skills: ['React', 'Redux', 'Styled-Components', 'TypeScript', 'Jest', 'React Testing Library']
+    },
+    {
         name: 'Gaming Commerce',
         url: 'https://gaming-commerce.netlify.app/',
         description: 'Fake E-Commerce website created to practise with Stripe payments, GraphQL, Redux Toolkit and Serverless Functions.',

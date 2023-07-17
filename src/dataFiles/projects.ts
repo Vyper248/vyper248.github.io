@@ -73,7 +73,7 @@ export const projects = [
     },
     {
         name: 'Budget App',
-        url: 'https://vyper248.github.io/budget-app/',
+        url: 'https://vyper248.github.io/budget-app-2/',
         description: 'Fairly simple budgetting app that I\'ve been actively using to keep track of my finances.',
         x: 0,
         y: 0,
@@ -83,7 +83,7 @@ export const projects = [
         svg: 'building9.svg',     
         screenshot: 'Budget.png',
         displaySize: 3,
-        skills: ['React', 'Redux', 'Styled-Components', 'Serverless Functions', 'Knex']   
+        skills: ['React', 'Redux', 'Styled-Components', 'Serverless Functions', 'TypeScript']   
     },
     //Old Projects
     {

@@ -16,6 +16,20 @@ export const projects = [
         skills: ['React', 'Redux', 'React-Router', 'Styled-Components', 'Serverless Functions']  
     },
     {
+        name: 'Budget App',
+        url: 'https://vyper248.github.io/budget-app-2/',
+        description: 'Fairly simple budgetting app that I\'ve been actively using to keep track of my finances. (updated to v2)',
+        x: 0,
+        y: 0,
+        offset: 50,
+        width: 200,
+        group: 'Featured',
+        svg: 'building9.svg',     
+        screenshot: 'Budget.png',
+        displaySize: 3,
+        skills: ['React', 'Redux', 'Styled-Components', 'Serverless Functions', 'TypeScript']   
+    },
+    {
         name: 'Practise with Cards',
         url: 'https://vyper248.github.io/memoriser',
         description: 'Fairly simple flash card app for practising. Supports different groups, has a dynamic grid layout and options for sharing.',
@@ -70,20 +84,6 @@ export const projects = [
         screenshot: 'FoodPlanner.png',
         displaySize: 3,
         skills: ['React', 'Redux', 'Styled-Components', 'React-Router']
-    },
-    {
-        name: 'Budget App',
-        url: 'https://vyper248.github.io/budget-app-2/',
-        description: 'Fairly simple budgetting app that I\'ve been actively using to keep track of my finances.',
-        x: 0,
-        y: 0,
-        offset: 50,
-        width: 200,
-        group: 'Featured',
-        svg: 'building9.svg',     
-        screenshot: 'Budget.png',
-        displaySize: 3,
-        skills: ['React', 'Redux', 'Styled-Components', 'Serverless Functions', 'TypeScript']   
     },
     //Old Projects
     {
